@@ -1,0 +1,190 @@
+# Header
+- id: menu-models
+  translation: Modeller
+
+- id: menu-technology
+  translation: Teknologi
+
+- id: menu-guides
+  translation: Guider
+
+- id: menu-articles
+  translation: Artikler
+
+- id: language
+  translation: Språk
+
+# Frontpage
+- id: frontpage-title
+  translation: Electric has gone Audi - Alt om helelektriske Audier
+
+- id: guide-understanding-range
+  translation: Forstå rekkevidde
+
+- id: guide-checking-battery
+  translation: Sjekke batterihelse
+
+- id: guide-one-pedal-driving
+  translation: En-pedals kjøring
+
+- id: guide-preserving-battery
+  translation: Hvordan beskytte batteri  
+
+- id: guide-regen
+  translation: Regenerative bremser  
+
+- id: frontpage-jumbotron-title
+  translation: Alt om helelektriske Audier 
+
+- id: frontpage-jumbotron-description
+  translation: Electrichasgoneaudi.net er den ultimate guiden for helelektriske biler fra Audi. Her finner du alle detaljer om teknologien og funksjonaliteten på tidligere, nåværende og fremtidige modeller fra Audi.
+
+- id: frontpage-sections-models-title
+  translation: Modeller
+
+- id: frontpage-sections-models-description
+  translation: Lær alt om de forskjellige modellene.
+
+- id: frontpage-sections-technology-title
+  translation: Teknologi
+
+- id: frontpage-sections-technology-description
+  translation: Lær alt om den unike Audi teknologien.
+
+- id: frontpage-sections-guides-title
+  translation: Guider
+
+- id: frontpage-sections-guides-description
+  translation:  Tips, guider og råd om elektriske biler fra Audi
+
+- id: guide-buying-title
+  translation: På jakt etter en helelektrisk Audi?
+
+- id: guide-buying-description
+  translation: I modell seksjonen, så sammenligner vi alle relevant modeller for å hjelpe deg velge riktig helelektriske Audi for deg. For hver modell har vi en ekstrautstyr guide for å hjelpe deg velge utstyret du har behov for. 
+
+- id: guide-options-q4-etron
+  translation: Utstyrsguide Q4 e-tron
+
+- id: guide-options-etron
+  translation: Utstyrsguide guide e-tron
+  
+- id: guide-options-etron-gt
+  translation: Utstyrsguide guide e-tron GT
+
+- id: footer-about
+  translation: Om
+
+- id: frontpage-article-chargehub-title
+  translation: Verdens første - starten på Audi charging hub som et urbant hurtigladekonsept
+
+- id: frontpage-article-chargehub-synopsis
+  translation: Fra 23. desember på utstillingssenteret i Nürnberg åpnes den første Audi charging huben for publikum som et unikt ladekonseptet.
+
+- id: frontpage-article-electromobilityinwinter-title
+  translation: Elbil på vinteren -Intelligente funksjoner øker rekkevidde og ladeytelse
+
+- id: frontpage-article-electromobilityinwinter-synopsis
+  translation: Setevarme i stedet for en varmluftsblåser, optimalt dekktrykk, parkering i garasjen og valg av effektivitetsmodus disse og andre faktorer avgjør hvor raskt høyspentbatteriet tømmes eller ikke.
+  
+- id: frontpage-article-thermalmanagementwinter-title
+  translation: Intelligent termisk styring i Audi-modeller bevarer rekkevidde og ytelse
+
+- id: frontpage-article-thermalmanagementwinter-synopsis
+  translation: Lær hvordan intelligent termisk styring i helelektriske Audier bevarer rekkevidden om vinteren.
+
+- id: frontpage-article-regenerativebraking-title
+  translation:  Regenerative bremser - en stor fordel med elektrisk drivlinje
+
+- id: frontpage-article-regenerativebraking-synopsis
+  translation: Lær hvordan regenerativ bremsing fungerer på helelektriske Audier og hvor mye det kan påvirke.
+
+- id: frontpage-article-updatedq4-title
+  translation: Audi oppdaterer Q4 e-tron
+
+- id: frontpage-article-updatedq4-synopsis
+  translation: Audi updates the smallest all-electric model. Thats includes charging up to 135KW.
+
+- id: frontpage-article-audidna-title
+  translation: Audi DNA
+
+- id: frontpage-article-audidna-synopsis
+  translation: Kjøreopplevelsen er umiskjennelig, en harmonisk balanse mellom kjøredynamikk og kjørekomfort.
+
+- id: frontpage-article-secrettrials-title
+  translation: Hemmelig testing i Lappland
+
+- id: frontpage-article-secrettrials-synopsis
+  translation: Nord-Sverige tilbyr de perfekte forholdene for Audi å tune ny generasjon Audi e-tron under ekstreme klimaforhold.
+
+- id: frontpage-article-a6avant-title
+  translation: Audi A6 Avant e-tron bekreftet
+
+- id: frontpage-article-a6avant-synopsis
+  translation: Din favoritt stasjonsvogn blir helelektrisk somAudi A6 Avant e-tron
+
+- id: frontpage-article-urbanshpere-title
+  translation: Audi urbansphere konsept
+
+- id: frontpage-article-urbanshpere-synopsis
+  translation: Audi har avduket sin nye konseptmodell for den elektriske fremtiden
+
+- id: frontpage-article-etronvsq4-title
+  translation: Audi e-tron vs Audi Q4 e-tron
+
+- id: frontpage-article-etronvsq4-synopsis
+  translation: Er du klar over alle forskjellene mellom Audi e-tron og the Audi Q4 e-tron? Les den komplette sammenligningen. 
+
+- id: frontpage-article-etronfaceliftprototype-title
+  translation: Audi e-tron facelift prototype
+
+- id: frontpage-article-etronfaceliftprototype-synopsis
+  translation: Audi har nå vist frem de første bildene av 2024 Audi e-tron facelift. Forventet å bli kalt Audi Q8 e-tron.
+
+- id: frontpage-article-q8worldpremiere-title
+  translation: Audi Q8 e-tron er lansert!
+
+- id: frontpage-article-q8worldpremiere-synopsis
+  translation: Audi Q8 e-tron er nå offisiell. Med forbedret rekkevidde med opptil 44 %, redusert forbruk med opptil 9 % og ny design. Lær alt om de seks variantene!
+
+- id: frontpage-article-q8production-title
+  translation: Audi Q8 e-tron produksjonsstart
+
+- id: frontpage-article-q8production-synopsis
+  translation: Den 14. desember kjørte den første Audi Q8 e-tron av produksjonslinjen ved fabrikken i Brussel. Det markerer begynnelsen på en æra for den nye toppmodellen i Audis elektriske SUV-serie.
+
+- id: frontpage-article-activesphere-title
+  translation: Audi activesphere concept verdenspremiere
+
+- id: frontpage-article-activesphere-synopsis
+  translation: Som den fjerde modellen i serien markerer Audi activesphere-konseptet kulminasjonen av sfære-konseptkjøretøyer frembrakt av merket med de fire ringene.
+
+- id: frontpage-article-q6wintertesting-title
+  translation: Audi Q6 e-tron vintertesting
+
+- id: frontpage-article-q6wintertesting-synopsis
+  translation: Audi tester nå den snart produksjonsklare Q6 e-tron i under vinterforhold på sin hemmelige testbane i Sverige.  
+
+- id: frontpage-article-prototypetestdrive-title
+  translation: Audi Q6 e-tron prototype testkjøring
+
+- id: frontpage-article-prototypetestdrive-synopsis
+  translation: Audi har frigjort mer detaljert om den nye modellen som lanseres på slutten av året.
+
+- id: frontpage-article-q6worldpremiere-title
+  translation: Audi Q6 e-tron verdens premiere
+
+- id: frontpage-article-q6worldpremiere-synopsis
+  translation: Les alle detaljer om den nye premium suven
+
+- id: frontpage-article-q4vsq6vsq8-title
+  translation: Q4 e-tron vs Q6 e-tron vs Q8 e-tron
+
+- id: frontpage-article-q4vsq6vsq8-synopsis
+  translation: Les verdens mest omfattende sammenligning av Audis SUV modeller
+
+- id: frontpage-article-etronggtrefresh-title
+  translation: Audi e-tron GT refresh
+
+- id: frontpage-article-etronggtrefresh-synopsis
+  translation: More power, more range and new variants. 

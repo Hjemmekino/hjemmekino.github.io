@@ -1,0 +1,47 @@
+baseURL = "https://hjemmekino.no/"
+languageCode = "nb"
+defaultContentLanguage = "nb"
+
+contentDir = "content"
+staticDir = "static"
+publishDir = "public"
+
+title = "Hjemmekino.no"
+theme = "hugo-theme-electrichasgoneaudi2"
+metadataFormat = "yaml"
+pluralizeListTitles = false
+preservetaxonomynames = true
+enableEmoji = true
+enableGitInfo = true
+disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap robotsTXT 404
+
+[languages]
+  [languages.nb]
+    title = "electrichasgoneaudi.net"
+    languageName = "Norsk"
+    weight = 1
+
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+style = "dracula"
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 2
+ordered = false
+
+[blackfriday]
+fractions = false # disable automatic fraction rendering
+
+[params]
+editURL = "https://github.com/electrichasgoneaudi/electrichasgoneaudi.github.io/blob/master/content/"
+noHomeIcon = true # default is false
+noSearch = true # default is false
+showVisitedLinks = false # default is false
+
+
+[outputs]
+home = ["HTML", "JSON"] # JSON generates index.json file used by search
