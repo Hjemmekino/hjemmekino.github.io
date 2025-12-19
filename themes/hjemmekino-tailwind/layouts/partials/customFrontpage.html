@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ .Page.Language | default " en" }}">
+<html lang="{{ .Page.Language | default "en" }}">
 {{ partial "headstandard.html" . }}
-<body class="a-page" data-url="{{ .RelPermalink }}">
+<body class="bg-gray-50" data-url="{{ .RelPermalink }}">
   {{ partial "navbar.html" . }}
   <aside>
     {{ partial "menuaccordion-simple.html" . }}
@@ -12,10 +12,8 @@
     {{ partial "technologyfrontpage.html" . }}
     {{ partial "secondrowarticles.html" . }}
   </main>
-  <footer class="container bg-dark">
+  <footer class="container bg-gray-900">          
     {{ partial "footercontent.html" . }}
   </footer>
-  </div> <!-- End container -->
-  <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

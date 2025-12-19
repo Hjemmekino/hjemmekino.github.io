@@ -1,33 +1,71 @@
-<div class="container mb-4">
-	<div id="latestNewsCarousel" class="carousel slide" data-bs-ride="carousel">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#latestNewsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#latestNewsCarousel" data-bs-slide-to="1" class="" aria-current="true" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#latestNewsCarousel" data-bs-slide-to="2" class="" aria-current="true" aria-label="Slide 3"></button>
-			<button type="button" data-bs-target="#latestNewsCarousel" data-bs-slide-to="3" class="" aria-current="true" aria-label="Slide 4"></button>
-			<button type="button" data-bs-target="#latestNewsCarousel" data-bs-slide-to="4" class="" aria-current="true" aria-label="Slide 5"></button>
-			<button type="button" data-bs-target="#latestNewsCarousel" data-bs-slide-to="5" class="" aria-current="true" aria-label="Slide 6"></button>
+<div class="container mx-auto mb-8">
+	<!-- Hero Section -->
+	<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+		<div class="relative">
+			<img src="https://media.electrichasgoneaudi.net/multimedia/models/a6-e-tron/variants/variants_1_mt.jpg" 
+				 alt="Featured Article" 
+				 class="w-full h-96 object-cover">
+			<div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+				<div class="p-6 text-white">
+					<h2 class="text-3xl font-bold mb-2">{{T "frontpage-article-a6premiere-title"}}</h2>
+					<p class="text-lg opacity-90">{{T "frontpage-article-a6premiere-synopsis"}}</p>
+					<a href="{{ with .Site.GetPage `/articles/a6worldpremiere/`}}{{.RelPermalink}}{{end}}" 
+					   class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors duration-200">
+						Les mer
+					</a>
+				</div>
+			</div>
 		</div>
-		<div class="carousel-inner">
-			<div class="carousel-item active image-box">
-				<a href="{{ with .Site.GetPage `/articles/a6worldpremiere/`}}{{.RelPermalink}}{{end}}">
-					<img src="https://media.electrichasgoneaudi.net/multimedia/models/a6-e-tron/variants/variants_1_mt.jpg" class="d-block w-100 image-cropped-calc" class="img-fluid" alt="...">
-				</a>
-				<div class="carousel-caption">
-					<h4>{{T "frontpage-article-a6premiere-title"}}</h4>
-					<p class="d-none d-md-block">{{T "frontpage-article-a6premiere-synopsis"}}</p>
+		
+		<!-- Article Grid -->
+		<div class="p-6">
+			<h3 class="text-xl font-semibold text-gray-900 mb-4">Seneste artikler</h3>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				<div class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
+					<img src="https://media.electrichasgoneaudi.net/multimedia/models/e-tron-gt/variants/variants_2_mt.jpg" 
+						 alt="E-tron GT refresh" 
+						 class="w-full h-40 object-cover">
+					<div class="p-4">
+						<h4 class="font-medium text-gray-900 mb-2">{{T "frontpage-article-etronggtrefresh-title"}}</h4>
+						<p class="text-sm text-gray-600 mb-3">{{T "frontpage-article-etronggtrefresh-synopsis"}}</p>
+						<a href="{{ with .Site.GetPage `/articles/etrongtrefresh/`}}{{.RelPermalink}}{{end}}" 
+						   class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+							Les mer →
+						</a>
+					</div>
+				</div>
+				
+				<div class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
+					<img src="https://media.electrichasgoneaudi.net/multimedia/models/q6-e-tron/variants/variants_1_mt.jpg" 
+						 alt="Q6 e-tron premiere" 
+						 class="w-full h-40 object-cover">
+					<div class="p-4">
+						<h4 class="font-medium text-gray-900 mb-2">{{T "frontpage-article-q6premiere-title"}}</h4>
+						<p class="text-sm text-gray-600 mb-3">{{T "frontpage-article-q6premiere-synopsis"}}</p>
+						<a href="{{ with .Site.GetPage `/articles/q6-e-tron-worldpremiere/`}}{{.RelPermalink}}{{end}}" 
+						   class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+							Les mer →
+						</a>
+					</div>
+				</div>
+				
+				<div class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200">
+					<img src="https://media.electrichasgoneaudi.net/multimedia/models/a6-e-tron/exterior/paint/magneticgray_3_mt.jpg" 
+						 alt="A6 e-tron guide" 
+						 class="w-full h-40 object-cover">
+					<div class="p-4">
+						<h4 class="font-medium text-gray-900 mb-2">{{T "frontpage-article-a6guide-title"}}</h4>
+						<p class="text-sm text-gray-600 mb-3">{{T "frontpage-article-a6guide-synopsis"}}</p>
+						<a href="{{ with .Site.GetPage `/guides/a6-e-tron-guide/`}}{{.RelPermalink}}{{end}}" 
+						   class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+							Les mer →
+						</a>
+					</div>
 				</div>
 			</div>
-			<div class="carousel-item image-box">
-				<a href="{{ with .Site.GetPage `/articles/etrongtrefresh/`}}{{.RelPermalink}}{{end}}">
-					<img src="https://media.electrichasgoneaudi.net/multimedia/models/e-tron-gt/variants/variants_2_mt.jpg" class="d-block w-100 image-cropped-calc" class="img-fluid" alt="...">
-				</a>
-				<div class="carousel-caption">
-					<h4>{{T "frontpage-article-etronggtrefresh-title"}}</h4>
-					<p class="d-none d-md-block">{{T "frontpage-article-etronggtrefresh-synopsis"}}</p>
-				</div>
-			</div>
-			<div class="carousel-item image-box">
+		</div>
+	</div>
+</div>
 				<a href="{{ with .Site.GetPage `/articles/q6worldpremiere/`}}{{.RelPermalink}}{{end}}">
 					<img src="https://media.electrichasgoneaudi.net/multimedia/models/q6-e-tron/q6dynamic_1_mt.jpg" class="d-block w-100 image-cropped-calc" class="img-fluid" alt="...">
 				</a>

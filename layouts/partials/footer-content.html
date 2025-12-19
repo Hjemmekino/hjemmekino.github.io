@@ -1,22 +1,22 @@
-<footer class="adocs-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <ul>
+<footer class="adocs-footer bg-gray-900 text-white py-8">
+    <div class="container mx-auto">
+        <div class="flex justify-center">
+            <div class="w-full">
+                <ul class="flex flex-wrap justify-center space-x-6 text-sm">
                     <li>
-                        <a href="https://www.facebook.com/electrichasgoneaudi">Facebook</a>
+                        <a href="https://www.facebook.com/electrichasgoneaudi" class="text-gray-300 hover:text-white transition-colors duration-200">Facebook</a>
                     </li>
                     <li>
-                        <a href="https://www.youtube.com/channel/UCIX5hOCjiv5eTeiJsB7hwkg">Youtube</a>
+                        <a href="https://www.youtube.com/channel/UCIX5hOCjiv5eTeiJsB7hwkg" class="text-gray-300 hover:text-white transition-colors duration-200">Youtube</a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/electrichasgoneaudi/">Instagram</a>
+                        <a href="https://www.instagram.com/electrichasgoneaudi/" class="text-gray-300 hover:text-white transition-colors duration-200">Instagram</a>
                     </li>
                     <li>
-                        <a href="https://github.com/electrichasgoneaudi/">Github</a>
+                        <a href="https://github.com/electrichasgoneaudi/" class="text-gray-300 hover:text-white transition-colors duration-200">Github</a>
                     </li>
                     <li>
-                        <a href="{{ with .Site.GetPage `/articles/about/`}}{{.RelPermalink}}{{end}}">{{T "footer-about"}}</a>
+                        <a href="{{ with .Site.GetPage `/articles/about/`}}{{.RelPermalink}}{{end}}" class="text-gray-300 hover:text-white transition-colors duration-200">{{T "footer-about"}}</a>
                     </li>
                 </ul>
             </div>
