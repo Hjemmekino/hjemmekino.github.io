@@ -1,38 +1,61 @@
-<header class="sticky-top bg-dark">
+<header class="sticky-top bg-gray-900">
   <div class="container">
-    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
-      <div class="container-fluid">
+    <nav class="bg-gray-900 border-b border-gray-600" data-theme="dark">
+      <div class="flex items-center justify-between h-16 px-4">
         <a class="navbar-brand" href="{{ with .Site.GetPage `/`}}{{.RelPermalink}}{{end}}">
-          <img class="img-fluid" src="/images/logohjemmekino_small.png" class="img-fluid" alt="EHGA logo">
+          <img class="h-8 w-auto" src="/images/logohjemmekino_small.png" alt="EHGA logo">
         </a>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-ld-0">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ with .Site.GetPage `/models/`}}{{.RelPermalink}}{{end}}">
-                {{ T "menu-models"}}
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ with .Site.GetPage `/technology/`}}{{.RelPermalink}}{{end}}">
-                {{ T "menu-technology"}}
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ with .Site.GetPage `/guides/`}}{{.RelPermalink}}{{end}}">           
-                {{ T "menu-guides"}} 
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ with .Site.GetPage `/articles/`}}{{.RelPermalink}}{{end}}">
-                {{ T "menu-articles"}}
-              </a>
-            </li>
-          </ul>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:block">
+          <div class="flex items-center space-x-4">
+            <a class="nav-link" href="{{ with .Site.GetPage `/models/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-models"}}
+            </a>
+            <a class="nav-link" href="{{ with .Site.GetPage `/technology/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-technology"}}
+            </a>
+            <a class="nav-link" href="{{ with .Site.GetPage `/guides/`}}{{.RelPermalink}}{{end}}">           
+              {{ T "menu-guides"}} 
+            </a>
+            <a class="nav-link" href="{{ with .Site.GetPage `/articles/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-articles"}}
+            </a>
+          </div>
         </div>
-        <button type="button" class="btn btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation"> 
-          <span class="navbar-toggler-icon"></span>
+        
+        <!-- Mobile menu button -->
+        <button type="button" class="lg:hidden btn btn-outline-dark" onclick="toggleMobileMenu()" aria-label="Toggle navigation"> 
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </button>
+      </div>
+      
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="lg:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-800">
+          <a class="nav-link block" href="{{ with .Site.GetPage `/models/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-models"}}
+          </a>
+          <a class="nav-link block" href="{{ with .Site.GetPage `/technology/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-technology"}}
+          </a>
+          <a class="nav-link block" href="{{ with .Site.GetPage `/guides/`}}{{.RelPermalink}}{{end}}">           
+            {{ T "menu-guides"}} 
+          </a>
+          <a class="nav-link block" href="{{ with .Site.GetPage `/articles/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-articles"}}
+          </a>
+        </div>
       </div>
     </nav>
   </div>
 </header>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('hidden');
+}
+</script>

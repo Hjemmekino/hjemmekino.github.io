@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom components */
+@layer components {
+  /* Navigation styles */
+  .navbar-brand {
+    @apply flex items-center;
+  }
+  
+  .nav-link {
+    @apply text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 font-medium;
+  }
+  
+  .nav-link.active {
+    @apply text-white;
+  }
+  
+  /* Dropdown styles */
+  .dropdown-menu {
+    @apply absolute bg-white rounded-lg shadow-lg border border-gray-200 py-2 mt-2 min-w-48 z-50;
+  }
+  
+  .dropdown-item {
+    @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-150;
+  }
+  
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+  
+  .btn-outline-dark {
+    @apply border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white;
+  }
+  
+  /* Container styles */
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Sticky header */
+  .sticky-top {
+    @apply sticky top-0 z-40;
+  }
+  
+  /* Background utilities */
+  .bg-dark {
+    @apply bg-gray-900;
+  }
+  
+  .bg-light {
+    @apply bg-gray-50;
+  }
+  
+  /* Accordion styles */
+  .accordion-button {
+    @apply w-full text-left px-4 py-3 bg-gray-100 hover:bg-gray-200 transition-colors duration-200 flex items-center justify-between;
+  }
+  
+  .accordion-body {
+    @apply p-4 bg-white border-t border-gray-200;
+  }
+  
+  /* List group styles */
+  .list-group {
+    @apply space-y-1;
+  }
+  
+  .list-group-item {
+    @apply block px-4 py-2 bg-white border border-gray-200 hover:bg-gray-50 transition-colors duration-150;
+  }
+  
+  .list-group-flush .list-group-item {
+    @apply border-x-0 border-t-0 last:border-b-0;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-bg-dark {
+    @apply text-white bg-gray-900;
+  }
+  
+  .border-body {
+    @apply border-gray-600;
+  }
+}
