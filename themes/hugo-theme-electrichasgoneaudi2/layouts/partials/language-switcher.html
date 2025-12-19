@@ -5,7 +5,7 @@
   </a>
   <ul class="dropdown-menu">
   {{- $currentPage := . -}}
-  {{- if .Site.IsMultiLingual -}}
+  {{- if .hugo.IsMultiLingual -}}
     {{- range .AllTranslations -}}
     <li>
       <a class="dropdown-item" href="{{ .RelPermalink }}">
