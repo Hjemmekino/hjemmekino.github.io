@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/technology/</loc>
+    <loc>https://hjemmekino.no/technology/</loc>
     <lastmod>2024-09-05T18:43:04+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/guide/bildeformat/</loc>
+    <loc>https://hjemmekino.no/guide/bildeformat/</loc>
     <lastmod>2025-12-19T20:27:25+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/guide/</loc>
+    <loc>https://hjemmekino.no/guide/</loc>
     <lastmod>2025-12-19T17:00:04+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/_header/</loc>
+    <loc>https://hjemmekino.no/_header/</loc>
     <lastmod>2024-09-05T18:43:04+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://hjemmekino.no/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://hjemmekino.no/</loc>
     <lastmod>2024-09-05T18:43:04+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://hjemmekino.no/tags/</loc>
   </url>
 </urlset>

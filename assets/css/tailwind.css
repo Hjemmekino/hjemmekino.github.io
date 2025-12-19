@@ -4,6 +4,33 @@
 
 /* Custom components */
 @layer components {
+  /* Carousel components */
+  .carousel-container {
+    position: relative;
+    overflow: hidden !important;
+    max-height: 384px !important; /* h-96 = 384px */
+  }
+  
+  .carousel-slide img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  /* Article card components */
+  .article-card {
+    @apply bg-white rounded-lg shadow-sm overflow-hidden;
+  }
+  
+  .article-card img {
+    max-height: 12rem !important; /* h-48 = 12rem */
+    min-height: 12rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
   /* Image components */
   .img-centered {
     @apply mx-auto my-6 block max-w-full h-auto;
