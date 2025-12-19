@@ -126,13 +126,47 @@
   img {
     @apply max-w-full h-auto;
   }
+}
+
+/* Prose customizations - ensure these override defaults */
+@layer components {
+  .prose {
+    @apply text-gray-700 leading-relaxed;
+  }
   
-  /* Style for images in markdown content */
+  .prose h1 {
+    @apply text-3xl font-bold text-gray-900 mb-6 mt-0 !important;
+  }
+  
+  .prose h2 {
+    @apply text-2xl font-semibold text-gray-800 mb-4 mt-8 !important;
+  }
+  
+  .prose h3 {
+    @apply text-xl font-medium text-gray-700 mb-3 mt-6 !important;
+  }
+  
+  .prose p {
+    @apply text-gray-700 leading-relaxed mb-4 !important;
+  }
+  
   .prose img {
     @apply mx-auto my-6 rounded-lg shadow-md;
   }
   
   .prose img[title] {
     @apply border border-gray-200;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 !important;
+  }
+  
+  .prose strong {
+    @apply font-semibold text-gray-900 !important;
+  }
+  
+  .prose a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors duration-150 !important;
   }
 }

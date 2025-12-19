@@ -7,7 +7,7 @@ aliases:
   - /Guide/bildeformat-1726
   - /guide/bildeformat-1726
 ---
-
+<!-- markdownlint-disable MD033 -->
 16:9, Letterbox, Widescreen, Anamorph, 16:9 optimalisert, Pan & Scan? Det finnes en rekke betegnelser som beskriver bildet på en film. Her i Hjemmekino.no's bildeformat guide finner du forklaring på de fleste.
 
 I første del av guiden vil du få en forklaring på hvorfor filmen virker så mye bredere på kino enn på et vanlig TV-apparat. Du vil også få forklart de forskjellige teknikkene som brukes for å tilpasse filmen til TV-ruta. I andre del vil du få forklart uttrykket 16:9 optimaliserte (Anamorphic) DVD filmer, og hvorfor det er en stor fordel for bildekvaliteten. I siste del vil du finne en oversikt over de forskjellige bildeformatene.
