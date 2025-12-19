@@ -4,8 +4,8 @@ linktitle: Bildeformat
 description: En guide om forskjellige bildeformater for film - fra 16:9 til letterbox, widescreen og anamorphic formater.
 weight: 3
 aliases:
-  - /Guide/169-optimalisering-anamorph-widescreen-1727
-  - /guide/169-optimalisering-anamorph-widescreen-1727
+  - /Guide/bildeformat-1726
+  - /guide/bildeformat-1726
 ---
 
 16:9, Letterbox, Widescreen, Anamorph, 16:9 optimalisert, Pan & Scan? Det finnes en rekke betegnelser som beskriver bildet på en film. Her i Hjemmekino.no's bildeformat guide finner du forklaring på de fleste.
@@ -39,11 +39,11 @@ Da mister man kinofølelsen og viktig informasjon kan falle bort. Filmversjoner 
 
 <div class="img-comparison">
   <div>
-    <img src="/images/pan-scan-example.jpg" alt="PAN & SCAN versjon" class="rounded-lg shadow-lg">
+    <img src="PID2938_S192x128_panscan.jpg" alt="PAN & SCAN versjon" class="rounded-lg shadow-lg">
     <p class="img-caption font-semibold text-red-600">PAN & SCAN - 40% av bildet er kuttet bort</p>
   </div>
   <div>
-    <img src="/images/widescreen-example.jpg" alt="Originalt widescreen format" class="rounded-lg shadow-lg">
+    <img src="PID2939_S300x128_orginal.jpg" alt="Originalt widescreen format" class="rounded-lg shadow-lg">
     <p class="img-caption font-semibold text-green-600">Originalt format - komplett bilde som regissøren tenkte</p>
   </div>
 </div>
@@ -55,7 +55,7 @@ Filmer kan bli vist i originalt format på 4:3 TV. Men da vil det komme svarte o
 Ulempen med Letterbox er at mye av TV-systemets linjer blir brukt til å vise svarte områder over og under filmen. Dette er sløsing med bildekvalitet. Løsningen på dette er 16:9 optimalisert (Anamorph) bilde som brukes på mange DVD utgivelser. Dette kan du lese om i del 2 av denne guiden.
 
 <div class="img-figure">
-  <img src="/images/letterbox-example.jpg" alt="Letterbox bilde" class="img-centered rounded-lg shadow-lg border border-gray-200">
+  <img src="PID2940_S300x225_letterbox2.jpg" alt="Letterbox bilde" class="img-centered rounded-lg shadow-lg border border-gray-200">
   <p class="img-caption">Letterbox visning av Lethal Weapon 3 - svarte områder oppe og nede</p>
 </div>
 
@@ -67,11 +67,11 @@ Nedenfor ser du et eksempel fra "The Fifth Element" DVD utgivelse som viser fors
 
 <div class="img-comparison">
   <div>
-    <img src="/images/super35-cinema.jpg" alt="Super 35 i 2.35:1 format" class="rounded-lg shadow-lg">
+    <img src="PID2941_S300x129_super35_1.jpg" alt="Super 35 i 2.35:1 format" class="rounded-lg shadow-lg">
     <p class="img-caption">Super 35 i 2.35:1 format (kinoversjonen)</p>
   </div>
   <div>
-    <img src="/images/super35-fullframe.jpg" alt="Super 35 i 4:3 format" class="rounded-lg shadow-lg">
+    <img src="PID2942_S300x200_super35_2.jpg" alt="Super 35 i 4:3 format" class="rounded-lg shadow-lg">
     <p class="img-caption">Super 35 i 4:3 format (full frame med mer høydeinformasjon)</p>
   </div>
 </div>
