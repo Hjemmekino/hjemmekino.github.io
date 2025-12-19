@@ -4,6 +4,35 @@
 
 /* Custom components */
 @layer components {
+  /* Image components */
+  .img-centered {
+    @apply mx-auto my-6 block max-w-full h-auto;
+  }
+  
+  .img-figure {
+    @apply mx-auto my-8 text-center;
+  }
+  
+  .img-caption {
+    @apply text-sm text-gray-600 italic mt-2 px-4;
+  }
+  
+  .img-comparison {
+    @apply flex flex-col md:flex-row gap-4 my-8;
+  }
+  
+  .img-comparison > div {
+    @apply flex-1 text-center;
+  }
+  
+  .img-comparison img {
+    @apply w-full h-auto rounded-lg shadow-md;
+  }
+  
+  .img-comparison .img-caption {
+    @apply font-semibold text-gray-700 mt-2;
+  }
+  
   /* Navigation styles */
   .navbar-brand {
     @apply flex items-center;
@@ -89,5 +118,21 @@
   
   .border-body {
     @apply border-gray-600;
+  }
+}
+
+/* Global image styling */
+@layer base {
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  /* Style for images in markdown content */
+  .prose img {
+    @apply mx-auto my-6 rounded-lg shadow-md;
+  }
+  
+  .prose img[title] {
+    @apply border border-gray-200;
   }
 }
