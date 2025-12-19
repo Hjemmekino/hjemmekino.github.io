@@ -1,13 +1,14 @@
-# Hugo evkx Theme
-This repository contains a theme for [Hugo](https://gohugo.io/), based on great [docdock](http://docdock.netlify.com/). A big thanks to Valere Jeantet.
+# Hugo Hjemmekino Tailwind Theme
 
-![Example](https://raw.githubusercontent.com/Altinn/hugo-theme-altinn/master/example.png "Example")
+This repository contains a modern Hugo theme for [Hjemmekino.no](https://hjemmekino.no/), built with [Tailwind CSS](https://tailwindcss.com/).
 
-# Main features
-- Sticky sidebar inside resizable grid
-- EVKX design
-- Blue and gray theme variations
-- Clickable figures with caption using standard markdown image syntax
+# Main Features
+- Modern responsive design with Tailwind CSS
+- Clean typography with prose styling
+- Optimized image handling
+- Mobile-first navigation
+- Professional breadcrumb navigation
+- Hjemmekino branding and styling
 - Attachments files
 - Unlimited menu levels
 - List child pages

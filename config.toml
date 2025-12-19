@@ -7,7 +7,7 @@ staticDir = "static"
 publishDir = "public"
 
 title = "Hjemmekino.no"
-theme = "hugo-theme-electrichasgoneaudi2"
+theme = "hjemmekino-tailwind"
 metadataFormat = "yaml"
 pluralizeListTitles = false
 preservetaxonomynames = true
@@ -17,9 +17,10 @@ disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap rob
 
 [languages]
   [languages.nb]
-    title = "electrichasgoneaudi.net"
+    title = "Hjemmekino.no"
     languageName = "Norsk"
     weight = 1
+    contentDir = "content"
 
 
 [markup.goldmark.renderer]
