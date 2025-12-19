@@ -7,20 +7,6 @@
 	"content": "\r"
 },
 {
-	"uri": "http://localhost:1313/guides/",
-	"title": "Guider",
-	"tags": [],
-	"description": "Her finner du forskjellige guider.",
-	"content": "\r"
-},
-{
-	"uri": "http://localhost:1313/articles/",
-	"title": "Artikler og nyheter",
-	"tags": [],
-	"description": "Her finner du artikler om elektriske audier og annet relatert.",
-	"content": "\r"
-},
-{
 	"uri": "http://localhost:1313/_header/",
 	"title": "",
 	"tags": [],
