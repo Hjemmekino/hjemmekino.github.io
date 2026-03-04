@@ -1,58 +1,37 @@
-<div class="container mx-auto mb-8 max-w-6xl">
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-		<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200">
-			<a href="{{ with .Site.GetPage `/models/comparisons/q455q6q855/`}}{{.RelPermalink}}{{end}}" class="block">
-				<div class="relative overflow-hidden">
-					<img src="https://media.electrichasgoneaudi.net/multimedia/technology/bev-platforms/platforms_st.jpg" 
-					     alt="Q4 vs Q6 vs Q8" 
-					     class="w-full h-48 object-cover object-center">
-				</div>
-				<div class="p-4">
-					<h4 class="text-lg font-bold text-gray-900 mb-2">{{T "frontpage-article-q4vsq6vsq8-title"}}</h4>
-					<p class="text-gray-700 text-sm">{{T "frontpage-article-q4vsq6vsq8-synopsis"}}</p>
-				</div>
-			</a>
-		</div>
-		<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200">
-			<a href="{{ with .Site.GetPage `/articles/activesphere/`}}{{.RelPermalink}}{{end}}" class="block">
-				<div class="relative overflow-hidden">
-					<img src="https://media.electrichasgoneaudi.net/multimedia/articles/activesphere/activesphere1_mt.jpg" 
-					     alt="Activesphere" 
-					     class="w-full h-48 object-cover object-center">
-				</div>
-				<div class="p-4">
-					<h4 class="text-lg font-bold text-gray-900 mb-2">{{T "frontpage-article-activesphere-title"}}</h4>
-					<p class="text-gray-700 text-sm">{{T "frontpage-article-activesphere-synopsis"}}</p>
-				</div>
-			</a>
-		</div>
-	</div>
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-		<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200">
-			<a href="{{ with .Site.GetPage `/articles/audiurbanshpereconcept/`}}{{.RelPermalink}}{{end}}" class="block">
-				<div class="relative overflow-hidden">
-					<img src="https://media.electrichasgoneaudi.net/multimedia/articles/audiurbansphereconcept/audiurbanspshereconcept_frontpage.jpg" 
-					     alt="Urbansphere" 
-					     class="w-full h-48 object-cover object-center">
-				</div>
-				<div class="p-4">
-					<h4 class="text-lg font-bold text-gray-900 mb-2">{{T "frontpage-article-urbanshpere-title"}}</h4>
-					<p class="text-gray-700 text-sm">{{T "frontpage-article-urbanshpere-synopsis"}}</p>
-				</div>
-			</a>
-		</div>
-		<div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200">
-			<a href="{{ with .Site.GetPage `/articles/activesphere/`}}{{.RelPermalink}}{{end}}" class="block">
-				<div class="relative overflow-hidden">
-					<img src="https://media.electrichasgoneaudi.net/multimedia/articles/activesphere/activesphere1_mt.jpg" 
-					     alt="Activesphere" 
-					     class="w-full h-48 object-cover object-center">
-				</div>
-				<div class="p-4">
-					<h4 class="text-lg font-bold text-gray-900 mb-2">{{T "frontpage-article-activesphere-title"}}</h4>
-					<p class="text-gray-700 text-sm">{{T "frontpage-article-activesphere-synopsis"}}</p>
-				</div>
-			</a>
-		</div>
-	</div>
+<!-- Getting Started - Numbered Steps -->
+<div class="container hk-section-block">
+  <div class="hk-section-header">
+    <h2>Kom i gang med hjemmekino</h2>
+    <p>Fire steg fra null til fungerende hjemmekino.</p>
+  </div>
+  <div class="hk-steps-grid">
+    <a href="{{ with .Site.GetPage `/nybegynner/hva-er-hjemmekino/`}}{{.RelPermalink}}{{end}}" class="hk-step">
+      <div class="hk-step-number">1</div>
+      <div>
+        <h4>Hva er hjemmekino?</h4>
+        <p>Grunnleggende om hva som utgjør et hjemmekinosystem og hva du kan forvente.</p>
+      </div>
+    </a>
+    <a href="{{ with .Site.GetPage `/nybegynner/hva-trenger-du/`}}{{.RelPermalink}}{{end}}" class="hk-step">
+      <div class="hk-step-number">2</div>
+      <div>
+        <h4>Hva trenger du egentlig?</h4>
+        <p>Oversikt over komponenter og hva du bør prioritere for ditt budsjett.</p>
+      </div>
+    </a>
+    <a href="{{ with .Site.GetPage `/nybegynner/hjemmekino-for-nybegynnere/`}}{{.RelPermalink}}{{end}}" class="hk-step">
+      <div class="hk-step-number">3</div>
+      <div>
+        <h4>Hjemmekino for nybegynnere</h4>
+        <p>Steg-for-steg guide fra null til fungerende hjemmekino.</p>
+      </div>
+    </a>
+    <a href="{{ with .Site.GetPage `/nybegynner/forsta-lyd-og-bilde/`}}{{.RelPermalink}}{{end}}" class="hk-step">
+      <div class="hk-step-number">4</div>
+      <div>
+        <h4>Forstå lyd og bilde</h4>
+        <p>Oppløsning, HDR, Dolby Atmos og andre begreper forklart enkelt.</p>
+      </div>
+    </a>
+  </div>
 </div>

@@ -1,41 +1,51 @@
 <div class="container p-3 mb-5 bg-body-tertiary rounded border">
-<h3>{{ T "common-section-modelrange-title"}}</h3>
-<p>{{ T "common-section-modelrange-description"}}</p>
+<h3>Utforsk hjemmekino</h3>
+<p>Finn guider og tips for alle deler av hjemmekinoen.</p>
 
-<ul class="list-group list-group-numbered">
-    <ol class="list-group-item list-group-item-action">
-        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/models/q4-e-tron/`}}{{.RelPermalink}}{{end}}">
-            Audi Q4 e-tron
-        </a>
-    </ol>
+<ul class="list-group">
     <li class="list-group-item list-group-item-action">
-        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/models/q6-e-tron/`}}{{.RelPermalink}}{{end}}">
-            Audi Q6 e-tron
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/nybegynner/`}}{{.RelPermalink}}{{end}}">
+            Nybegynner
         </a>
     </li>
     <li class="list-group-item list-group-item-action">
-        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/models/q8-e-tron/`}}{{.RelPermalink}}{{end}}">
-            Audi Q8 e-tron
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/guide/`}}{{.RelPermalink}}{{end}}">
+            Guider
         </a>
     </li>
     <li class="list-group-item list-group-item-action">
-        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/models/a4-e-tron/`}}{{.RelPermalink}}{{end}}">
-            Audi A4 e-tron
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/tv-og-projektor/`}}{{.RelPermalink}}{{end}}">
+            TV & Projektor
         </a>
     </li>
     <li class="list-group-item list-group-item-action">
-        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/models/a6-e-tron/`}}{{.RelPermalink}}{{end}}">
-            Audi A6 e-tron
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/lyd/`}}{{.RelPermalink}}{{end}}">
+            Lyd
         </a>
     </li>
     <li class="list-group-item list-group-item-action">
-        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/models/e-tron/`}}{{.RelPermalink}}{{end}}">
-            Audi e-tron
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/kilder-og-streaming/`}}{{.RelPermalink}}{{end}}">
+            Kilder & Streaming
         </a>
     </li>
     <li class="list-group-item list-group-item-action">
-        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/models/e-tron-gt/`}}{{.RelPermalink}}{{end}}">
-            Audi e-tron GT
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/rom-og-akustikk/`}}{{.RelPermalink}}{{end}}">
+            Rom & Akustikk
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/kjopsrad/`}}{{.RelPermalink}}{{end}}">
+            Kjøpsråd
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/feilsoking/`}}{{.RelPermalink}}{{end}}">
+            Feilsøking
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="{{ with .Site.GetPage `/ordliste/`}}{{.RelPermalink}}{{end}}">
+            Ordliste
         </a>
     </li>
 </ul>

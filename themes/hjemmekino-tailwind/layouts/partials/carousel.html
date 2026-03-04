@@ -1,161 +1,17 @@
-<div class="container mx-auto mb-8">
-	<!-- Carousel Container -->
-	<div class="carousel-container relative bg-white rounded-lg shadow-lg overflow-hidden">
-		<div class="relative h-96 overflow-hidden" id="carousel">
-			<!-- Carousel Slides -->
-			<div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out" style="z-index: 10;">
-				<img src="https://media.electrichasgoneaudi.net/multimedia/models/a6-e-tron/variants/variants_1_mt.jpg" 
-					 alt="{{T "frontpage-article-a6premiere-title"}}" 
-					 class="w-full h-full object-cover object-center">
-				<div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-					<div class="p-6 text-white">
-						<h2 class="text-3xl font-bold mb-2">{{T "frontpage-article-a6premiere-title"}}</h2>
-						<p class="text-lg opacity-90 mb-4">{{T "frontpage-article-a6premiere-synopsis"}}</p>
-						<a href="{{ with .Site.GetPage `/articles/a6worldpremiere/`}}{{.RelPermalink}}{{end}}" 
-						   class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors duration-200">
-							Les mer
-						</a>
-					</div>
-				</div>
-			</div>
-			
-			<div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out" style="opacity: 0; z-index: 5;">
-				<img src="https://media.electrichasgoneaudi.net/multimedia/models/e-tron-gt/variants/variants_2_mt.jpg" 
-					 alt="{{T "frontpage-article-etronggtrefresh-title"}}" 
-					 class="w-full h-full object-cover object-center">
-				<div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-					<div class="p-6 text-white">
-						<h2 class="text-3xl font-bold mb-2">{{T "frontpage-article-etronggtrefresh-title"}}</h2>
-						<p class="text-lg opacity-90 mb-4">{{T "frontpage-article-etronggtrefresh-synopsis"}}</p>
-						<a href="{{ with .Site.GetPage `/articles/etrongtrefresh/`}}{{.RelPermalink}}{{end}}" 
-						   class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors duration-200">
-							Les mer
-						</a>
-					</div>
-				</div>
-			</div>
-			
-			<div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out" style="opacity: 0; z-index: 5;">
-				<img src="https://media.electrichasgoneaudi.net/multimedia/models/q6-e-tron/variants/variants_1_mt.jpg" 
-					 alt="{{T "frontpage-article-q6premiere-title"}}" 
-					 class="w-full h-full object-cover object-center">
-				<div class="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-					<div class="p-6 text-white">
-						<h2 class="text-3xl font-bold mb-2">{{T "frontpage-article-q6premiere-title"}}</h2>
-						<p class="text-lg opacity-90 mb-4">{{T "frontpage-article-q6premiere-synopsis"}}</p>
-						<a href="{{ with .Site.GetPage `/articles/q6-e-tron-worldpremiere/`}}{{.RelPermalink}}{{end}}" 
-						   class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors duration-200">
-							Les mer
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- Navigation Arrows -->
-		<button class="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 text-white p-2 rounded-full transition-all duration-200" 
-				id="prevBtn" style="z-index: 20;">
-			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-			</svg>
-		</button>
-		
-		<button class="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 text-white p-2 rounded-full transition-all duration-200" 
-				id="nextBtn" style="z-index: 20;">
-			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-			</svg>
-		</button>
-		
-		<!-- Dots Indicator -->
-		<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2" style="z-index: 20;">
-			<button class="dot w-3 h-3 bg-white rounded-full transition-all duration-200" data-slide="0"></button>
-			<button class="dot w-3 h-3 bg-white bg-opacity-50 rounded-full transition-all duration-200" data-slide="1"></button>
-			<button class="dot w-3 h-3 bg-white bg-opacity-50 rounded-full transition-all duration-200" data-slide="2"></button>
-		</div>
-	</div>
+<!-- Hero -->
+<div class="hk-hero">
+  <div class="hk-hero-inner">
+    <h1>Bygg din drømme-<span>hjemmekino</span></h1>
+    <p class="hk-hero-subtitle">
+      Din komplette guide til hjemmekino og HiFi. Fra TV og høyttalere til romakustikk og kalibrering – uansett budsjett.
+    </p>
+    <div class="hk-hero-buttons">
+      <a href="{{ with .Site.GetPage `/nybegynner/`}}{{.RelPermalink}}{{end}}" class="hk-btn-primary">
+        Kom i gang
+      </a>
+      <a href="{{ with .Site.GetPage `/guide/`}}{{.RelPermalink}}{{end}}" class="hk-btn-secondary">
+        Se alle guider
+      </a>
+    </div>
+  </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	const slides = document.querySelectorAll('.carousel-slide');
-	const dots = document.querySelectorAll('.dot');
-	const prevBtn = document.getElementById('prevBtn');
-	const nextBtn = document.getElementById('nextBtn');
-	let currentSlide = 0;
-	let autoSlideInterval;
-
-	function showSlide(n) {
-		// Hide all slides
-		slides.forEach((slide, index) => {
-			slide.style.opacity = '0';
-			slide.style.zIndex = '5';
-		});
-		
-		// Hide all dots
-		dots.forEach(dot => {
-			dot.classList.remove('bg-white');
-			dot.classList.add('bg-white', 'bg-opacity-50');
-		});
-
-		// Update current slide
-		currentSlide = (n + slides.length) % slides.length;
-
-		// Show current slide
-		slides[currentSlide].style.opacity = '1';
-		slides[currentSlide].style.zIndex = '10';
-		
-		// Show current dot
-		dots[currentSlide].classList.remove('bg-opacity-50');
-		dots[currentSlide].classList.add('bg-white');
-	}
-
-	function nextSlide() {
-		showSlide(currentSlide + 1);
-	}
-
-	function prevSlide() {
-		showSlide(currentSlide - 1);
-	}
-
-	function startAutoSlide() {
-		autoSlideInterval = setInterval(nextSlide, 5000);
-	}
-
-	function stopAutoSlide() {
-		clearInterval(autoSlideInterval);
-	}
-
-	// Event listeners
-	nextBtn.addEventListener('click', () => {
-		nextSlide();
-		stopAutoSlide();
-		startAutoSlide();
-	});
-
-	prevBtn.addEventListener('click', () => {
-		prevSlide();
-		stopAutoSlide();
-		startAutoSlide();
-	});
-
-	dots.forEach((dot, index) => {
-		dot.addEventListener('click', () => {
-			showSlide(index);
-			stopAutoSlide();
-			startAutoSlide();
-		});
-	});
-
-	// Pause auto-slide on hover
-	const carousel = document.getElementById('carousel');
-	carousel.addEventListener('mouseenter', stopAutoSlide);
-	carousel.addEventListener('mouseleave', startAutoSlide);
-
-	// Initialize - show first slide
-	showSlide(0);
-	
-	// Start auto-slide
-	startAutoSlide();
-});
-</script>

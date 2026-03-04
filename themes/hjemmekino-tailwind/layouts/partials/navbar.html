@@ -2,50 +2,72 @@
   <div class="container">
     <nav class="bg-gray-900 border-b border-gray-600" data-theme="dark">
       <div class="flex items-center justify-between h-16 px-4">
-        <a class="navbar-brand" href="{{ with .Site.GetPage `/`}}{{.RelPermalink}}{{end}}">
-          <img class="h-8 w-auto" src="/images/logohjemmekino_small.png" alt="EHGA logo">
+        <a class="navbar-brand flex items-center" href="{{ with .Site.GetPage `/`}}{{.RelPermalink}}{{end}}">
+          <svg class="h-8 w-auto" viewBox="0 0 320 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(0, 4)">
+              <path d="M20 2L4 16V38H36V16L20 2Z" stroke="white" stroke-width="2" fill="none"/>
+              <rect x="10" y="18" width="20" height="13" rx="1" fill="white" opacity="0.9"/>
+              <path d="M17 21.5L17 27.5L24 24.5Z" fill="#1e3a5f"/>
+              <path d="M20 2L4 16" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M20 2L36 16" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <text x="46" y="32" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="1.5" fill="white">HJEMMEKINO</text>
+            <text x="262" y="32" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="1.5" fill="#3b82f6">.no</text>
+          </svg>
         </a>
-        
+
         <!-- Desktop Navigation -->
         <div class="hidden lg:block">
           <div class="flex items-center space-x-4">
-            <a class="nav-link" href="{{ with .Site.GetPage `/models/`}}{{.RelPermalink}}{{end}}">
-              {{ T "menu-models"}}
+            <a class="nav-link" href="{{ with .Site.GetPage `/nybegynner/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-nybegynner"}}
             </a>
-            <a class="nav-link" href="{{ with .Site.GetPage `/technology/`}}{{.RelPermalink}}{{end}}">
-              {{ T "menu-technology"}}
+            <a class="nav-link" href="{{ with .Site.GetPage `/guide/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-guider"}}
             </a>
-            <a class="nav-link" href="{{ with .Site.GetPage `/guides/`}}{{.RelPermalink}}{{end}}">           
-              {{ T "menu-guides"}} 
+            <a class="nav-link" href="{{ with .Site.GetPage `/lyd/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-lyd"}}
             </a>
-            <a class="nav-link" href="{{ with .Site.GetPage `/articles/`}}{{.RelPermalink}}{{end}}">
-              {{ T "menu-articles"}}
+            <a class="nav-link" href="{{ with .Site.GetPage `/tv-og-projektor/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-tv-projektor"}}
+            </a>
+            <a class="nav-link" href="{{ with .Site.GetPage `/kjopsrad/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-kjopsrad"}}
+            </a>
+            <a class="nav-link" href="{{ with .Site.GetPage `/feilsoking/`}}{{.RelPermalink}}{{end}}">
+              {{ T "menu-feilsoking"}}
             </a>
           </div>
         </div>
-        
+
         <!-- Mobile menu button -->
-        <button type="button" class="lg:hidden btn btn-outline-dark" onclick="toggleMobileMenu()" aria-label="Toggle navigation"> 
+        <button type="button" class="lg:hidden btn btn-outline-dark" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
-      
+
       <!-- Mobile Navigation -->
       <div id="mobile-menu" class="lg:hidden hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-800">
-          <a class="nav-link block" href="{{ with .Site.GetPage `/models/`}}{{.RelPermalink}}{{end}}">
-            {{ T "menu-models"}}
+          <a class="nav-link block" href="{{ with .Site.GetPage `/nybegynner/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-nybegynner"}}
           </a>
-          <a class="nav-link block" href="{{ with .Site.GetPage `/technology/`}}{{.RelPermalink}}{{end}}">
-            {{ T "menu-technology"}}
+          <a class="nav-link block" href="{{ with .Site.GetPage `/guide/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-guider"}}
           </a>
-          <a class="nav-link block" href="{{ with .Site.GetPage `/guides/`}}{{.RelPermalink}}{{end}}">           
-            {{ T "menu-guides"}} 
+          <a class="nav-link block" href="{{ with .Site.GetPage `/lyd/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-lyd"}}
           </a>
-          <a class="nav-link block" href="{{ with .Site.GetPage `/articles/`}}{{.RelPermalink}}{{end}}">
-            {{ T "menu-articles"}}
+          <a class="nav-link block" href="{{ with .Site.GetPage `/tv-og-projektor/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-tv-projektor"}}
+          </a>
+          <a class="nav-link block" href="{{ with .Site.GetPage `/kjopsrad/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-kjopsrad"}}
+          </a>
+          <a class="nav-link block" href="{{ with .Site.GetPage `/feilsoking/`}}{{.RelPermalink}}{{end}}">
+            {{ T "menu-feilsoking"}}
           </a>
         </div>
       </div>

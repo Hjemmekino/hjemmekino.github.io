@@ -1,15 +1,75 @@
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.facebook.com/hjemmekino">  
-      <i class="bi-facebook text-white"></i>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/hjemmekino/">
-      <i class="bi-github text-white"></i>
-    </a>
-  </li>
-  </ul>
-  <a class="navbar-brand" href="/">
-    <img class="img-fluid mx-auto d-block" src="/images/logohjemmekino_medium.png" class="img-fluid" alt="Hjemmekin logo">
-  </a>
+<div class="hk-footer">
+  <div class="hk-footer-grid">
+    <!-- Logo & About -->
+    <div class="hk-footer-about">
+      <a href="/" style="display: inline-block; margin-bottom: 1rem;">
+        <svg style="height: 2rem; width: auto;" viewBox="0 0 320 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(0, 4)">
+            <path d="M20 2L4 16V38H36V16L20 2Z" stroke="white" stroke-width="2" fill="none"/>
+            <rect x="10" y="18" width="20" height="13" rx="1" fill="white" opacity="0.9"/>
+            <path d="M17 21.5L17 27.5L24 24.5Z" fill="#1e3a5f"/>
+            <path d="M20 2L4 16" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M20 2L36 16" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+          <text x="46" y="32" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="1.5" fill="white">HJEMMEKINO</text>
+          <text x="262" y="32" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="1.5" fill="#3b82f6">.no</text>
+        </svg>
+      </a>
+      <p>Din uavhengige ressurs for alt innen hjemmekino og HiFi. Guider, tips og anbefalinger for den beste kinoopplevelsen hjemme.</p>
+      <div class="hk-footer-social">
+        <a href="https://www.facebook.com/hjemmekino" aria-label="Facebook">
+          <svg style="width:1.25rem;height:1.25rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://github.com/hjemmekino/" aria-label="GitHub">
+          <svg style="width:1.25rem;height:1.25rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Kom i gang -->
+    <div>
+      <h4>Kom i gang</h4>
+      <ul class="hk-footer-links">
+        <li><a href="{{ with .Site.GetPage `/nybegynner/hva-er-hjemmekino/`}}{{.RelPermalink}}{{end}}">Hva er hjemmekino?</a></li>
+        <li><a href="{{ with .Site.GetPage `/nybegynner/hva-trenger-du/`}}{{.RelPermalink}}{{end}}">Hva trenger du?</a></li>
+        <li><a href="{{ with .Site.GetPage `/nybegynner/hjemmekino-for-nybegynnere/`}}{{.RelPermalink}}{{end}}">For nybegynnere</a></li>
+        <li><a href="{{ with .Site.GetPage `/kjopsrad/budsjett-hjemmekino/`}}{{.RelPermalink}}{{end}}">Budsjett-hjemmekino</a></li>
+        <li><a href="{{ with .Site.GetPage `/ordliste/`}}{{.RelPermalink}}{{end}}">Ordliste</a></li>
+      </ul>
+    </div>
+
+    <!-- Guider -->
+    <div>
+      <h4>Guider</h4>
+      <ul class="hk-footer-links">
+        <li><a href="{{ with .Site.GetPage `/guide/kalibrering-av-hjemmekino/`}}{{.RelPermalink}}{{end}}">Kalibrering</a></li>
+        <li><a href="{{ with .Site.GetPage `/guide/slik-setter-du-opp-surround/`}}{{.RelPermalink}}{{end}}">Surround-oppsett</a></li>
+        <li><a href="{{ with .Site.GetPage `/tv-og-projektor/oled-vs-mini-led/`}}{{.RelPermalink}}{{end}}">OLED vs Mini-LED</a></li>
+        <li><a href="{{ with .Site.GetPage `/guide/hdmi-earc-guide/`}}{{.RelPermalink}}{{end}}">HDMI eARC-guide</a></li>
+        <li><a href="{{ with .Site.GetPage `/feilsoking/`}}{{.RelPermalink}}{{end}}">Feilsøking</a></li>
+      </ul>
+    </div>
+
+    <!-- Seksjoner -->
+    <div>
+      <h4>Seksjoner</h4>
+      <ul class="hk-footer-links">
+        <li><a href="{{ with .Site.GetPage `/guide/`}}{{.RelPermalink}}{{end}}">Guider</a></li>
+        <li><a href="{{ with .Site.GetPage `/lyd/`}}{{.RelPermalink}}{{end}}">Lyd</a></li>
+        <li><a href="{{ with .Site.GetPage `/tv-og-projektor/`}}{{.RelPermalink}}{{end}}">TV & Projektor</a></li>
+        <li><a href="{{ with .Site.GetPage `/kilder-og-streaming/`}}{{.RelPermalink}}{{end}}">Kilder & Streaming</a></li>
+        <li><a href="{{ with .Site.GetPage `/rom-og-akustikk/`}}{{.RelPermalink}}{{end}}">Rom & Akustikk</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="hk-footer-bottom">
+    <p>&copy; {{ now.Year }} Hjemmekino.no</p>
+    <div class="hk-footer-bottom-links">
+      <a href="{{ with .Site.GetPage `/om-oss/`}}{{.RelPermalink}}{{end}}">Om oss</a>
+      <a href="{{ with .Site.GetPage `/kontakt/`}}{{.RelPermalink}}{{end}}">Kontakt</a>
+      <a href="{{ with .Site.GetPage `/personvern/`}}{{.RelPermalink}}{{end}}">Personvern</a>
+    </div>
+  </div>
+</div>

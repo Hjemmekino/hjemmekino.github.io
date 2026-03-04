@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="nb">
+     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Detaljert guide til HDR-kalibrering for TV og projektor. Tone mapping, lysstyrke og innstillinger for best HDR-opplevelse.">
+<meta name="last-modified" content="2025-01-15 00:00:00 &#43;0000 UTC">
+
+    
+    <title>HDR-kalibrering – Optimaliser HDR-bildet :: hjemmekino.no</title>
+    
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/photoswipe.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XHDB2924H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-6XHDB2924H');
+    </script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6415007331199958"
+      crossorigin="anonymous">
+    </script>
+    <style>
+    .image-box {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: calc(100% * (170 / 300));
+    }
+    .image-cropped-calc {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+      </style>
+  </head>
+ 
+
+<body data-url="/oppsett-og-kalibrering/hdr-kalibrering/" class="bg-gray-50">
+    <header class="sticky-top bg-gray-900">
+  <div class="container">
+    <nav class="bg-gray-900 border-b border-gray-600" data-theme="dark">
+      <div class="flex items-center justify-between h-16 px-4">
+        <a class="navbar-brand flex items-center" href="/">
+          <svg class="h-8 w-auto" viewBox="0 0 320 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(0, 4)">
+              <path d="M20 2L4 16V38H36V16L20 2Z" stroke="white" stroke-width="2" fill="none"/>
+              <rect x="10" y="18" width="20" height="13" rx="1" fill="white" opacity="0.9"/>
+              <path d="M17 21.5L17 27.5L24 24.5Z" fill="#1e3a5f"/>
+              <path d="M20 2L4 16" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M20 2L36 16" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <text x="46" y="32" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="1.5" fill="white">HJEMMEKINO</text>
+            <text x="262" y="32" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="1.5" fill="#3b82f6">.no</text>
+          </svg>
+        </a>
+
+        
+        <div class="hidden lg:block">
+          <div class="flex items-center space-x-4">
+            <a class="nav-link" href="/nybegynner/">
+              Nybegynner
+            </a>
+            <a class="nav-link" href="/guide/">
+              Guider
+            </a>
+            <a class="nav-link" href="/lyd/">
+              Lyd
+            </a>
+            <a class="nav-link" href="/tv-og-projektor/">
+              TV &amp; Projektor
+            </a>
+            <a class="nav-link" href="/kjopsrad/">
+              Kjøpsråd
+            </a>
+            <a class="nav-link" href="/feilsoking/">
+              Feilsøking
+            </a>
+          </div>
+        </div>
+
+        
+        <button type="button" class="lg:hidden btn btn-outline-dark" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      
+      <div id="mobile-menu" class="lg:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-800">
+          <a class="nav-link block" href="/nybegynner/">
+            Nybegynner
+          </a>
+          <a class="nav-link block" href="/guide/">
+            Guider
+          </a>
+          <a class="nav-link block" href="/lyd/">
+            Lyd
+          </a>
+          <a class="nav-link block" href="/tv-og-projektor/">
+            TV &amp; Projektor
+          </a>
+          <a class="nav-link block" href="/kjopsrad/">
+            Kjøpsråd
+          </a>
+          <a class="nav-link block" href="/feilsoking/">
+            Feilsøking
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('hidden');
+}
+</script>
+
+	<div class="container p-0 bg-white">
+      	<aside>
+			<div class="fixed inset-y-0 right-0 z-50 w-64 bg-gray-900 text-white transform translate-x-full transition-transform duration-300 ease-in-out" id="offcanvasDarkNavbar" tabindex="-1">
+  <div class="flex items-center justify-between p-4 border-b border-gray-700">
+    <h5 class="text-lg font-semibold" id="offcanvasTitle">Hjemmekino.no</h5>
+    <button type="button" class="text-gray-400 hover:text-white" onclick="closeOffcanvas()" aria-label="Close">
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <div class="p-4">
+    <nav class="w-full" id="hjemmekino-nav" aria-label="hjemmekino navigation">
+      <ul class="list-group space-y-2">
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/nybegynner/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-book mr-2"></i>Nybegynner
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/guide/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-compass mr-2"></i>Guider
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/lyd/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-speaker mr-2"></i>Lyd
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/tv-og-projektor/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-tv mr-2"></i>TV &amp; Projektor
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/kilder-og-streaming/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-collection-play mr-2"></i>Kilder &amp; Streaming
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/rom-og-akustikk/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-house mr-2"></i>Rom &amp; Akustikk
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/oppsett-og-kalibrering/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-sliders mr-2"></i>Oppsett &amp; Kalibrering
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/kjopsrad/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-cart mr-2"></i>Kjøpsråd
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/ordliste/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-journal-text mr-2"></i>Ordliste
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="/feilsoking/" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-wrench mr-2"></i>Feilsøking
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+<div id="offcanvas-backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="closeOffcanvas()"></div>
+
+<script>
+function toggleAccordion(id) {
+  const element = document.getElementById(id);
+  const icon = document.getElementById(id + '-icon');
+  const button = element.previousElementSibling.querySelector('button');
+
+  element.classList.toggle('hidden');
+  icon.classList.toggle('rotate-180');
+
+  const isExpanded = !element.classList.contains('hidden');
+  button.setAttribute('aria-expanded', isExpanded);
+}
+
+function closeOffcanvas() {
+  const offcanvas = document.getElementById('offcanvasDarkNavbar');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+
+  offcanvas.classList.add('translate-x-full');
+  backdrop.classList.add('hidden');
+}
+
+function openOffcanvas() {
+  const offcanvas = document.getElementById('offcanvasDarkNavbar');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+
+  offcanvas.classList.remove('translate-x-full');
+  backdrop.classList.remove('hidden');
+}
+
+function toggleMobileMenu() {
+  openOffcanvas();
+}
+</script>
+
+      	</aside>
+      	<main>
+			<div class="flex flex-wrap -mx-4">
+				<div class="w-full xl:w-2/3 xxl:w-2/3 p-4" >
+					
+            
+              <div class="mb-4">
+                <nav aria-label="breadcrumb">
+                  <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                    
+  
+    
+    
+  
+    
+    
+  
+   <li class='flex items-center'><a href='/' class='text-blue-600 hover:text-blue-800 transition-colors duration-150'>Hjemmekino.no – Din komplette guide til hjemmekino og HiFi</a><svg class='mx-2 h-4 w-4 text-gray-400' fill='currentColor' viewBox='0 0 20 20'><path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd' /></svg></li> <li class='flex items-center'><a href='/oppsett-og-kalibrering/' class='text-blue-600 hover:text-blue-800 transition-colors duration-150'>Oppsett & Kalibrering</a><svg class='mx-2 h-4 w-4 text-gray-400' fill='currentColor' viewBox='0 0 20 20'><path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd' /></svg></li><li class='text-gray-900 font-medium'>HDR-kalibrering – Optimaliser HDR-bildet</li>
+  
+ 
+    
+ 
+    
+
+                  </ol>
+                </nav>
+              </div>
+            
+
+
+
+
+
+					
+
+      
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+          
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+
+      
+
+
+
+    
+    
+    
+    
+    
+      
+    
+      
+
+
+
+
+
+
+
+
+					<span class="text-sm text-gray-400">Sist oppdatert: 15. jan. 2025</span>
+					
+<div class="mb-12 border-b border-gray-200 pb-8">
+
+  <h1 style="font-size: 3.5rem !important; font-weight: 800 !important; color: #111827 !important; margin-bottom: 1.5rem !important; line-height: 1.1 !important;">
+    HDR-kalibrering – Optimaliser HDR-bildet
+    
+  </h1>
+  <p style="font-size: 1.5rem !important; color: #374151 !important; font-weight: 400 !important; line-height: 1.6 !important; max-width: 64rem !important; margin-bottom: 0 !important;">Detaljert guide til HDR-kalibrering for TV og projektor. Tone mapping, lysstyrke og innstillinger for best HDR-opplevelse.</p>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="prose prose-lg max-w-none">
+  <h1 id="hdr-kalibrering--optimaliser-hdr-bildet">HDR-kalibrering – Optimaliser HDR-bildet</h1>
+<p>Denne guiden går dypere enn vår <a href="/guide/hdr-innstillinger-guide/">HDR-innstillinger guide</a> og dekker kalibrering av tone mapping, fargeomfang og avanserte bildeinnstillinger.</p>
+<h2 id="hvem-passer-dette-for">Hvem passer dette for?</h2>
+<p>Deg som vil ha det absolutt beste HDR-bildet fra TV-en eller projektoren.</p>
+<h2 id="kortversjon">Kortversjon</h2>
+<ul>
+<li>HDR-kalibrering er <strong>separat</strong> fra SDR-kalibrering – du trenger egne innstillinger</li>
+<li><strong>Baklys/OLED-lys på maks</strong> for HDR</li>
+<li><strong>Tone mapping</strong> er den viktigste HDR-innstillingen</li>
+<li><strong>Filmmaker Mode</strong> er beste utgangspunkt</li>
+<li><strong>Dolby Vision</strong> håndterer mye automatisk – la det jobbe</li>
+</ul>
+<h2 id="grunnleggende-hdr-kalibrering">Grunnleggende HDR-kalibrering</h2>
+<h3 id="steg-1-velg-riktig-inngangsmodusl">Steg 1: Velg riktig inngangsmodusl</h3>
+<p>Sørg for at TV-en gjenkjenner HDR-signal:</p>
+<ul>
+<li>Sjekk at HDMI-porten er satt til «Enhanced»</li>
+<li>Verifiser at info-skjermen viser «HDR10», «Dolby Vision» el.l.</li>
+</ul>
+<h3 id="steg-2-velg-bildemodus">Steg 2: Velg bildemodus</h3>
+<p>For HDR-innhold:</p>
+<ol>
+<li><strong>Filmmaker Mode</strong> (absolutt beste)</li>
+<li><strong>Kino/Cinema HDR</strong></li>
+<li><strong>ISF Dark</strong> (for kalibrert rom)</li>
+</ol>
+<h3 id="steg-3-sett-baklys-til-maks">Steg 3: Sett baklys til maks</h3>
+<ul>
+<li><strong>OLED Light</strong>: 100 (maks)</li>
+<li><strong>Backlight</strong>: Maks</li>
+<li>HDR-innhold er mastet for full lysstyrke – å redusere baklys dreper HDR-effekten</li>
+</ul>
+<h3 id="steg-4-juster-tone-mapping">Steg 4: Juster tone mapping</h3>
+<p>Tone mapping er hvordan TV-en komprimerer HDR-lysnivåer den ikke kan reprodusere:</p>
+<p><strong>OLED-TV-er</strong>: (topplysstyrke ca. 800–2000 nits, HDR-master opptil 4000–10 000 nits)</p>
+<ul>
+<li>Tone mapping <strong>bør være på</strong> – uten den mister du detaljer i lyse partier</li>
+<li>Noen TV-er kaller det «Dynamic Tone Mapping» eller «HDR Tone Mapping»</li>
+</ul>
+<p><strong>Mini-LED-TV-er</strong>: (topplysstyrke opptil 2000–4000 nits)</p>
+<ul>
+<li>Kan ofte ha tone mapping på lavere nivå eller av, avhengig av innhold</li>
+<li>Test med en referansefilm</li>
+</ul>
+<h3 id="steg-5-deaktiver-unødvendig-prosessering">Steg 5: Deaktiver unødvendig prosessering</h3>
+<ul>
+<li>Motion smoothing: <strong>Av</strong></li>
+<li>Dynamisk kontrast: <strong>Av</strong> (i HDR – metadata kontrollerer kontrasten)</li>
+<li>Super Resolution / AI Upscaling: <strong>Av</strong> for 4K-innhold</li>
+<li>Støyreduksjon: <strong>Av</strong></li>
+</ul>
+<h2 id="dolby-vision-kalibrering">Dolby Vision-kalibrering</h2>
+<p>Dolby Vision bruker dynamisk metadata og justerer seg automatisk scene for scene. Dine justeringsmuligheter er begrenset, men du kan:</p>
+<ol>
+<li>Velge mellom <strong>Dolby Vision Dark</strong> og <strong>Dolby Vision Bright</strong></li>
+<li>La de fleste innstillinger stå på standard</li>
+<li>Justere rombelysning – Dolby Vision fungerer best i mørkt rom</li>
+</ol>
+<p><strong>Viktig</strong>: Ikke overprøv Dolby Vision med egne EQ-justeringer – du ender med dårligere resultat.</p>
+<h2 id="hdr10-kalibrering">HDR10-kalibrering</h2>
+<p>HDR10 bruker statisk metadata og gir deg mer å jobbe med:</p>
+<ul>
+<li><strong>MaxCLL</strong> (Maximum Content Light Level): Varierer per film</li>
+<li><strong>MaxFALL</strong> (Maximum Frame Average Light Level): Varierer per film</li>
+<li>TV-en må balansere mellom å vise høylysene og beholde detaljer</li>
+</ul>
+<h3 id="kalibreringsverktøy">Kalibreringsverktøy</h3>
+<ul>
+<li><strong>YouTube HDR-kalibreringsvideo</strong> (søk «HDR calibration pattern»)</li>
+<li><strong>Spears &amp; Munsil UHD HDR Benchmark</strong> (Blu-ray, svært nøyaktig)</li>
+<li><strong>Apple TV HDR-kalibrering</strong> (via iPhone)</li>
+</ul>
+<p>Les mer: <a href="/kilder-og-streaming/apple-tv-guide/">Apple TV-guide</a></p>
+<h2 id="avanserte-innstillinger">Avanserte innstillinger</h2>
+<h3 id="gammaeotf">Gamma/EOTF</h3>
+<p>HDR bruker <strong>PQ (Perceptual Quantizer)</strong> i stedet for tradisjonell gamma:</p>
+<ul>
+<li>La denne stå på «Auto» eller «PQ/ST.2084»</li>
+<li>Ikke juster gamma manuelt for HDR-innhold</li>
+</ul>
+<h3 id="fargeomfang">Fargeomfang</h3>
+<p>HDR bruker BT.2020 (Rec. 2020) fargerom:</p>
+<ul>
+<li>Sett til <strong>Auto</strong> eller <strong>BT.2020</strong></li>
+<li>Ikke bruk «Normal» eller «Standard» – det begrenser fargeomfanget</li>
+</ul>
+<h3 id="svarthevning-black-level--hdmi-range">Svarthevning (Black Level / HDMI Range)</h3>
+<ul>
+<li>Sett til <strong>Auto</strong> eller <strong>Low</strong> (begrenset/limited range)</li>
+<li>«High» (full range) kan gi for lyse svarte partier</li>
+</ul>
+<h2 id="referansefilmer-for-hdr-testing">Referansefilmer for HDR-testing</h2>
+<p>Gode filmer for å evaluere HDR-innstillinger:</p>
+<ul>
+<li><strong>Blade Runner 2049</strong> – Mørke scener med sterke lyskilder</li>
+<li><strong>Mad Max: Fury Road</strong> – Intense farger og kontrast</li>
+<li><strong>Planet Earth II</strong> – Naturtro farger og detaljer</li>
+<li><strong>Dunkirk</strong> – IMAX-scener med dynamisk kontrast</li>
+<li><strong>Guardians of the Galaxy Vol. 2</strong> – Neon og partikkeleffekter</li>
+</ul>
+<h2 id="sjekkliste">Sjekkliste</h2>
+<ul>
+<li><input disabled="" type="checkbox"> HDMI Enhanced Signal aktivert</li>
+<li><input disabled="" type="checkbox"> HDR gjenkjent av TV-en</li>
+<li><input disabled="" type="checkbox"> Filmmaker Mode eller Kino valgt</li>
+<li><input disabled="" type="checkbox"> Baklys/OLED-lys på maks</li>
+<li><input disabled="" type="checkbox"> Tone mapping konfigurert</li>
+<li><input disabled="" type="checkbox"> Motion smoothing av</li>
+<li><input disabled="" type="checkbox"> Dynamisk kontrast av</li>
+<li><input disabled="" type="checkbox"> Fargeomfang satt til Auto/BT.2020</li>
+<li><input disabled="" type="checkbox"> Testet med referansefilm</li>
+</ul>
+<h2 id="vanlige-feil">Vanlige feil</h2>
+<ul>
+<li>Bruker SDR-innstillinger for HDR (de trenger separate profiler)</li>
+<li>Reduserer baklys i HDR (fjerner HDR-effekten)</li>
+<li>Har dynamisk kontrast på i HDR-modus</li>
+<li>Glemmer å aktivere Enhanced HDMI-signal</li>
+<li>Overstyrer Dolby Vision med egne justeringer</li>
+</ul>
+<h2 id="neste-steg">Neste steg</h2>
+<ul>
+<li><a href="/guide/hdr-innstillinger-guide/">HDR-innstillinger guide</a> – Grunnleggende HDR-oppsett</li>
+<li><a href="/guide/kalibrering-av-hjemmekino/">Kalibrering av hjemmekino</a> – Komplett kalibreringsguide</li>
+<li><a href="/tv-og-projektor/oled-vs-mini-led/">OLED vs Mini-LED</a> – Panelforskjeller for HDR</li>
+<li><a href="/guide/bildeformat-og-sideforhold/">Bildeformat og sideforhold</a> – Forstå formater</li>
+</ul>
+
+</div>
+					</div>
+				<div class="w-full xl:w-1/3 xxl:w-1/3 p-4 hidden lg:block">
+					<div class="container p-3 mb-5 bg-body-tertiary rounded border">
+<h3>Utforsk hjemmekino</h3>
+<p>Finn guider og tips for alle deler av hjemmekinoen.</p>
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/nybegynner/">
+            Nybegynner
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/guide/">
+            Guider
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/tv-og-projektor/">
+            TV & Projektor
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/lyd/">
+            Lyd
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/kilder-og-streaming/">
+            Kilder & Streaming
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/rom-og-akustikk/">
+            Rom & Akustikk
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/kjopsrad/">
+            Kjøpsråd
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/feilsoking/">
+            Feilsøking
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a class="text-decoration-none text-black" href="/ordliste/">
+            Ordliste
+        </a>
+    </li>
+</ul>
+</div>
+
+				</div>
+			</div>
+
+		</main>
+		<footer class="container bg-gray-900">          
+			<div class="hk-footer">
+  <div class="hk-footer-grid">
+    
+    <div class="hk-footer-about">
+      <a href="/" style="display: inline-block; margin-bottom: 1rem;">
+        <svg style="height: 2rem; width: auto;" viewBox="0 0 320 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(0, 4)">
+            <path d="M20 2L4 16V38H36V16L20 2Z" stroke="white" stroke-width="2" fill="none"/>
+            <rect x="10" y="18" width="20" height="13" rx="1" fill="white" opacity="0.9"/>
+            <path d="M17 21.5L17 27.5L24 24.5Z" fill="#1e3a5f"/>
+            <path d="M20 2L4 16" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M20 2L36 16" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+          <text x="46" y="32" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="1.5" fill="white">HJEMMEKINO</text>
+          <text x="262" y="32" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="1.5" fill="#3b82f6">.no</text>
+        </svg>
+      </a>
+      <p>Din uavhengige ressurs for alt innen hjemmekino og HiFi. Guider, tips og anbefalinger for den beste kinoopplevelsen hjemme.</p>
+      <div class="hk-footer-social">
+        <a href="https://www.facebook.com/hjemmekino" aria-label="Facebook">
+          <svg style="width:1.25rem;height:1.25rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://github.com/hjemmekino/" aria-label="GitHub">
+          <svg style="width:1.25rem;height:1.25rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    
+    <div>
+      <h4>Kom i gang</h4>
+      <ul class="hk-footer-links">
+        <li><a href="/nybegynner/hva-er-hjemmekino/">Hva er hjemmekino?</a></li>
+        <li><a href="/nybegynner/hva-trenger-du/">Hva trenger du?</a></li>
+        <li><a href="/nybegynner/hjemmekino-for-nybegynnere/">For nybegynnere</a></li>
+        <li><a href="/kjopsrad/budsjett-hjemmekino/">Budsjett-hjemmekino</a></li>
+        <li><a href="/ordliste/">Ordliste</a></li>
+      </ul>
+    </div>
+
+    
+    <div>
+      <h4>Guider</h4>
+      <ul class="hk-footer-links">
+        <li><a href="/guide/kalibrering-av-hjemmekino/">Kalibrering</a></li>
+        <li><a href="/guide/slik-setter-du-opp-surround/">Surround-oppsett</a></li>
+        <li><a href="/tv-og-projektor/oled-vs-mini-led/">OLED vs Mini-LED</a></li>
+        <li><a href="/guide/hdmi-earc-guide/">HDMI eARC-guide</a></li>
+        <li><a href="/feilsoking/">Feilsøking</a></li>
+      </ul>
+    </div>
+
+    
+    <div>
+      <h4>Seksjoner</h4>
+      <ul class="hk-footer-links">
+        <li><a href="/guide/">Guider</a></li>
+        <li><a href="/lyd/">Lyd</a></li>
+        <li><a href="/tv-og-projektor/">TV & Projektor</a></li>
+        <li><a href="/kilder-og-streaming/">Kilder & Streaming</a></li>
+        <li><a href="/rom-og-akustikk/">Rom & Akustikk</a></li>
+      </ul>
+    </div>
+  </div>
+
+  
+  <div class="hk-footer-bottom">
+    <p>&copy; 2026 Hjemmekino.no</p>
+    <div class="hk-footer-bottom-links">
+      <a href="/om-oss/">Om oss</a>
+      <a href="/kontakt/">Kontakt</a>
+      <a href="/personvern/">Personvern</a>
+    </div>
+  </div>
+</div>
+
+		</footer>
+	</div> 
+</body>
+</html>

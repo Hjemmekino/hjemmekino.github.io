@@ -38,10 +38,11 @@ ordered = false
 fractions = false # disable automatic fraction rendering
 
 [params]
-editURL = "https://github.com/electrichasgoneaudi/electrichasgoneaudi.github.io/blob/master/content/"
+editURL = "https://github.com/hjemmekino/hjemmekino.github.io/blob/main/content/"
 noHomeIcon = true # default is false
-noSearch = true # default is false
+noSearch = false # default is false
 showVisitedLinks = false # default is false
+description = "Hjemmekino.no – Din komplette guide til hjemmekino og HiFi"
 
 
 [outputs]
