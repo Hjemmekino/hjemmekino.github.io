@@ -1,242 +1,37 @@
-
-/* Custom styles for Hjemmekino with Tailwind CSS */
-
-/* Brand-specific utilities */
-.a-illustration-icon {
-    background: theme('colors.brand-primary');
-}
-
-.a-illustrationLink {
-    @apply mb-0;
-}
-
-/* Header customizations */
-.a-header {
-    background: theme('colors.brand-dark');
-}
-
-.a-globalNav-logo {
-    @apply -mt-1;
-}
-
-.adocs-logo {
-    @apply -mt-3;
-}
-
-.adocs-logo-text {
-    @apply inline-flex max-w-32 whitespace-nowrap;
-}
-
-@screen xs {
-    .adocs-logo-text {
-        @apply max-w-56;
-    }
-}
-
-.adocs-logo-text span {
-    @apply text-2xl text-white truncate lowercase;
-}
-
-/* Navigation active states */
-body.adocs-design .a-globalNav-main li a[href*='/design/'] {
-    @apply border-b-4 border-white;
-}
-
-body.adocs-teknologi .a-globalNav-main li a[href*='/teknologi/'] {
-    @apply border-b-4 border-white;
-}
-
-body.adocs-innhold .a-globalNav-main li a[href*='/innhold/'] {
-    @apply border-b-4 border-white;
-}
+/* Hjemmekino.no - Custom overrides */
 
 /* Responsive tables */
 #body-inner table {
-    @apply block w-full overflow-x-auto border-0 mb-8;
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border: 0;
+  margin-bottom: 2rem;
 }
 
 #body-inner table th {
-    @apply border border-gray-200;
+  border: 1px solid #e5e7eb;
 }
 
 /* Images in tables */
 #body td a > img {
-    @apply my-0 mx-auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Blockquotes */
 blockquote {
-    @apply border-l-4 border-blue-500 pl-4;
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
 }
 
 blockquote p {
-    @apply text-lg text-gray-800;
+  font-size: 1.125rem;
+  color: #1f2937;
 }
 
 li > label {
-    @apply font-normal;
-}
-
-/* Footer */ 
-.adocs-footer {
-    @apply mt-9 p-9 bg-brand-dark;
-}
-
-.adocs-footer ul {
-    @apply text-center;
-}
-
-.adocs-footer ul li {
-    @apply inline-block px-3;
-}
-
-.adocs-footer ul li a {
-    @apply inline-block text-white border-b border-white;
-}
-
-.adocs-footer ul li a:after {
-    content: none !important;
-}
-
-/* Case blocks */
-.adocs-caseBlock a {
-    @apply text-white border-white;
-}
-
-.adocs-caseBlock a:after {
-    filter: brightness(0) invert(1);
-}
-
-/* Featured blocks */ 
-.adocs-featuredBlocks .a-list-container {
-    @apply max-w-72;
-}
-
-.adocs-featuredBlocks .a-illustrationLink {
-    @apply mb-0 max-w-88 mx-auto;
-}
-
-/* Color preview utilities */
-.ap-colorCircle {
-    @apply text-2xl inline-block w-12 h-12 pt-1 mr-4 text-center align-middle rounded-full;
-}
-
-.ap-shadowBox {
-    @apply block w-24 h-24 bg-white shadow-md;
-}
-
-.ap-colors {
-    @apply ml-0 clear-both list-none;
-}
-
-.ap-colors li {
-    @apply float-left w-full pr-2 m-0 border-0;
-}
-
-@screen sm {
-    .ap-colors li {
-        @apply w-1/4;
-    }
-    .ap-colors li:last-child {
-        @apply pr-0;
-    }
-}
-
-.ap-colorLabel {
-    @apply hidden leading-6;
-}
-
-.ap-swatch {
-    @apply relative block w-full h-20 pt-4 mb-2 text-center rounded transition-all duration-200;
-}
-
-.ap-swatch .ap-colorLabel {
-    @apply absolute top-3 -right-full bottom-0 left-0 block opacity-0 transition-all duration-200;
-}
-
-.ap-swatch:hover .ap-colorLabel {
-    @apply right-0 block opacity-100;
-}
-
-/* Typography preview */
-.ap-typo-container {
-    @apply border-t border-dotted border-gray-200;
-}
-
-.ap-typo {
-    @apply py-8 pl-10 bg-white border-b border-dotted border-gray-200 transition-colors duration-200;
-}
-
-.ap-typo:hover {
-    @apply bg-gray-50;
-}
-
-.ap-typo h1, .ap-typo h2, .ap-typo h3, .ap-typo h4 {
-    @apply mt-0;
-}
-
-/* Responsive typography states */
-@screen xs {
-    .ap-typo-activeSize-m {
-        font-family: theme('fontFamily.din-bold');
-        color: theme('colors.brand-green');
-    }
-}
-
-@screen sm {
-    .ap-typo-activeSize-t {
-        font-family: theme('fontFamily.din-medium');
-        color: theme('colors.brand-green');
-    }
-}
-
-@screen md {
-    .ap-typo-activeSize-l {
-        font-family: theme('fontFamily.din-bold');
-        color: theme('colors.brand-green');
-    }
-}
-
-@screen lg {
-    .ap-typo-activeSize-d {
-        font-family: theme('fontFamily.din-bold');
-        color: theme('colors.brand-green');
-    }
-}
-
-/* Icon preview */
-.a-st-iconItem {
-    @apply inline-block m-1 bg-gray-100 pt-4 h-60 w-40 text-center overflow-hidden transition-colors duration-250;
-}
-
-.a-st-iconItem .a-st-iconPreview {
-    @apply block h-16 mt-0 pt-3;
-}
-
-.a-st-iconItem .ai.ai-lg {
-    @apply text-5xl;
-}
-
-.a-st-iconItem a {
-    @apply invisible;
-}
-
-.a-st-iconItem:hover {
-    @apply bg-black bg-opacity-20 transition-all duration-250;
-}
-
-.a-st-iconItem:hover a {
-    @apply visible -top-12;
-}
-
-.a-st-iconItem:hover span {
-    @apply invisible;
-}
-
-.a-st-iconLabel {
-    @apply mt-1 text-base;
-}
-
-.a-st-iconLabel a {
-    @apply text-base;
+  font-weight: 400;
 }

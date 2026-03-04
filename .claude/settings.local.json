@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./hugo.exe version)",
+      "Bash(\"d:/repos/hjemmekino.github.io/hugo.exe\" version)",
+      "Bash(hugo version)",
+      "Bash(where hugo)",
+      "Bash(cmd.exe /c \"d:\\\\repos\\\\hjemmekino.github.io\\\\hugo.exe version\")",
+      "Bash(hugo)",
+      "Bash(npm run build-css-prod)",
+      "Bash(npx hugo)",
+      "Bash(wc -c d:/repos/hjemmekino.github.io/static/css/tailwind.css)",
+      "Bash(python3 -c \":*)",
+      "Bash(node -e \":*)",
+      "Bash(curl -s http://localhost:1313/css/tailwind.css)",
+      "Bash(curl -s http://localhost:1313/css/custom.css)"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 <div class="fixed inset-y-0 right-0 z-50 w-64 bg-gray-900 text-white transform translate-x-full transition-transform duration-300 ease-in-out" id="offcanvasDarkNavbar" tabindex="-1">
   <div class="flex items-center justify-between p-4 border-b border-gray-700">
-    <h5 class="text-lg font-semibold" id="offcanvasDarkNavbar">EVKX.net</h5>
+    <h5 class="text-lg font-semibold" id="offcanvasTitle">{{ T "sidebar-title"}}</h5>
     <button type="button" class="text-gray-400 hover:text-white" onclick="closeOffcanvas()" aria-label="Close">
       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -8,47 +8,59 @@
     </button>
   </div>
   <div class="p-4">
-    <nav class="w-full" id="evkx-nav" aria-label="evkx navigation">
+    <nav class="w-full" id="hjemmekino-nav" aria-label="hjemmekino navigation">
       <ul class="list-group space-y-2">
-        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md"> 
-          <a href="{{ with .Site.GetPage `/models/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
-            <i class="bi-car-front mr-2"></i>{{ T "common-section-models-title"}}
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="{{ with .Site.GetPage `/nybegynner/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-book mr-2"></i>{{ T "common-section-nybegynner-title"}}
           </a>
         </li>
         <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
-          <a href="{{ with .Site.GetPage `/technology/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
-            <i class="bi-info-square mr-2"></i>{{ T "common-section-technology-title"}}
+          <a href="{{ with .Site.GetPage `/guide/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-compass mr-2"></i>{{ T "common-section-guider-title"}}
           </a>
         </li>
         <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
-          <a href="{{ with .Site.GetPage `/guides/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
-            <i class="bi-question-square mr-2"></i>{{ T "common-section-guides-title"}}
+          <a href="{{ with .Site.GetPage `/lyd/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-speaker mr-2"></i>{{ T "common-section-lyd-title"}}
           </a>
         </li>
         <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
-          <a href="{{ with .Site.GetPage `/articles/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
-            <i class="bi-question-square mr-2"></i>{{ T "common-section-articles"}}
+          <a href="{{ with .Site.GetPage `/tv-og-projektor/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-tv mr-2"></i>{{ T "common-section-tv-title"}}
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="{{ with .Site.GetPage `/kilder-og-streaming/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-collection-play mr-2"></i>{{ T "common-section-kilder-title"}}
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="{{ with .Site.GetPage `/rom-og-akustikk/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-house mr-2"></i>{{ T "common-section-rom-title"}}
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="{{ with .Site.GetPage `/oppsett-og-kalibrering/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-sliders mr-2"></i>{{ T "common-section-oppsett-title"}}
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="{{ with .Site.GetPage `/kjopsrad/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-cart mr-2"></i>{{ T "common-section-kjopsrad-title"}}
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="{{ with .Site.GetPage `/ordliste/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-journal-text mr-2"></i>{{ T "common-section-ordliste-title"}}
+          </a>
+        </li>
+        <li class="list-group-item bg-gray-800 hover:bg-gray-700 rounded-md">
+          <a href="{{ with .Site.GetPage `/feilsoking/`}}{{.RelPermalink}}{{end}}" class="flex items-center p-3 text-white no-underline">
+            <i class="bi-wrench mr-2"></i>{{ T "common-section-feilsoking-title"}}
           </a>
         </li>
       </ul>
-
-      <div class="mt-4" id="evkxmenuaccordion">
-        <div class="border-b border-gray-700">
-          <h2>
-            <button class="accordion-button w-full text-left p-3 bg-gray-800 hover:bg-gray-700 flex items-center justify-between" onclick="toggleAccordion('collapseLanguage')" aria-expanded="false" aria-controls="collapseLanguage">
-              <span class="flex items-center">
-                <i class="bi-translate mr-2"></i>{{ T "language"}}
-              </span>
-              <svg class="h-4 w-4 transform transition-transform duration-200" id="collapseLanguage-icon" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-          </h2>
-          <div id="collapseLanguage" class="accordion-body hidden p-4 bg-gray-800">
-            {{ partial "language-switcheraccordion.html" . }}
-          </div>
-        </div>
-      </div>
     </nav>
   </div>
 </div>
@@ -61,10 +73,10 @@ function toggleAccordion(id) {
   const element = document.getElementById(id);
   const icon = document.getElementById(id + '-icon');
   const button = element.previousElementSibling.querySelector('button');
-  
+
   element.classList.toggle('hidden');
   icon.classList.toggle('rotate-180');
-  
+
   const isExpanded = !element.classList.contains('hidden');
   button.setAttribute('aria-expanded', isExpanded);
 }
@@ -72,7 +84,7 @@ function toggleAccordion(id) {
 function closeOffcanvas() {
   const offcanvas = document.getElementById('offcanvasDarkNavbar');
   const backdrop = document.getElementById('offcanvas-backdrop');
-  
+
   offcanvas.classList.add('translate-x-full');
   backdrop.classList.add('hidden');
 }
@@ -80,15 +92,12 @@ function closeOffcanvas() {
 function openOffcanvas() {
   const offcanvas = document.getElementById('offcanvasDarkNavbar');
   const backdrop = document.getElementById('offcanvas-backdrop');
-  
+
   offcanvas.classList.remove('translate-x-full');
   backdrop.classList.remove('hidden');
 }
 
-// Update mobile menu button to open offcanvas
 function toggleMobileMenu() {
   openOffcanvas();
 }
 </script>
-
-
