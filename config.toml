@@ -1,49 +1,38 @@
 baseURL = "https://hjemmekino.no/"
-languageCode = "nb"
+languageCode = "nb-NO"
 defaultContentLanguage = "nb"
-
-contentDir = "content"
-staticDir = "static"
-publishDir = "public"
-
 title = "Hjemmekino.no"
-theme = "hjemmekino-tailwind"
-metadataFormat = "yaml"
-pluralizeListTitles = false
-preservetaxonomynames = true
-enableEmoji = true
-enableGitInfo = true
-disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap robotsTXT 404
-
-[languages]
-  [languages.nb]
-    title = "Hjemmekino.no"
-    languageName = "Norsk"
-    weight = 1
-    contentDir = "content"
-
-
-[markup.goldmark.renderer]
-unsafe = true
-
-[markup.highlight]
-style = "dracula"
-
-[markup.tableOfContents]
-startLevel = 2
-endLevel = 2
-ordered = false
-
-[blackfriday]
-fractions = false # disable automatic fraction rendering
+theme = "referanserommet"
+enableRobotsTXT = true
+enableGitInfo = false
+summaryLength = 28
 
 [params]
-editURL = "https://github.com/hjemmekino/hjemmekino.github.io/blob/main/content/"
-noHomeIcon = true # default is false
-noSearch = false # default is false
-showVisitedLinks = false # default is false
-description = "Hjemmekino.no – Din komplette guide til hjemmekino og HiFi"
+  description = "Uavhengig norsk kunnskapsplattform for hjemmekino, HiFi og AV-teknologi."
+  tagline = "Film er best hjemme"
+  since = "1998"
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
 
 [outputs]
-home = ["HTML", "JSON"] # JSON generates index.json file used by search
+  home = ["HTML", "JSON"]
+  section = ["HTML"]
+
+[outputFormats.JSON]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = true
+
+[security]
+  enableInlineShortcodes = false

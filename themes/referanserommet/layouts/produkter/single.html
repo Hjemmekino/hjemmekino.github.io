@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="container">
+  <div class="breadcrumbs" style="padding-top:28px"><a href="/">Forsiden</a> / <a href="/produkter/">Produkter</a> / {{ .Title }}</div>
+  <section class="product-hero">
+    <div class="product-hero__image"><img src="{{ .Params.image }}" alt="Redaksjonelt illustrasjonsbilde for {{ .Title }}"><span class="sr-only">Bildet er et illustrasjonsbilde og viser ikke nødvendigvis modellen.</span></div>
+    <div class="product-hero__copy"><span class="eyebrow">{{ .Params.categoryLabel }}</span><div class="meta" style="margin-top:8px"><i class="status-dot status-dot--{{ .Params.status }}"></i>{{ .Params.statusLabel }} · Modellår {{ .Params.modelYear }}</div><h1>{{ .Title }}</h1><div class="notice notice--accent"><div class="notice__title">Kort fortalt</div><p>{{ .Params.short }}</p></div><div class="price">{{ .Params.price }}</div>{{ with .Params.priceDate }}<div class="meta">Veiledende pris kontrollert {{ . }}</div>{{ end }}<div class="meta" style="margin-top:9px">Spesifikasjoner verifisert {{ .Params.verified }} · Kilde: <a href="{{ .Params.sourceUrl }}">{{ .Params.sourceName }}</a></div><div class="product-hero__actions"><button class="button button--accent compare-button" type="button" data-compare-add="{{ .File.ContentBaseName }}" data-product-name="{{ .Title }}" data-product-category="{{ .Params.category }}">Legg til sammenligning</button><a class="button button--secondary" href="/kontakt/">Meld inn feil data</a></div></div>
+  </section>
+  <div class="product-detail">
+    <div>
+      {{ range $group, $values := .Params.specs }}<section class="spec-group"><h2>{{ $group }}</h2><table class="spec-table"><tbody>{{ range $label, $value := $values }}<tr><th>{{ $label }}</th><td>{{ $value }}</td></tr>{{ end }}</tbody></table></section>{{ end }}
+      <div class="notice"><div class="notice__title">Kilde og forbehold</div>{{ .Content }}</div>
+    </div>
+    <aside><div class="card sidebar-card"><h2>Relatert innhold</h2><p><a href="/tv-og-projektor/projektor-vs-tv/">Projektor eller TV?</a></p><p><a href="/guide/kalibrering-av-hjemmekino/">Kalibrering av hjemmekino</a></p><p><a href="/teknologi/hdr-og-tone-mapping/">HDR og tone mapping</a></p></div><div class="card sidebar-card"><h2>Om produktdata</h2><p>Vi viser når spesifikasjonene sist ble kontrollert og skiller produsentdata fra egne målinger og tester.</p></div></aside>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,31 @@
+<header class="site-header">
+  <div class="site-header__top container">
+    <a class="brand" href="/" aria-label="Hjemmekino.no – forsiden">
+      <span class="brand__name">Hjemmekino<span>.no</span></span>
+      <span class="brand__tagline">Film er best hjemme · siden 1998</span>
+    </a>
+    <div class="site-header__actions">
+      <a class="search-pill" href="/sok/">
+        <svg aria-hidden="true" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5"></circle><path d="m11 11 3.2 3.2"></path></svg>
+        <span>Søk i alt innhold …</span>
+      </a>
+      <button class="icon-button" type="button" data-theme-toggle aria-label="Bytt fargetema">
+        <svg class="theme-icon theme-icon--moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"></path></svg>
+        <svg class="theme-icon theme-icon--sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>
+      </button>
+      <a class="button button--dark header-start" href="/start-her/">Start her</a>
+      <button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span><span class="sr-only">Meny</span>
+      </button>
+    </div>
+  </div>
+  <nav class="main-nav container" id="main-nav" aria-label="Hovedmeny">
+    {{ $current := .RelPermalink }}
+    <a href="/nyheter/" {{ if hasPrefix $current "/nyheter/" }}aria-current="page"{{ end }}>Nyheter</a>
+    <a href="/guide/" {{ if hasPrefix $current "/guide/" }}aria-current="page"{{ end }}>Guider</a>
+    <a href="/produkter/" {{ if hasPrefix $current "/produkter/" }}aria-current="page"{{ end }}>Produkter</a>
+    <a href="/teknologi/" {{ if hasPrefix $current "/teknologi/" }}aria-current="page"{{ end }}>Teknologi</a>
+    <a href="/rom-og-akustikk/" {{ if hasPrefix $current "/rom-og-akustikk/" }}aria-current="page"{{ end }}>Inspirasjon</a>
+    <a class="main-nav__mobile-search" href="/sok/">Søk</a>
+  </nav>
+</header>

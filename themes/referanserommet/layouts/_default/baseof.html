@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="nb" data-theme="light">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body data-section="{{ .Section }}">
+    <a class="skip-link" href="#main-content">Hopp til innhold</a>
+    {{ partial "header.html" . }}
+    <main id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    <div class="compare-drawer" id="compare-drawer" hidden aria-live="polite">
+      <div class="compare-drawer__inner container">
+        <div>
+          <span class="eyebrow eyebrow--on-dark">Sammenligning</span>
+          <div class="compare-drawer__items" id="compare-drawer-items"></div>
+        </div>
+        <div class="compare-drawer__actions">
+          <button class="text-button text-button--light" type="button" data-compare-clear>Tøm</button>
+          <a class="button button--accent" id="compare-link" href="/sammenligning/">Sammenlign</a>
+        </div>
+      </div>
+    </div>
+    <script src="{{ "js/site.js" | relURL }}" defer></script>
+    {{ block "scripts" . }}{{ end }}
+  </body>
+</html>

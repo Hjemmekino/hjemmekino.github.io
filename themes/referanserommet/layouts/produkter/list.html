@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-header"><div class="breadcrumbs"><a href="/">Forsiden</a> / Produkter</div><h1 class="section-title">Produktdatabasen</h1><p class="section-lead">Søk, filtrer og sammenlign modeller. Alle spesifikasjoner viser kilde og dato for siste verifisering.</p></header>
+  <div class="filter-row" data-product-tabs><button class="chip is-active" data-product-category="all">Alle</button><button class="chip" data-product-category="projektor">Projektorer</button><button class="chip" data-product-category="receiver">AV-receivere</button></div>
+  <button class="button button--secondary mobile-filter-button" type="button" data-mobile-filter>Vis filtre</button>
+  <div class="product-layout">
+    <aside class="card product-filters" id="product-filters">
+      <div class="filter-group"><span class="filter-group__label">Merke</span><div class="filter-chips"><button class="chip is-active" data-product-brand="all">Alle</button><button class="chip" data-product-brand="jvc">JVC</button><button class="chip" data-product-brand="epson">Epson</button><button class="chip" data-product-brand="denon">Denon</button><button class="chip" data-product-brand="marantz">Marantz</button></div></div>
+      <div class="filter-group"><label for="product-status">Status</label><select id="product-status" data-product-status><option value="all">Alle statuser</option><option value="active">Aktive modeller</option><option value="upcoming">Kommende</option><option value="archived">Utgåtte</option></select></div>
+      <div class="filter-group"><label for="product-sort">Sortering</label><select id="product-sort" data-product-sort><option value="brand">Merke og modell</option><option value="newest">Nyeste modellår</option></select></div>
+      <button class="text-button" type="button" data-product-reset>Nullstill filtre</button>
+      <p class="meta">Produktdata er basert på oppgitte produsentspesifikasjoner med mindre annet er merket.</p>
+    </aside>
+    <div>
+      <div class="product-tools"><span class="product-tools__count" data-product-count>{{ len .RegularPages }} produkter</span><a href="/sammenligning/">Åpne sammenligning →</a></div>
+      <div class="product-results" data-product-results>
+        {{ range .RegularPages.ByTitle }}
+        <article class="card product-row" data-product-item data-id="{{ .File.ContentBaseName }}" data-category="{{ .Params.category }}" data-brand="{{ .Params.brand | urlize }}" data-status="{{ .Params.status }}" data-year="{{ .Params.modelYear }}" data-title="{{ .Title }}">
+          <a class="product-row__image" href="{{ .RelPermalink }}"><img src="{{ .Params.image }}" alt="Illustrasjonsbilde for {{ .Title }}" loading="lazy"></a>
+          <div class="product-row__copy"><span class="meta"><i class="status-dot status-dot--{{ .Params.status }}"></i>{{ .Params.statusLabel }} · {{ .Params.categoryLabel }}</span><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p>{{ .Params.short }}</p><span class="meta">Modellår {{ .Params.modelYear }} · Verifisert {{ .Params.verified }}</span></div>
+          <div class="product-row__data"><div class="price">{{ .Params.price }}</div>{{ with .Params.priceDate }}<div class="meta">Pris kontrollert {{ . }}</div>{{ end }}<button class="button button--secondary compare-button" type="button" data-compare-add="{{ .File.ContentBaseName }}" data-product-name="{{ .Title }}" data-product-category="{{ .Params.category }}">+ Sammenlign</button></div>
+        </article>
+        {{ end }}
+      </div>
+      <div class="empty-state card" data-product-empty hidden><h2>Ingen produkter matcher</h2><p>Fjern ett eller flere filtre og prøv igjen.</p><button class="button button--secondary" data-product-reset>Nullstill filtre</button></div>
+    </div>
+  </div>
+</div>
+{{ end }}

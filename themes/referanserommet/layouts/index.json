@@ -1,0 +1,11 @@
+[
+{{- $first := true -}}
+{{- range .Site.Pages -}}
+  {{- if and (ne .Kind "home") (ne .Kind "taxonomy") (ne .Kind "term") (ne .RelPermalink "/sok/") -}}
+    {{- $type := "Guide" -}}
+    {{- if eq .Section "produkter" }}{{ $type = "Produkt" }}{{ else if eq .Section "nyheter" }}{{ $type = "Nyhet" }}{{ else if eq .Section "teknologi" }}{{ $type = "Teknologi" }}{{ else if eq .Section "ordliste" }}{{ $type = "Ordliste" }}{{ end -}}
+    {{- if not $first }},{{ end -}}{{- $first = false -}}
+    {"title":{{ .Title | jsonify }},"url":{{ .RelPermalink | jsonify }},"description":{{ (.Description | default (.Summary | plainify)) | jsonify }},"section":{{ .Section | jsonify }},"type":{{ $type | jsonify }}}
+  {{- end -}}
+{{- end -}}
+]

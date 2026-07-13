@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+--bg:#F8F5F2;--surface:#FFFFFF;--surface2:#F1EBE5;--ink:#1B1614;--muted:#6E645A;--faint:#8C8177;--line:#E5DED7;
+--accent:#BE4B2F;--accent-hover:#A63E25;--accent-soft:#F6E6DF;--accent-text:#A83F24;--on-accent:#FFFFFF;
+--band:#1B1614;--band-ink:#F5EFE9;--band-muted:#B0A79D;--band-line:#3A322C;--band-accent:#E07B5A;
+--ok:#2E7D46;--warn:#9A6A12;--err:#A8422C;--info:#2F6B8A;--shadow:0 2px 10px rgba(27,22,20,.06)}
+body[data-theme="dark"]{--bg:#161210;--surface:#211C18;--surface2:#2A241F;--ink:#F0EAE3;--muted:#B5AA9E;--faint:#8C8177;--line:#372F29;
+--accent:#E07B5A;--accent-hover:#EA9075;--accent-soft:#3A2A22;--accent-text:#E58A6B;--on-accent:#1B1614;
+--band:#0F0C0A;--band-ink:#F5EFE9;--band-muted:#A79D92;--band-line:#332C26;--band-accent:#E07B5A;
+--ok:#5BAE77;--warn:#C99A3F;--err:#D96B50;--info:#6FA8C7;--shadow:0 2px 10px rgba(0,0,0,.35)}
+a{color:var(--accent-text);text-decoration:none}
+a:hover{color:var(--accent-hover)}
+@keyframes hk-skeleton{0%{opacity:.5}50%{opacity:1}100%{opacity:.5}}
+</style>
+</helmet>
+
+<!-- header -->
+<div style="background:var(--band);color:var(--band-ink);position:sticky;top:0;z-index:50">
+  <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 32px">
+    <div>
+      <div style="font-size:20px;font-weight:700;letter-spacing:-.02em">Hjemmekino<span style="color:var(--band-accent)">.no</span> · Designsystem</div>
+      <div style="font-size:12px;color:var(--band-muted);margin-top:2px">Retning «Kinoglød» · v1.0 · juli 2026 · tokens i <span style="font-family:'IBM Plex Mono',monospace">tokens.css</span></div>
+    </div>
+    <button onClick="{{ toggleTheme }}" style="font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:10px 20px;border-radius:999px;border:none;cursor:pointer" style-hover="background:var(--accent-hover)">{{ themeLabel }}</button>
+  </div>
+</div>
+
+<div data-screen-label="Designsystem" style="max-width:1240px;margin:0 auto;padding:36px 32px 80px;display:flex;flex-direction:column;gap:52px">
+
+  <!-- 01 FARGER -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">01 · Foundations</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Farger</h2>
+    <div style="font-size:13.5px;color:var(--muted);margin:0 0 18px;max-width:640px">Alle farger er tokens som byttes automatisk i mørk modus — bruk toggleknappen øverst for å se begge. Hex-verdier under viser lys / mørk.</div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px">
+      <sc-for list="{{ colors }}" as="c" hint-placeholder-count="12">
+        <div style="border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)">
+          <div style="height:56px;background:{{ c.v }}"></div>
+          <div style="padding:10px 12px">
+            <div style="font-size:12.5px;font-weight:700;font-family:'IBM Plex Mono',monospace">{{ c.name }}</div>
+            <div style="font-size:11px;color:var(--faint);margin-top:2px;font-family:'IBM Plex Mono',monospace">{{ c.hex }}</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:3px;line-height:1.35">{{ c.use }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- 02 TYPOGRAFI -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">02 · Foundations</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Typografi</h2>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:26px 28px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:18px">
+        <div style="font-size:36px;font-weight:700;letter-spacing:-.02em;line-height:1.15">Artikkeltittel H1</div>
+        <div style="font-size:12px;color:var(--faint);font-family:'IBM Plex Mono',monospace">36px · 700 · 1.15 · ls -.02em</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:18px">
+        <div style="font-size:30px;font-weight:700;letter-spacing:-.02em">Sidetittel H1</div>
+        <div style="font-size:12px;color:var(--faint);font-family:'IBM Plex Mono',monospace">30px · 700 · 1.2 · ls -.02em</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:18px">
+        <div style="font-size:24px;font-weight:700;letter-spacing:-.01em">Seksjonstittel H2</div>
+        <div style="font-size:12px;color:var(--faint);font-family:'IBM Plex Mono',monospace">24px · 700 · 1.3 · ls -.01em</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:18px">
+        <div style="font-size:17.5px;color:var(--muted);line-height:1.55">Ingress — forklarende undertekst som setter saken i kontekst for leseren.</div>
+        <div style="font-size:12px;color:var(--faint);font-family:'IBM Plex Mono',monospace">17.5px · 400 · 1.55 · --muted</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:18px">
+        <div style="font-size:16.5px;line-height:1.65;max-width:640px">Artikkelbrødtekst. Lesemålet er 720 piksler — omtrent 65–75 tegn per linje. Lenker ser <a href="#t">slik ut</a>, og tall som 3 400 lumen settes med tabular figures.</div>
+        <div style="font-size:12px;color:var(--faint);font-family:'IBM Plex Mono',monospace">16.5px · 400 · 1.65 · maks 720px</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:18px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)">Kicker / Etikett</div>
+        <div style="font-size:12px;color:var(--faint);font-family:'IBM Plex Mono',monospace">11px · 700 · UPPERCASE · ls .08em</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:baseline">
+        <div style="font-size:15px;font-variant-numeric:tabular-nums">Data og priser: 119 000 kr · 24.10.2026 · 80 000:1 <span style="color:var(--faint)">(tabular-nums, alltid)</span></div>
+        <div style="font-size:12px;color:var(--faint);font-family:'IBM Plex Mono',monospace">IBM Plex Sans + tnum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 FORM OG RYTME -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">03 · Foundations</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Form, rytme og grid</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px">Radius</div>
+        <div style="display:flex;gap:10px;align-items:flex-end">
+          <div style="width:48px;height:48px;background:var(--surface2);border:1px solid var(--line);border-radius:10px"></div>
+          <div style="width:48px;height:48px;background:var(--surface2);border:1px solid var(--line);border-radius:12px"></div>
+          <div style="width:70px;height:34px;background:var(--surface2);border:1px solid var(--line);border-radius:999px"></div>
+        </div>
+        <div style="font-size:11.5px;color:var(--faint);margin-top:8px;font-family:'IBM Plex Mono',monospace">kort 10 · bilde 12 · pill 999</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px">Avstandsskala</div>
+        <div style="display:flex;gap:6px;align-items:flex-end">
+          <div style="width:4px;height:4px;background:var(--accent)"></div><div style="width:8px;height:8px;background:var(--accent)"></div><div style="width:12px;height:12px;background:var(--accent)"></div><div style="width:16px;height:16px;background:var(--accent)"></div><div style="width:20px;height:20px;background:var(--accent)"></div><div style="width:24px;height:24px;background:var(--accent)"></div><div style="width:32px;height:32px;background:var(--accent)"></div><div style="width:40px;height:40px;background:var(--accent)"></div>
+        </div>
+        <div style="font-size:11.5px;color:var(--faint);margin-top:8px;font-family:'IBM Plex Mono',monospace">4·8·12·16·20·24·32·40</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px">Container</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.55">Maks 1240px, side-padding 32px. Artikkel-lesemål 720px. Én skygge: <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px">--shadow</span>.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px">Fokus</div>
+        <div style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:9px 18px;border-radius:999px;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--accent)">Fokusert knapp</div>
+        <div style="font-size:11.5px;color:var(--faint);margin-top:10px;font-family:'IBM Plex Mono',monospace">--focus-ring: 2px bg + 2px accent</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 KNAPPER -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">04 · Komponenter</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Knapper</h2>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;grid-template-columns:150px repeat(5,1fr);gap:14px;align-items:center;font-size:12px">
+      <div></div><div style="color:var(--faint);font-weight:700">Normal</div><div style="color:var(--faint);font-weight:700">Hover</div><div style="color:var(--faint);font-weight:700">Fokus</div><div style="color:var(--faint);font-weight:700">Deaktivert</div><div style="color:var(--faint);font-weight:700">Laster</div>
+      <div style="font-weight:700;font-size:13px">Primær</div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:9px 18px;border-radius:999px">Les saken</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--accent-hover);color:var(--on-accent);padding:9px 18px;border-radius:999px">Les saken</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:9px 18px;border-radius:999px;box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--accent)">Les saken</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--surface2);color:var(--faint);padding:9px 18px;border-radius:999px">Les saken</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:9px 18px;border-radius:999px;opacity:.75">Sender …</span></div>
+      <div style="font-weight:700;font-size:13px">Sekundær</div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:8px 17px;border-radius:999px">Se alle</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--surface);color:var(--ink);border:1px solid var(--accent);padding:8px 17px;border-radius:999px">Se alle</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:8px 17px;border-radius:999px;box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--accent)">Se alle</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--surface);color:var(--faint);border:1px solid var(--line);padding:8px 17px;border-radius:999px">Se alle</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--surface);color:var(--faint);border:1px solid var(--line);padding:8px 17px;border-radius:999px">Henter …</span></div>
+      <div style="font-weight:700;font-size:13px">Mørk CTA</div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:999px">Start her</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:9px 18px;border-radius:999px">Start her</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:999px;box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--accent)">Start her</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--surface2);color:var(--faint);padding:9px 18px;border-radius:999px">Start her</span></div>
+      <div><span style="display:inline-block;font-weight:600;font-size:13.5px;background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:999px;opacity:.75">Vent …</span></div>
+    </div>
+  </div>
+
+  <!-- 05 CHIPS, BADGES, STATUS -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">05 · Komponenter</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Chips, badges og statusetiketter</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px">Filterchips <span style="color:var(--faint);font-weight:400">(kategori, merke)</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font-size:13px;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--ink);color:var(--bg)">Alle</span>
+          <span style="font-size:13px;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted)">Projektorer</span>
+          <span style="font-size:13px;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid var(--accent);background:var(--surface);color:var(--muted)">TV (hover)</span>
+          <span style="font-size:13px;font-weight:600;padding:7px 16px;border-radius:999px;background:var(--accent-soft);color:var(--accent-text)">Merke: Sony ✕</span>
+        </div>
+        <div style="font-size:13px;font-weight:700;margin:18px 0 12px">Innholdstype-badges <span style="color:var(--faint);font-weight:400">(søkeresultat)</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--info);border:1px solid var(--line);border-radius:5px;padding:4px 8px">Nyhet</span>
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);border:1px solid var(--line);border-radius:5px;padding:4px 8px">Guide</span>
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);border:1px solid var(--line);border-radius:5px;padding:4px 8px">Teknologi</span>
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text);border:1px solid var(--line);border-radius:5px;padding:4px 8px">Produkt</span>
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);border-radius:5px;padding:4px 8px">Ordliste</span>
+        </div>
+        <div style="font-size:13px;font-weight:700;margin:18px 0 12px">Emneknagg / kicker-badge</div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent-text);padding:5px 10px;border-radius:5px">Guide · Lyd</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px">Nivå <span style="color:var(--faint);font-weight:400">(alltid prikk + tekst, aldri farge alene)</span></div>
+        <div style="display:flex;gap:16px;font-size:13px">
+          <span style="color:var(--ok);font-weight:600">● Nybegynner</span>
+          <span style="color:var(--warn);font-weight:600">● Middels</span>
+          <span style="color:var(--err);font-weight:600">● Avansert</span>
+        </div>
+        <div style="font-size:13px;font-weight:700;margin:18px 0 12px">Produktstatus</div>
+        <div style="display:flex;gap:16px;font-size:12.5px">
+          <span style="color:var(--ok);font-weight:600">● Aktiv</span>
+          <span style="color:var(--info);font-weight:600">● Kommende</span>
+          <span style="color:var(--faint);font-weight:600">● Utgått</span>
+        </div>
+        <div style="font-size:13px;font-weight:700;margin:18px 0 12px">Kommersiell merking <span style="color:var(--faint);font-weight:400">(alltid FØR innholdet)</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--surface2);color:var(--muted);border-radius:5px;padding:4px 9px">Annonse</span>
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--warn);color:var(--surface);border-radius:5px;padding:4px 9px">Sponset innhold</span>
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--surface2);color:var(--muted);border-radius:5px;padding:4px 9px">Affiliatelenker ⓘ</span>
+        </div>
+        <div style="font-size:13px;font-weight:700;margin:18px 0 12px">Arkivvarsel</div>
+        <div style="border:1px solid var(--warn);background:var(--surface2);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--muted)"><b style="color:var(--warn)">Arkivert:</b> Denne artikkelen er fra 2019 og beskriver ikke dagens teknologi.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 SKJEMA -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">06 · Komponenter</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Skjema og søk</h2>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">TEKSTFELT · NORMAL / FOKUS / FEIL</div>
+        <input placeholder="din@epost.no" style="width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:14px;background:var(--surface);outline:none;font-family:'IBM Plex Sans',sans-serif;color:var(--ink)">
+        <input value="din@epost.no" style="width:100%;box-sizing:border-box;border:1px solid var(--accent);border-radius:999px;padding:10px 16px;font-size:14px;background:var(--surface);outline:none;margin-top:10px;box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--accent);font-family:'IBM Plex Sans',sans-serif;color:var(--ink)">
+        <input value="dinepost" style="width:100%;box-sizing:border-box;border:1.5px solid var(--err);border-radius:999px;padding:10px 16px;font-size:14px;background:var(--surface);outline:none;margin-top:14px;font-family:'IBM Plex Sans',sans-serif;color:var(--ink)">
+        <div style="font-size:12px;color:var(--err);margin-top:5px;font-weight:600">Skriv inn en gyldig e-postadresse.</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">NEDTREKK</div>
+        <select style="width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13.5px;background:var(--surface);font-family:'IBM Plex Sans',sans-serif;color:var(--ink)"><option>Relevans</option><option>Nyeste først</option><option>Pris: lav–høy</option></select>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin:16px 0 8px">SØKEFELT (HEADER)</div>
+        <div style="display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13.5px;color:var(--faint);background:var(--surface)">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11l3.2 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+          Søk i alt innhold …
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">STORT SØKEFELT (SØKESIDE)</div>
+        <div style="display:flex;align-items:center;gap:12px;border:2px solid var(--accent);border-radius:14px;padding:12px 18px;background:var(--surface)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--accent)"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.8"></circle><path d="M11 11l3.2 3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <span style="font-size:16px;color:var(--faint)">Prøv «eARC» eller «Dirac» …</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 KORT -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">07 · Komponenter</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Kort</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">GUIDEKORT</div>
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)">
+          <div style="height:110px;background:linear-gradient(135deg,#4A3A30,#7A5A44)"></div>
+          <div style="padding:16px 18px">
+            <div style="font-size:16px;font-weight:700;line-height:1.3;margin-bottom:8px">Slik plasserer du subwooferen riktig</div>
+            <div style="font-size:12px;color:var(--faint)"><span style="color:var(--ok);font-weight:600">● Nybegynner</span> · 15 min · Oppdatert juni 2026</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">EMNEKORT</div>
+        <div style="border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--surface)">
+          <div style="font-weight:700;font-size:15px;margin-bottom:4px">Lyd</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.45">Receiver, høyttalere, subwoofer og lydformater.</div>
+        </div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin:14px 0 8px">NYHETSRAD (UTEN BILDE)</div>
+        <div style="padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+          <div style="font-size:15px;font-weight:600;line-height:1.35;margin-bottom:3px">LG bekrefter norske priser på årets OLED-serie</div>
+          <div style="font-size:12.5px;color:var(--faint)">TV · I dag</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">START HER-KORT</div>
+        <div style="display:flex;flex-direction:column;gap:5px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)">
+          <span style="font-size:19px;color:var(--faint);font-family:'IBM Plex Mono',monospace">01</span>
+          <span style="font-weight:700;font-size:15.5px">Bygg din første hjemmekino</span>
+          <span style="font-size:13px;color:var(--muted);line-height:1.45">Fra tom stue til fungerende anlegg.</span>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">PRODUKTRAD</div>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;gap:20px;align-items:center;box-shadow:var(--shadow)">
+      <div style="width:110px;height:74px;border-radius:8px;background:var(--surface2);flex:none;display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:10px;letter-spacing:.06em">PRODUKTBILDE</div>
+      <div style="flex:1">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:3px">
+          <span style="font-size:16.5px;font-weight:700">Sony Bravia Projector 9</span>
+          <span style="font-size:11.5px;font-weight:600;color:var(--ok)">● Aktiv</span>
+        </div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.45;max-width:520px">Sonys nye toppmodell. Laserlyskilde, native 4K SXRD og full HDMI 2.1.</div>
+        <div style="font-size:12px;color:var(--faint);margin-top:5px;font-variant-numeric:tabular-nums">Modellår 2026 · Spesifikasjoner verifisert 10.07.2026</div>
+      </div>
+      <div style="text-align:right;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <div>
+          <div style="font-size:16px;font-weight:700;font-variant-numeric:tabular-nums">119 000 kr</div>
+          <div style="font-size:11.5px;color:var(--faint)">Veil. (jan. 2026)</div>
+        </div>
+        <span style="font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted)">+ Sammenlign</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 INNHOLDSBOKSER -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">08 · Komponenter</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Innholdsbokser (artikkel)</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px">Kort fortalt</div>
+        <ul style="margin:0;padding-left:20px;font-size:14.5px;line-height:1.7;color:var(--muted)"><li>Rommet påvirker bassen mer enn subwooferen selv.</li><li>Delefrekvens på 80 Hz er riktig start for de fleste.</li></ul>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="border-left:3px solid var(--ok);background:var(--surface);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:var(--muted)"><b style="color:var(--ok)">Tips:</b> Bruk en SPL-app hvis du vil være mer presis.</div>
+        <div style="border-left:3px solid var(--err);background:var(--surface);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:var(--muted)"><b style="color:var(--err)">Advarsel:</b> Unngå hjørneplassering uten å lytte først.</div>
+        <div style="border-left:3px solid var(--warn);background:var(--surface);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:var(--muted)"><b style="color:var(--warn)">Vanlig misforståelse:</b> «Jeg trenger ny kabel til eARC.»</div>
+      </div>
+      <div style="border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:14px 18px;font-size:14.5px;line-height:1.6"><b>Konklusjon:</b> Plassering først, nivå og crossover etterpå.</div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px">Hvorfor dette er viktig</div>
+        <div style="font-size:14px;color:var(--muted);line-height:1.55">Kontekstboksen som skiller en nyhetssak hos oss fra en pressemelding.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 TABELLER -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">09 · Komponenter</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Tabeller og sammenligning</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">SPESIFIKASJONSTABELL</div>
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden">
+          <div style="padding:10px 18px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);background:var(--surface2)">Bilde</div>
+          <div style="display:grid;grid-template-columns:180px 1fr;padding:11px 18px;border-top:1px solid var(--line);font-size:14px"><span style="color:var(--muted)">Lysstyrke</span><span style="font-weight:600;font-variant-numeric:tabular-nums">3 400 lumen</span></div>
+          <div style="display:grid;grid-template-columns:180px 1fr;padding:11px 18px;border-top:1px solid var(--line);font-size:14px"><span style="color:var(--muted)">Kontrast</span><span style="font-weight:600;font-variant-numeric:tabular-nums">80 000:1 nativ</span></div>
+          <div style="display:grid;grid-template-columns:180px 1fr;padding:11px 18px;border-top:1px solid var(--line);font-size:14px"><span style="color:var(--muted)">HDMI</span><span style="font-weight:600;color:var(--faint)">Ikke oppgitt</span></div>
+        </div>
+        <div style="font-size:12px;color:var(--faint);margin-top:8px">Manglende data vises alltid som «Ikke oppgitt» — aldri som «Nei».</div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);margin-bottom:8px">SAMMENLIGNINGSRAD · DIFF-MARKERING</div>
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:150px 1fr 1fr;font-size:13.5px">
+            <div style="padding:11px 16px;color:var(--muted);border-bottom:1px solid var(--line)">Kanaler</div>
+            <div style="padding:11px 16px;font-weight:600;border-left:1px solid var(--line);border-bottom:1px solid var(--line)">9.4</div>
+            <div style="padding:11px 16px;font-weight:600;border-left:1px solid var(--line);border-bottom:1px solid var(--line)">9.4</div>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr 1fr;font-size:13.5px;background:var(--accent-soft)">
+            <div style="padding:11px 16px;color:var(--muted)">Romkorreksjon</div>
+            <div style="padding:11px 16px;font-weight:600;border-left:1px solid var(--line)">Dirac Live (inkl.)</div>
+            <div style="padding:11px 16px;font-weight:600;border-left:1px solid var(--line)">YPAO R.S.C.</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--faint);margin-top:8px">Rader med <span style="background:var(--accent-soft);padding:1px 7px;border-radius:4px;color:var(--accent-text);font-weight:600">uthevet bakgrunn</span> = faktisk forskjell. Like rader skjules med «Vis bare forskjeller».</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 TILSTANDER -->
+  <div>
+    <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px">10 · Komponenter</div>
+    <h2 style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 16px">Tom, lastende og feilet tilstand</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <div style="border:1px dashed var(--line);border-radius:12px;padding:32px 24px;text-align:center">
+        <div style="font-size:15px;font-weight:700;margin-bottom:5px">Ingen produkter valgt ennå</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Velg inntil fire produkter fra samme kategori.</div>
+        <span style="display:inline-block;font-weight:600;font-size:13px;background:var(--accent);color:var(--on-accent);padding:9px 18px;border-radius:999px">Gå til produktene</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px">
+        <div style="height:14px;width:60%;border-radius:5px;background:var(--surface2);animation:hk-skeleton 1.4s infinite"></div>
+        <div style="height:11px;width:90%;border-radius:5px;background:var(--surface2);margin-top:12px;animation:hk-skeleton 1.4s infinite"></div>
+        <div style="height:11px;width:80%;border-radius:5px;background:var(--surface2);margin-top:8px;animation:hk-skeleton 1.4s infinite"></div>
+        <div style="font-size:11.5px;color:var(--faint);margin-top:14px;font-family:'IBM Plex Mono',monospace">skeleton · 1.4s puls · reservert høyde (ingen layoutskift)</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--err);border-radius:10px;padding:20px">
+        <div style="font-size:14px;font-weight:700;color:var(--err);margin-bottom:5px">Kunne ikke hente produktdata</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:12px">Sjekk tilkoblingen og prøv igjen.</div>
+        <span style="display:inline-block;font-weight:600;font-size:12.5px;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:7px 15px;border-radius:999px">Prøv igjen</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:var(--faint);line-height:1.6">Regler: informasjon aldri med farge alene · fokus alltid synlig · annonser i reserverte flater uten layoutskift · «Ikke oppgitt» ≠ «Nei» · ingen autokaruseller · WCAG 2.2 AA. Se DESIGN-BRIEF.md kap. 18–22 for full begrunnelse.</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: 'light' };
+
+  componentDidMount() {
+    const t = localStorage.getItem('hk-theme');
+    if (t === 'dark' || t === 'light') { this.setState({ theme: t }); document.body.dataset.theme = t; }
+    else document.body.dataset.theme = 'light';
+  }
+
+  renderVals() {
+    const s = this.state;
+    return {
+      themeLabel: s.theme === 'light' ? '☾ Vis mørk modus' : '☀ Vis lys modus',
+      toggleTheme: () => {
+        const t = s.theme === 'light' ? 'dark' : 'light';
+        this.setState({ theme: t }); document.body.dataset.theme = t; localStorage.setItem('hk-theme', t);
+      },
+      colors: [
+        { name: '--bg', v: 'var(--bg)', hex: '#F8F5F2 / #161210', use: 'Sidebakgrunn' },
+        { name: '--surface', v: 'var(--surface)', hex: '#FFFFFF / #211C18', use: 'Kort og paneler' },
+        { name: '--surface2', v: 'var(--surface2)', hex: '#F1EBE5 / #2A241F', use: 'Sekundær flate' },
+        { name: '--ink', v: 'var(--ink)', hex: '#1B1614 / #F0EAE3', use: 'Primærtekst' },
+        { name: '--muted', v: 'var(--muted)', hex: '#6E645A / #B5AA9E', use: 'Sekundærtekst' },
+        { name: '--line', v: 'var(--line)', hex: '#E5DED7 / #372F29', use: 'Kantlinjer' },
+        { name: '--accent', v: 'var(--accent)', hex: '#BE4B2F / #E07B5A', use: 'Signalfarge «kinoglød»' },
+        { name: '--accent-soft', v: 'var(--accent-soft)', hex: '#F6E6DF / #3A2A22', use: 'Uthevet bakgrunn' },
+        { name: '--band', v: 'var(--band)', hex: '#1B1614 / #0F0C0A', use: 'Identitetsflate' },
+        { name: '--ok', v: 'var(--ok)', hex: '#2E7D46 / #5BAE77', use: 'Positivt · nybegynner' },
+        { name: '--warn', v: 'var(--warn)', hex: '#9A6A12 / #C99A3F', use: 'Advarsel · middels' },
+        { name: '--err', v: 'var(--err)', hex: '#A8422C / #D96B50', use: 'Feil · avansert' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

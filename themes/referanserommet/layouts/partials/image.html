@@ -1,0 +1,9 @@
+{{- $fallback := "/images/editorial/guide-surround.png" -}}
+{{- if eq .Section "teknologi" }}{{ $fallback = "/images/editorial/teknologi-projektor.png" }}{{ end -}}
+{{- if eq .Section "nyheter" }}{{ $fallback = "/images/editorial/hero-referanserommet.png" }}{{ end -}}
+{{- if in (slice "oppsett-og-kalibrering" "rom-og-akustikk") .Section }}{{ $fallback = "/images/editorial/guide-kalibrering.png" }}{{ end -}}
+{{- if in (lower .Title) "kalibrer" }}{{ $fallback = "/images/editorial/guide-kalibrering.png" }}{{ end -}}
+{{- $img := .Params.image | default $fallback -}}
+{{- $clean := strings.TrimPrefix "/" $img -}}
+{{- if not (os.FileExists (printf "static/%s" $clean)) }}{{ $img = $fallback }}{{ end -}}
+{{- return $img -}}

@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="container search-page">
+  <div class="breadcrumbs"><a href="/">Forsiden</a> / Søk</div>
+  <h1 class="section-title">Søk i Hjemmekino.no</h1><p class="section-lead">Guider, nyheter, teknologi, produkter og forklaringer på ett sted.</p>
+  <label class="search-field"><svg aria-hidden="true" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5"></circle><path d="m11 11 3.2 3.2"></path></svg><span class="sr-only">Søk</span><input type="search" data-site-search autocomplete="off" placeholder="Søk etter HDMI, subwoofer, projektor …"></label>
+  <p class="meta" data-search-count>Skriv minst to tegn for å søke.</p>
+  <div class="search-results" data-search-results></div>
+</div>
+{{ end }}
+{{ define "scripts" }}<script src="{{ "js/search.js" | relURL }}" defer></script>{{ end }}

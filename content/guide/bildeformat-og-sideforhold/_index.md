@@ -8,6 +8,8 @@ tags: ["bildeformat", "sideforhold", "aspect ratio", "film", "guide"]
 categories: ["Guider"]
 image: "images/guide/bildeformat-sideforhold.jpg"
 weight: 9
+aliases:
+  - /Guide/bildeformat-1726
 ---
 
 # Bildeformat og sideforhold forklart

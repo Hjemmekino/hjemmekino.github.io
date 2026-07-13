@@ -1,0 +1,38 @@
+{{ define "main" }}
+  {{ $children := union .RegularPages .Sections }}
+  {{ if and .IsSection (eq (len $children) 0) (ne .RelPermalink "/nyheter/") (ne .RelPermalink "/teknologi/") }}
+    {{ partial "article.html" . }}
+  {{ else if eq .Section "nyheter" }}
+    <div class="container">
+      <header class="page-header"><div class="breadcrumbs"><a href="/">Forsiden</a> / Nyheter</div><h1 class="section-title">Nyheter</h1><p class="section-lead">Produktlanseringer, teknologi og bransjenytt – alltid med kontekst og tydelig datostempling.</p></header>
+      <div class="filter-row" data-filter-group="news"><button class="chip is-active" data-filter="all">Alle</button><button class="chip" data-filter="produkt">Produkter</button><button class="chip" data-filter="teknologi">Teknologi</button><button class="chip" data-filter="bransje">Bransje</button></div>
+      <div class="listing-layout">
+        <div>
+          {{ range $children.ByDate.Reverse }}
+          <a class="news-item" href="{{ .RelPermalink }}" data-filter-item data-category="{{ .Params.newsCategory | default "bransje" }}"><span class="eyebrow">{{ .Params.newsCategory | default "Redaksjonen" }} · {{ .Date.Format "02.01.2006" }}</span><h2>{{ .Title }}</h2><p>{{ .Description | default .Summary }}</p></a>
+          {{ end }}
+          {{ if eq (len $children) 0 }}<div class="empty-state card"><h2>Nyhetsdesken åpner snart</h2><p>Vi bygger opp en nyhetsdekning som forklarer betydningen, ikke bare gjentar pressemeldingen.</p></div>{{ end }}
+        </div>
+        <aside class="listing-sidebar"><div class="card sidebar-card"><h2>Hvorfor dette er viktig</h2><p>Alle nyhetssaker skal forklare hva saken betyr for deg – og skille produsentopplysninger fra egne vurderinger.</p></div><div class="card sidebar-card"><h2>Annonse</h2><div class="ad-placeholder">Reservert annonseflate</div></div></aside>
+      </div>
+    </div>
+  {{ else if eq .Section "teknologi" }}
+    <div class="container">
+      <header class="page-header"><div class="breadcrumbs"><a href="/">Forsiden</a> / Teknologi</div><h1 class="section-title">Teknologi forklart</h1><p class="section-lead">Standarder, formater og teknologier forklart presist – fra signalvei til lytteposisjon.</p></header>
+      <div class="tech-grid">
+        {{ range $children }}<a class="card tech-list-card" href="{{ .RelPermalink }}"><img src="{{ partial "image.html" . }}" alt="" loading="lazy"><div class="tech-list-card__body"><span class="eyebrow">{{ .Params.topic | default "Teknologi" }}</span><h2>{{ .Title }}</h2><p>{{ .Description | default .Summary }}</p><span class="meta">{{ .ReadingTime }} min · Faglig oppdatert</span></div></a>{{ end }}
+      </div>
+      <div class="glossary-cta"><div><h2>Møter du et ukjent begrep?</h2><p>Ordlisten forklarer AV-språket på vanlig norsk.</p></div><a class="button button--accent" href="/ordliste/">Åpne ordlisten</a></div>
+    </div>
+  {{ else }}
+    <div class="container">
+      <header class="page-header"><div class="breadcrumbs"><a href="/">Forsiden</a> / {{ .Title }}</div><h1 class="section-title">{{ .Title }}</h1>{{ with .Description }}<p class="section-lead">{{ . }}</p>{{ end }}</header>
+      {{ if .Content }}<div class="prose" style="max-width:760px;margin-bottom:30px">{{ .Content }}</div>{{ end }}
+      <div class="card-grid">
+        {{ range $children }}
+          <a class="card guide-card" href="{{ .RelPermalink }}"><div class="guide-card__image"><img src="{{ partial "image.html" . }}" alt="" loading="lazy"></div><div class="guide-card__body"><span class="eyebrow">{{ with .Params.categories }}{{ index . 0 }}{{ else }}Guide{{ end }}</span><h2>{{ .Title }}</h2><p>{{ .Description | default .Summary }}</p><div class="guide-card__meta"><i class="status-dot level--beginner"></i><span>{{ .Params.level | default "For alle" }}</span><span>·</span><span>{{ .ReadingTime }} min</span><span>·</span><span>Oppdatert</span></div></div></a>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
