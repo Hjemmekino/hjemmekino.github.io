@@ -8,6 +8,8 @@ tags: ["AVR", "forsterker", "receiver", "lyd"]
 categories: ["Lyd"]
 image: "images/lyd/forsterker-avr.jpg"
 weight: 4
+aliases:
+  - /Guide/hjemmekinoforsterkere-1716
 ---
 
 # Forsterker og AVR – Hjernen i hjemmekinoen

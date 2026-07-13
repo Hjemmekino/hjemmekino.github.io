@@ -8,6 +8,8 @@ tags: ["surround", "guide", "oppsett", "Dolby Atmos", "DTS:X"]
 categories: ["Guider"]
 image: "images/guide/surround-oppsett.jpg"
 weight: 2
+aliases:
+  - /Guide/surroundlyd-1750
 ---
 
 # Slik setter du opp surroundlyd

@@ -1,6 +1,7 @@
 {{ $isTech := eq .Section "teknologi" }}
 {{ $isNews := eq .Section "nyheter" }}
 {{ $isGuide := or (eq .Section "guide") (eq .Section "nybegynner") (eq .Section "feilsoking") (eq .Section "oppsett-og-kalibrering") (eq .Section "kjopsrad") }}
+{{ $months := slice "" "januar" "februar" "mars" "april" "mai" "juni" "juli" "august" "september" "oktober" "november" "desember" }}
 <article>
   <header class="article-hero{{ if $isTech }} article-hero--dark{{ end }}">
     <div class="container article-hero__inner">
@@ -10,7 +11,7 @@
       {{ with .Description }}<p class="article-lead">{{ . }}</p>{{ end }}
       <div class="article-meta">
         <span>Av {{ with .Params.author }}{{ . }}{{ else }}Hjemmekino.no{{ end }}</span>
-        {{ with .Date }}<span>Publisert {{ .Format "2. januar 2006" }}</span>{{ end }}
+        {{ with .Date }}<span>Publisert {{ .Day }}. {{ index $months (int .Month) }} {{ .Year }}</span>{{ end }}
         <span>{{ if .Params.updated }}Sist faglig oppdatert {{ .Params.updated }}{{ else }}Faglig gjennomgått{{ end }}</span>
         {{ with .ReadingTime }}<span>{{ . }} min lesetid</span>{{ end }}
       </div>
@@ -26,6 +27,7 @@
     {{ end }}
     <div class="prose">
       {{ if $isNews }}<div class="notice notice--accent"><div class="notice__title">Hvorfor dette er viktig</div><p>{{ with .Params.why }}{{ . }}{{ else }}Vi setter saken i sammenheng og forklarer hva den betyr for hjemmekinoen din.{{ end }}</p></div>{{ end }}
+      {{ if .Params.archive }}<div class="notice notice--warning"><div class="notice__title">Historisk arkiv</div><p>Denne artikkelen beskriver utgått teknologi og er bevart som dokumentasjon. Den er faglig gjennomgått, men er ikke en anbefaling for nye kjøp.</p></div>{{ end }}
       {{ .Content }}
       <footer class="article-footer">
         <h2>Neste steg</h2>
