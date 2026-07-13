@@ -1,0 +1,7 @@
+name = "Referanserommet"
+license = "MIT"
+description = "Kinoglød-design for Hjemmekino.no"
+min_version = "0.120.0"
+
+[author]
+  name = "Hjemmekino.no"

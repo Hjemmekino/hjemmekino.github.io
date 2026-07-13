@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@450;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EDEAE4;font-family:'Source Sans 3',system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}
+.dv-intro{max-width:760px;font:400 12.5px/1.55 system-ui,sans-serif;color:rgba(0,0,0,.6);margin:0 0 24px}
+.dv-opts{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.1);box-shadow:0 2px 12px rgba(0,0,0,.08);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:26px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Forsiden — tre tolkninger av «Kinomørke og projeksjonslys»</span></div>
+<p class="dv-intro">Alle tre følger briefen: mørk grafitt som identitetsfarge, varm hvit redaksjonell flate, én signalfarge, ingen karusell, «Start her» og synlig ferskhet. De skiller seg i signalfarge, typografi og tetthet. Velg en retning (eller kombinér), så bygger jeg hele prototypen — artikkel, produkter, sammenligning, emnesider, søk og mørk modus.</p>
+<div class="dv-opts">
+
+<!-- ============ 1a PROJEKSJONSLYS (amber / Archivo) ============ -->
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Projeksjonslys — varm amber · Archivo · klassisk redaksjonell</div>
+<div class="dv-card" style="width:1200px;background:#F7F4EF;font-family:'Source Sans 3',sans-serif;color:#1A1815">
+
+  <!-- header -->
+  <div data-screen-label="1a Forside" style="background:#16130F;color:#F5F1EA">
+    <div style="display:flex;align-items:center;gap:28px;padding:0 36px;height:64px">
+      <div style="display:flex;align-items:baseline;gap:2px">
+        <span style="font:800 21px/1 'Archivo',sans-serif;letter-spacing:-.02em">HJEMMEKINO</span>
+        <span style="font:800 21px/1 'Archivo',sans-serif;color:#E8A33B">.no</span>
+      </div>
+      <nav style="display:flex;gap:24px;font:600 14.5px/1 'Archivo',sans-serif">
+        <a href="#1a" style="color:#F5F1EA;padding:10px 0;border-bottom:2px solid #E8A33B">Nyheter</a>
+        <a href="#1a" style="color:rgba(245,241,234,.75);padding:10px 0" style-hover="color:#fff">Guider</a>
+        <a href="#1a" style="color:rgba(245,241,234,.75);padding:10px 0" style-hover="color:#fff">Produkter</a>
+        <a href="#1a" style="color:rgba(245,241,234,.75);padding:10px 0" style-hover="color:#fff">Teknologi</a>
+      </nav>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:8px 14px;width:230px;font-size:14px;color:rgba(245,241,234,.55)">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.2 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Søk i alt innhold …
+        </div>
+        <a href="#1a" style="font:600 13px 'Archivo',sans-serif;color:#16130F;background:#E8A33B;padding:9px 16px;border-radius:6px" style-hover="background:#D6912B">Start her</a>
+      </div>
+    </div>
+    <div style="padding:4px 36px 12px;font-size:13px;color:rgba(245,241,234,.5);border-top:1px solid rgba(255,255,255,.07);display:flex;gap:8px;align-items:center;padding-top:10px">
+      <span style="color:#E8A33B;font-weight:600">Film er best hjemme.</span>
+      <span>Din uavhengige guide til bedre lyd og bilde — siden 1998.</span>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div style="display:grid;grid-template-columns:1.7fr 1fr;gap:28px;padding:28px 36px 8px">
+    <a href="#1a" style="display:block">
+      <div style="aspect-ratio:16/9;background:linear-gradient(120deg,#2B241B 0%,#4A3B27 55%,#6E5533 100%);position:relative;display:flex;align-items:flex-end">
+        <div style="position:absolute;top:14px;left:14px;font:600 11px 'Archivo',sans-serif;letter-spacing:.08em;text-transform:uppercase;background:#E8A33B;color:#16130F;padding:4px 8px">Nyhet</div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.25);font:600 13px 'Archivo',sans-serif;letter-spacing:.1em">BILDE: SONY BRAVIA PROJECTOR 9</div>
+      </div>
+      <h2 style="font:700 30px/1.15 'Archivo',sans-serif;letter-spacing:-.015em;margin:14px 0 8px">Sony Bravia Projector 9 er offisiell: laserlys, 3 400 lumen og full HDMI 2.1</h2>
+      <p style="font-size:16.5px;line-height:1.5;color:#4A443B;margin:0 0 8px">Sonys nye toppmodell lover referansesvartnivå utenfor kinorommet. Vi forklarer hva som faktisk er nytt — og hvem den er for.</p>
+      <div style="font-size:13px;color:#8A8072">Projektorer · 11. juli 2026 · 6 min lesetid</div>
+    </a>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <a href="#1a" style="display:flex;flex-direction:column;gap:6px;padding-bottom:16px;border-bottom:1px solid #E3DDD2">
+        <span style="font:600 11px 'Archivo',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#B07A20">Teknologi</span>
+        <span style="font:600 17.5px/1.3 'Archivo',sans-serif">eARC forklart: derfor får du ikke Atmos fra TV-en til receiveren</span>
+        <span style="font-size:12.5px;color:#8A8072">Oppdatert 8. juli 2026</span>
+      </a>
+      <a href="#1a" style="display:flex;flex-direction:column;gap:6px;padding-bottom:16px;border-bottom:1px solid #E3DDD2">
+        <span style="font:600 11px 'Archivo',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#B07A20">Guide</span>
+        <span style="font:600 17.5px/1.3 'Archivo',sans-serif">Riktig lerretstørrelse: regnestykket de fleste tar feil av</span>
+        <span style="font-size:12.5px;color:#8A8072">Nivå: Nybegynner · 12 min</span>
+      </a>
+      <a href="#1a" style="display:flex;flex-direction:column;gap:6px">
+        <span style="font:600 11px 'Archivo',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#B07A20">Nyhet</span>
+        <span style="font:600 17.5px/1.3 'Archivo',sans-serif">Denon fornyer receiver-serien: dette betyr modellnavnene</span>
+        <span style="font-size:12.5px;color:#8A8072">AV-receivere · 10. juli 2026</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- start her -->
+  <div style="padding:28px 36px">
+    <div style="font:700 13px 'Archivo',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8A8072;margin-bottom:14px">Start her</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+      <a href="#1a" style="background:#fff;border:1px solid #E3DDD2;border-top:3px solid #E8A33B;padding:18px;display:flex;flex-direction:column;gap:6px" style-hover="border-color:#E8A33B">
+        <span style="font:700 16px 'Archivo',sans-serif">Bygg din første hjemmekino</span>
+        <span style="font-size:13.5px;line-height:1.45;color:#6B6355">Fra tom stue til fungerende anlegg — uten fagsjargong.</span>
+      </a>
+      <a href="#1a" style="background:#fff;border:1px solid #E3DDD2;border-top:3px solid #E8A33B;padding:18px;display:flex;flex-direction:column;gap:6px" style-hover="border-color:#E8A33B">
+        <span style="font:700 16px 'Archivo',sans-serif">Velg TV eller projektor</span>
+        <span style="font-size:13.5px;line-height:1.45;color:#6B6355">Hva passer rommet, budsjettet og bruken din?</span>
+      </a>
+      <a href="#1a" style="background:#fff;border:1px solid #E3DDD2;border-top:3px solid #E8A33B;padding:18px;display:flex;flex-direction:column;gap:6px" style-hover="border-color:#E8A33B">
+        <span style="font:700 16px 'Archivo',sans-serif">Få bedre lyd</span>
+        <span style="font-size:13.5px;line-height:1.45;color:#6B6355">Soundbar, stereo eller surround — riktig neste steg.</span>
+      </a>
+      <a href="#1a" style="background:#fff;border:1px solid #E3DDD2;border-top:3px solid #E8A33B;padding:18px;display:flex;flex-direction:column;gap:6px" style-hover="border-color:#E8A33B">
+        <span style="font:700 16px 'Archivo',sans-serif">Løs et problem</span>
+        <span style="font-size:13.5px;line-height:1.45;color:#6B6355">Ikke lyd? Svart bilde? Feilsøk HDMI, ARC og synk.</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- siste nytt + guider -->
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:32px;padding:8px 36px 32px">
+    <div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid #16130F;padding-bottom:8px;margin-bottom:4px">
+        <span style="font:700 19px 'Archivo',sans-serif">Siste nytt</span>
+        <a href="#1a" style="font-size:13px;font-weight:600;color:#B07A20">Alle nyheter →</a>
+      </div>
+      <a href="#1a" style="display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #E3DDD2;align-items:baseline">
+        <span style="font-size:12.5px;color:#8A8072;flex:none;width:56px;font-variant-numeric:tabular-nums">I dag</span>
+        <span style="font-size:15.5px;font-weight:600;line-height:1.35">LG bekrefter norske priser på årets OLED-serie — G6 starter på 34 990 kroner</span>
+      </a>
+      <a href="#1a" style="display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #E3DDD2;align-items:baseline">
+        <span style="font-size:12.5px;color:#8A8072;flex:none;width:56px;font-variant-numeric:tabular-nums">I går</span>
+        <span style="font-size:15.5px;font-weight:600;line-height:1.35">Apple TV får støtte for DTS:X i neste tvOS-oppdatering</span>
+      </a>
+      <a href="#1a" style="display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #E3DDD2;align-items:baseline">
+        <span style="font-size:12.5px;color:#8A8072;flex:none;width:56px;font-variant-numeric:tabular-nums">9. juli</span>
+        <span style="font-size:15.5px;font-weight:600;line-height:1.35">HDMI 2.2-kabler dukker opp i butikk: dette trenger du å vite før du bytter</span>
+      </a>
+      <a href="#1a" style="display:flex;gap:14px;padding:14px 0;align-items:baseline">
+        <span style="font-size:12.5px;color:#8A8072;flex:none;width:56px;font-variant-numeric:tabular-nums">8. juli</span>
+        <span style="font-size:15.5px;font-weight:600;line-height:1.35">Marantz Cinema 40 får Dirac Live Bass Control via oppdatering</span>
+      </a>
+    </div>
+    <div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid #16130F;padding-bottom:8px;margin-bottom:16px">
+        <span style="font:700 19px 'Archivo',sans-serif">Aktuelle guider</span>
+        <a href="#1a" style="font-size:13px;font-weight:600;color:#B07A20">Alle guider →</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="#1a" style="background:#fff;border:1px solid #E3DDD2;padding:14px 16px;display:flex;flex-direction:column;gap:5px">
+          <span style="font-weight:700;font-size:15.5px;line-height:1.3">Slik plasserer du subwooferen riktig</span>
+          <div style="display:flex;gap:10px;font-size:12px;color:#8A8072"><span style="color:#2E7D46;font-weight:600">● Nybegynner</span><span>Oppdatert juni 2026</span></div>
+        </a>
+        <a href="#1a" style="background:#fff;border:1px solid #E3DDD2;padding:14px 16px;display:flex;flex-direction:column;gap:5px">
+          <span style="font-weight:700;font-size:15.5px;line-height:1.3">Kalibrer TV-en med gratis testbilder</span>
+          <div style="display:flex;gap:10px;font-size:12px;color:#8A8072"><span style="color:#B07A20;font-weight:600">● Middels</span><span>Oppdatert juli 2026</span></div>
+        </a>
+        <a href="#1a" style="background:#fff;border:1px solid #E3DDD2;padding:14px 16px;display:flex;flex-direction:column;gap:5px">
+          <span style="font-weight:700;font-size:15.5px;line-height:1.3">Dirac Live fra A til Å: måling, filter og finjustering</span>
+          <div style="display:flex;gap:10px;font-size:12px;color:#8A8072"><span style="color:#B3452E;font-weight:600">● Avansert</span><span>Oppdatert mai 2026</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- produktområdet (mørk flate) -->
+  <div style="background:#16130F;color:#F5F1EA;padding:30px 36px 34px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px">
+      <span style="font:700 19px 'Archivo',sans-serif">Produktdatabasen</span>
+      <a href="#1a" style="font-size:13px;font-weight:600;color:#E8A33B">Sammenlign produkter →</a>
+    </div>
+    <p style="margin:0 0 18px;font-size:14px;color:rgba(245,241,234,.6);max-width:560px">Spesifikasjoner du kan stole på — med dato for siste verifisering og tydelig kilde.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+      <a href="#1a" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:16px;display:flex;flex-direction:column;gap:4px" style-hover="border-color:#E8A33B">
+        <span style="font:700 15.5px 'Archivo',sans-serif">Projektorer</span>
+        <span style="font-size:12.5px;color:rgba(245,241,234,.55);font-variant-numeric:tabular-nums">64 modeller · oppdatert i dag</span>
+      </a>
+      <a href="#1a" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:16px;display:flex;flex-direction:column;gap:4px" style-hover="border-color:#E8A33B">
+        <span style="font:700 15.5px 'Archivo',sans-serif">AV-receivere</span>
+        <span style="font-size:12.5px;color:rgba(245,241,234,.55);font-variant-numeric:tabular-nums">48 modeller · oppdatert i går</span>
+      </a>
+      <div style="background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.15);padding:16px;display:flex;flex-direction:column;gap:4px">
+        <span style="font:700 15.5px 'Archivo',sans-serif;color:rgba(245,241,234,.4)">TV</span>
+        <span style="font-size:12.5px;color:rgba(245,241,234,.35)">Kommer høsten 2026</span>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.15);padding:16px;display:flex;flex-direction:column;gap:4px">
+        <span style="font:700 15.5px 'Archivo',sans-serif;color:rgba(245,241,234,.4)">Høyttalere</span>
+        <span style="font-size:12.5px;color:rgba(245,241,234,.35)">Kommer høsten 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer strip -->
+  <div style="padding:16px 36px;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#8A8072;background:#F7F4EF;border-top:1px solid #E3DDD2">
+    <span>Lyd · Bilde · Rom · Kilder · Gaming · Ordliste</span>
+    <span>Uavhengig siden 1998</span>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1b LASERLYS (cyan / Space Grotesk) ============ -->
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Laserlys — kjølig cyan · Space Grotesk · tett og datadrevet</div>
+<div class="dv-card" style="width:1200px;background:#F4F6F7;font-family:'Source Sans 3',sans-serif;color:#14181A">
+
+  <!-- header -->
+  <div data-screen-label="1b Forside" style="background:#0F1416;color:#EEF3F4">
+    <div style="display:flex;align-items:center;gap:26px;padding:0 36px;height:60px">
+      <div style="display:flex;align-items:center;gap:9px">
+        <svg width="26" height="17" viewBox="0 0 26 17"><rect x="1" y="1" width="24" height="15" fill="none" stroke="#35B6D4" stroke-width="2"/><rect x="5.5" y="5.5" width="15" height="6" fill="#35B6D4"/></svg>
+        <span style="font:700 18px/1 'Space Grotesk',sans-serif;letter-spacing:-.01em">hjemmekino<span style="color:#35B6D4">.no</span></span>
+      </div>
+      <nav style="display:flex;gap:2px;font:600 13.5px/1 'Space Grotesk',sans-serif">
+        <a href="#1b" style="color:#0F1416;background:#35B6D4;padding:8px 14px;border-radius:4px">Nyheter</a>
+        <a href="#1b" style="color:rgba(238,243,244,.75);padding:8px 14px;border-radius:4px" style-hover="background:rgba(255,255,255,.08)">Guider</a>
+        <a href="#1b" style="color:rgba(238,243,244,.75);padding:8px 14px;border-radius:4px" style-hover="background:rgba(255,255,255,.08)">Produkter</a>
+        <a href="#1b" style="color:rgba(238,243,244,.75);padding:8px 14px;border-radius:4px" style-hover="background:rgba(255,255,255,.08)">Teknologi</a>
+        <a href="#1b" style="color:rgba(238,243,244,.75);padding:8px 14px;border-radius:4px" style-hover="background:rgba(255,255,255,.08)">Ordliste</a>
+      </nav>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:5px;padding:8px 13px;width:250px;font-size:13.5px;color:rgba(238,243,244,.5)">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.2 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Søk: eARC, «beste projektor» …
+      </div>
+    </div>
+  </div>
+
+  <!-- hero: dark band -->
+  <div style="background:#0F1416;color:#EEF3F4;padding:26px 36px 30px;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:30px">
+      <a href="#1b" style="display:block;color:#EEF3F4">
+        <div style="font:600 11px 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#35B6D4;margin-bottom:10px">Hovedsak · Projektorer</div>
+        <h2 style="font:600 34px/1.12 'Space Grotesk',sans-serif;letter-spacing:-.02em;margin:0 0 12px">Sony Bravia Projector 9: laserlys, 3 400 lumen og full HDMI 2.1</h2>
+        <p style="font-size:16px;line-height:1.5;color:rgba(238,243,244,.65);margin:0 0 14px;max-width:520px">Toppmodellen lover referansesvartnivå utenfor kinorommet. Hva er faktisk nytt — og hvem er den for?</p>
+        <div style="font-size:13px;color:rgba(238,243,244,.45);font-variant-numeric:tabular-nums">11.07.2026 · 6 min · Av Redaksjonen</div>
+      </a>
+      <div style="aspect-ratio:16/10;background:linear-gradient(115deg,#12262B,#1C4650 60%,#2A6C7C);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.25);font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.1em">BILDE: PROJEKTOR I ROM</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24px;border-top:1px solid rgba(255,255,255,.1)">
+      <a href="#1b" style="color:#EEF3F4;padding:14px 20px 2px 0;border-right:1px solid rgba(255,255,255,.1)">
+        <div style="font-size:11.5px;color:#35B6D4;font-weight:600;margin-bottom:4px">TEKNOLOGI</div>
+        <div style="font:600 15px/1.35 'Space Grotesk',sans-serif">eARC forklart: derfor får du ikke Atmos fra TV-en</div>
+      </a>
+      <a href="#1b" style="color:#EEF3F4;padding:14px 20px 2px;border-right:1px solid rgba(255,255,255,.1)">
+        <div style="font-size:11.5px;color:#35B6D4;font-weight:600;margin-bottom:4px">GUIDE</div>
+        <div style="font:600 15px/1.35 'Space Grotesk',sans-serif">Riktig lerretstørrelse: regnestykket folk tar feil av</div>
+      </a>
+      <a href="#1b" style="color:#EEF3F4;padding:14px 0 2px 20px">
+        <div style="font-size:11.5px;color:#35B6D4;font-weight:600;margin-bottom:4px">NYHET</div>
+        <div style="font:600 15px/1.35 'Space Grotesk',sans-serif">Denon fornyer receiver-serien: dette betyr navnene</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- start her: compact pills -->
+  <div style="padding:22px 36px;display:flex;gap:12px;align-items:center;border-bottom:1px solid #DFE4E6;background:#fff">
+    <span style="font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5B6A6F;flex:none">Start her →</span>
+    <a href="#1b" style="font-size:14px;font-weight:600;border:1.5px solid #C6D2D6;border-radius:999px;padding:9px 18px" style-hover="border-color:#1E93AE;color:#116B80">Bygg din første hjemmekino</a>
+    <a href="#1b" style="font-size:14px;font-weight:600;border:1.5px solid #C6D2D6;border-radius:999px;padding:9px 18px" style-hover="border-color:#1E93AE;color:#116B80">Velg TV eller projektor</a>
+    <a href="#1b" style="font-size:14px;font-weight:600;border:1.5px solid #C6D2D6;border-radius:999px;padding:9px 18px" style-hover="border-color:#1E93AE;color:#116B80">Få bedre lyd</a>
+    <a href="#1b" style="font-size:14px;font-weight:600;border:1.5px solid #C6D2D6;border-radius:999px;padding:9px 18px" style-hover="border-color:#1E93AE;color:#116B80">Løs et problem</a>
+  </div>
+
+  <!-- 3-col: nytt / guider / produkter -->
+  <div style="display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:28px;padding:26px 36px 32px">
+    <div>
+      <div style="font:600 15px 'Space Grotesk',sans-serif;border-bottom:2px solid #0F1416;padding-bottom:7px;display:flex;justify-content:space-between;align-items:baseline">Siste nytt <a href="#1b" style="font:600 12px 'Source Sans 3',sans-serif;color:#116B80">Alle →</a></div>
+      <a href="#1b" style="display:block;padding:12px 0;border-bottom:1px solid #DFE4E6">
+        <div style="font-size:11.5px;color:#7A878C;font-variant-numeric:tabular-nums;margin-bottom:3px">I DAG · TV</div>
+        <div style="font-size:14.5px;font-weight:600;line-height:1.35">LG bekrefter norske priser på årets OLED-serie</div>
+      </a>
+      <a href="#1b" style="display:block;padding:12px 0;border-bottom:1px solid #DFE4E6">
+        <div style="font-size:11.5px;color:#7A878C;font-variant-numeric:tabular-nums;margin-bottom:3px">I GÅR · STREAMING</div>
+        <div style="font-size:14.5px;font-weight:600;line-height:1.35">Apple TV får støtte for DTS:X i neste tvOS</div>
+      </a>
+      <a href="#1b" style="display:block;padding:12px 0;border-bottom:1px solid #DFE4E6">
+        <div style="font-size:11.5px;color:#7A878C;font-variant-numeric:tabular-nums;margin-bottom:3px">09.07 · KABLER</div>
+        <div style="font-size:14.5px;font-weight:600;line-height:1.35">HDMI 2.2-kabler i butikk: dette må du vite</div>
+      </a>
+      <a href="#1b" style="display:block;padding:12px 0">
+        <div style="font-size:11.5px;color:#7A878C;font-variant-numeric:tabular-nums;margin-bottom:3px">08.07 · RECEIVERE</div>
+        <div style="font-size:14.5px;font-weight:600;line-height:1.35">Marantz Cinema 40 får Dirac Live Bass Control</div>
+      </a>
+    </div>
+    <div>
+      <div style="font:600 15px 'Space Grotesk',sans-serif;border-bottom:2px solid #0F1416;padding-bottom:7px;display:flex;justify-content:space-between;align-items:baseline">Aktuelle guider <a href="#1b" style="font:600 12px 'Source Sans 3',sans-serif;color:#116B80">Alle →</a></div>
+      <a href="#1b" style="display:block;background:#fff;border:1px solid #DFE4E6;border-radius:6px;padding:13px 15px;margin-top:12px">
+        <div style="font-size:14.5px;font-weight:700;line-height:1.3;margin-bottom:5px">Slik plasserer du subwooferen riktig</div>
+        <div style="font-size:11.5px;color:#7A878C"><span style="color:#1F7A3D;font-weight:700">NYBEGYNNER</span> · oppd. jun. 2026</div>
+      </a>
+      <a href="#1b" style="display:block;background:#fff;border:1px solid #DFE4E6;border-radius:6px;padding:13px 15px;margin-top:10px">
+        <div style="font-size:14.5px;font-weight:700;line-height:1.3;margin-bottom:5px">Kalibrer TV-en med gratis testbilder</div>
+        <div style="font-size:11.5px;color:#7A878C"><span style="color:#9A6A12;font-weight:700">MIDDELS</span> · oppd. jul. 2026</div>
+      </a>
+      <a href="#1b" style="display:block;background:#fff;border:1px solid #DFE4E6;border-radius:6px;padding:13px 15px;margin-top:10px">
+        <div style="font-size:14.5px;font-weight:700;line-height:1.3;margin-bottom:5px">Dirac Live fra A til Å</div>
+        <div style="font-size:11.5px;color:#7A878C"><span style="color:#A8422C;font-weight:700">AVANSERT</span> · oppd. mai 2026</div>
+      </a>
+    </div>
+    <div>
+      <div style="font:600 15px 'Space Grotesk',sans-serif;border-bottom:2px solid #0F1416;padding-bottom:7px">Produktdatabasen</div>
+      <a href="#1b" style="display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid #DFE4E6;border-radius:6px;padding:14px 15px;margin-top:12px" style-hover="border-color:#1E93AE">
+        <div><div style="font:600 14.5px 'Space Grotesk',sans-serif">Projektorer</div><div style="font-size:11.5px;color:#7A878C;font-variant-numeric:tabular-nums">64 modeller</div></div>
+        <span style="color:#1E93AE;font-weight:700">→</span>
+      </a>
+      <a href="#1b" style="display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid #DFE4E6;border-radius:6px;padding:14px 15px;margin-top:10px" style-hover="border-color:#1E93AE">
+        <div><div style="font:600 14.5px 'Space Grotesk',sans-serif">AV-receivere</div><div style="font-size:11.5px;color:#7A878C;font-variant-numeric:tabular-nums">48 modeller</div></div>
+        <span style="color:#1E93AE;font-weight:700">→</span>
+      </a>
+      <div style="background:#0F1416;color:#EEF3F4;border-radius:6px;padding:15px;margin-top:10px">
+        <div style="font:600 13.5px 'Space Grotesk',sans-serif;margin-bottom:4px">Sammenlign side ved side</div>
+        <div style="font-size:12.5px;color:rgba(238,243,244,.6);line-height:1.45;margin-bottom:10px">Velg inntil 4 produkter og se bare de faktiske forskjellene.</div>
+        <a href="#1b" style="display:inline-block;font:600 12.5px 'Space Grotesk',sans-serif;background:#35B6D4;color:#0F1416;padding:7px 13px;border-radius:4px">Start sammenligning</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:14px 36px;display:flex;justify-content:space-between;font-size:12px;color:#7A878C;border-top:1px solid #DFE4E6">
+    <span>Lyd · Bilde · Rom · Kilder · Gaming</span><span>Film er best hjemme — siden 1998</span>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1c KINOGLØD (varm rustrød / IBM Plex) ============ -->
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Kinoglød — rustrød wolfram · IBM Plex Sans · rolig magasin</div>
+<div class="dv-card" style="width:1200px;background:#F8F5F2;font-family:'IBM Plex Sans',sans-serif;color:#1B1614">
+
+  <!-- header: light with dark bar -->
+  <div data-screen-label="1c Forside" style="background:#F8F5F2;border-bottom:1px solid #E5DED7">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px 14px">
+      <div>
+        <div style="font:700 26px/1 'IBM Plex Sans',sans-serif;letter-spacing:-.03em">Hjemmekino<span style="color:#BE4B2F">.no</span></div>
+        <div style="font-size:12px;color:#8C8177;margin-top:4px;letter-spacing:.02em">Film er best hjemme · siden 1998</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="display:flex;align-items:center;gap:8px;border:1px solid #D9D1C8;border-radius:999px;padding:9px 16px;width:240px;font-size:13.5px;color:#8C8177;background:#fff">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.2 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Søk …
+        </div>
+        <a href="#1c" style="font-weight:600;font-size:13.5px;background:#1B1614;color:#F8F5F2;padding:10px 18px;border-radius:999px" style-hover="background:#BE4B2F">Start her</a>
+      </div>
+    </div>
+    <nav style="display:flex;gap:30px;padding:0 40px;font-size:14.5px;font-weight:600">
+      <a href="#1c" style="padding:10px 0;border-bottom:3px solid #BE4B2F">Nyheter</a>
+      <a href="#1c" style="padding:10px 0;color:#6E645A;border-bottom:3px solid transparent" style-hover="color:#1B1614">Guider</a>
+      <a href="#1c" style="padding:10px 0;color:#6E645A;border-bottom:3px solid transparent" style-hover="color:#1B1614">Produkter</a>
+      <a href="#1c" style="padding:10px 0;color:#6E645A;border-bottom:3px solid transparent" style-hover="color:#1B1614">Teknologi</a>
+      <a href="#1c" style="padding:10px 0;color:#6E645A;border-bottom:3px solid transparent" style-hover="color:#1B1614">Ordliste</a>
+    </nav>
+  </div>
+
+  <!-- hero split -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;background:#1B1614;color:#F5EFE9">
+    <div style="padding:44px 40px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#E07B5A">Nyhet · Projektorer</span>
+      <h2 style="font:700 32px/1.15 'IBM Plex Sans',sans-serif;letter-spacing:-.02em;margin:0">Sony Bravia Projector 9: laserlys, 3 400 lumen og full HDMI 2.1</h2>
+      <p style="font-size:15.5px;line-height:1.55;color:rgba(245,239,233,.65);margin:0">Toppmodellen lover referansesvartnivå utenfor kinorommet. Vi forklarer hva som faktisk er nytt — og hvem den er for.</p>
+      <div style="display:flex;gap:14px;align-items:center;margin-top:4px">
+        <a href="#1c" style="font-weight:600;font-size:13.5px;background:#BE4B2F;color:#fff;padding:10px 18px;border-radius:999px" style-hover="background:#A63E25">Les saken</a>
+        <span style="font-size:12.5px;color:rgba(245,239,233,.45)">6 min · 11. juli 2026</span>
+      </div>
+    </div>
+    <div style="background:linear-gradient(160deg,#3A2A22,#6B4433 70%,#8F5A3C);min-height:340px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.25);font-size:12px;font-weight:600;letter-spacing:.1em">BILDE: PROJEKTOR / KINOROM</div>
+  </div>
+
+  <!-- start her -->
+  <div style="padding:30px 40px 6px">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <a href="#1c" style="display:flex;flex-direction:column;gap:5px;padding:16px 18px;background:#fff;border:1px solid #E5DED7;border-radius:10px" style-hover="border-color:#BE4B2F">
+        <span style="font-size:20px">01</span>
+        <span style="font-weight:700;font-size:15px">Bygg din første hjemmekino</span>
+        <span style="font-size:13px;color:#6E645A;line-height:1.4">Fra tom stue til fungerende anlegg.</span>
+      </a>
+      <a href="#1c" style="display:flex;flex-direction:column;gap:5px;padding:16px 18px;background:#fff;border:1px solid #E5DED7;border-radius:10px" style-hover="border-color:#BE4B2F">
+        <span style="font-size:20px">02</span>
+        <span style="font-weight:700;font-size:15px">Velg TV eller projektor</span>
+        <span style="font-size:13px;color:#6E645A;line-height:1.4">Riktig valg for rom og budsjett.</span>
+      </a>
+      <a href="#1c" style="display:flex;flex-direction:column;gap:5px;padding:16px 18px;background:#fff;border:1px solid #E5DED7;border-radius:10px" style-hover="border-color:#BE4B2F">
+        <span style="font-size:20px">03</span>
+        <span style="font-weight:700;font-size:15px">Få bedre lyd</span>
+        <span style="font-size:13px;color:#6E645A;line-height:1.4">Soundbar, stereo eller surround.</span>
+      </a>
+      <a href="#1c" style="display:flex;flex-direction:column;gap:5px;padding:16px 18px;background:#fff;border:1px solid #E5DED7;border-radius:10px" style-hover="border-color:#BE4B2F">
+        <span style="font-size:20px">04</span>
+        <span style="font-weight:700;font-size:15px">Løs et problem</span>
+        <span style="font-size:13px;color:#6E645A;line-height:1.4">Feilsøk HDMI, lyd og synk.</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- nytt + guider -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:28px 40px 34px">
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#BE4B2F;margin-bottom:12px">Siste nytt</div>
+      <a href="#1c" style="display:block;padding:13px 0;border-top:1px solid #E5DED7">
+        <div style="font-size:15px;font-weight:600;line-height:1.35;margin-bottom:3px">LG bekrefter norske priser på årets OLED-serie</div>
+        <div style="font-size:12.5px;color:#8C8177">TV · i dag</div>
+      </a>
+      <a href="#1c" style="display:block;padding:13px 0;border-top:1px solid #E5DED7">
+        <div style="font-size:15px;font-weight:600;line-height:1.35;margin-bottom:3px">Apple TV får støtte for DTS:X i neste tvOS-oppdatering</div>
+        <div style="font-size:12.5px;color:#8C8177">Streaming · i går</div>
+      </a>
+      <a href="#1c" style="display:block;padding:13px 0;border-top:1px solid #E5DED7;border-bottom:1px solid #E5DED7">
+        <div style="font-size:15px;font-weight:600;line-height:1.35;margin-bottom:3px">HDMI 2.2-kabler dukker opp i butikk</div>
+        <div style="font-size:12.5px;color:#8C8177">Kabler · 9. juli</div>
+      </a>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#BE4B2F;margin-bottom:12px">Aktuelle guider</div>
+      <a href="#1c" style="display:flex;gap:14px;padding:12px 0;border-top:1px solid #E5DED7;align-items:center">
+        <div style="width:74px;height:52px;border-radius:8px;background:linear-gradient(135deg,#4A3A30,#7A5A44);flex:none"></div>
+        <div><div style="font-size:15px;font-weight:600;line-height:1.3">Slik plasserer du subwooferen riktig</div><div style="font-size:12.5px;color:#8C8177">Nybegynner · oppd. juni 2026</div></div>
+      </a>
+      <a href="#1c" style="display:flex;gap:14px;padding:12px 0;border-top:1px solid #E5DED7;align-items:center">
+        <div style="width:74px;height:52px;border-radius:8px;background:linear-gradient(135deg,#3A3230,#6A5A50);flex:none"></div>
+        <div><div style="font-size:15px;font-weight:600;line-height:1.3">Kalibrer TV-en med gratis testbilder</div><div style="font-size:12.5px;color:#8C8177">Middels · oppd. juli 2026</div></div>
+      </a>
+      <a href="#1c" style="display:flex;gap:14px;padding:12px 0;border-top:1px solid #E5DED7;border-bottom:1px solid #E5DED7;align-items:center">
+        <div style="width:74px;height:52px;border-radius:8px;background:linear-gradient(135deg,#44342C,#8F6A4C);flex:none"></div>
+        <div><div style="font-size:15px;font-weight:600;line-height:1.3">Dirac Live fra A til Å</div><div style="font-size:12.5px;color:#8C8177">Avansert · oppd. mai 2026</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div style="padding:15px 40px;display:flex;justify-content:space-between;font-size:12.5px;color:#8C8177;background:#1B1614;color:rgba(245,239,233,.55)">
+    <span>Lyd · Bilde · Rom · Kilder · Gaming · Ordliste</span><span>Uavhengig norsk kunnskapsplattform</span>
+  </div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Foreslå gjerne: «gå videre med <a class="dv-oid" href="#1a">1a</a>» · «<a class="dv-oid" href="#1b">1b</a> men med amber fra <a class="dv-oid" href="#1a">1a</a>» · «vis flere signalfarger»</p>
+</section>
+
+</x-dc>
+</body>
+</html>

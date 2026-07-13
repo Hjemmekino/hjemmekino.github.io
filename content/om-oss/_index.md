@@ -23,6 +23,14 @@ Vi ønsker å gjøre hjemmekino tilgjengelig for alle – fra nybegynnere som vu
 
 Hjemmekino.no drives av entusiaster med mange års erfaring innen hjemmekino, lyd og bildeteknologi. Vi brenner for å dele kunnskap og hjelpe andre med å få mest mulig ut av utstyret sitt.
 
+## Redaksjonelle prinsipper
+
+- Redaksjonelle vurderinger skal være uavhengige av produsenter, distributører og forhandlere.
+- Sponset innhold og affiliatelenker skal merkes tydelig før artikkelen begynner.
+- Produktdata fra produsenter skal skilles fra egne målinger og tester.
+- Publiseringsdato, faglig oppdateringsdato og kilder skal være synlige.
+- Vesentlige feil skal rettes åpent, og leserne skal enkelt kunne melde inn korrigeringer.
+
 ## Kontakt
 
 Har du spørsmål, tilbakemeldinger eller ønsker om innhold? [Ta kontakt med oss](/kontakt/).

@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-header"><div class="breadcrumbs"><a href="/">Forsiden</a> / Sammenligning</div><h1 class="section-title">Sammenlign produkter</h1><p class="section-lead">Se de viktigste forskjellene side ved side. Manglende data vises som «Ikke oppgitt» – aldri som et automatisk nei.</p></header>
+  <div class="compare-page" data-compare-page>
+    <div class="compare-controls"><span class="meta" id="compare-summary">Ingen produkter valgt</span><label class="toggle"><input type="checkbox" data-only-diff checked> Vis bare forskjeller</label></div>
+    <div id="compare-content"><div class="card empty-state"><h2>Velg produkter først</h2><p>Gå til produktdatabasen og legg til opptil fire produkter i samme kategori.</p><a class="button button--accent" href="/produkter/">Finn produkter</a></div></div>
+  </div>
+</div>
+{{ end }}
+{{ define "scripts" }}<script src="{{ "js/compare.js" | relURL }}" defer></script>{{ end }}

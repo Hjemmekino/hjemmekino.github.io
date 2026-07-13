@@ -1,0 +1,17 @@
+[
+{{- range $i, $p := .RegularPages -}}{{ if $i }},{{ end }}{
+  "id": {{ $p.File.ContentBaseName | jsonify }},
+  "name": {{ $p.Title | jsonify }},
+  "url": {{ $p.RelPermalink | jsonify }},
+  "category": {{ $p.Params.category | jsonify }},
+  "categoryLabel": {{ $p.Params.categoryLabel | jsonify }},
+  "brand": {{ $p.Params.brand | jsonify }},
+  "status": {{ $p.Params.status | jsonify }},
+  "statusLabel": {{ $p.Params.statusLabel | jsonify }},
+  "year": {{ $p.Params.modelYear | jsonify }},
+  "verified": {{ $p.Params.verified | jsonify }},
+  "price": {{ $p.Params.price | jsonify }},
+  "image": {{ $p.Params.image | jsonify }},
+  "specs": {{ $p.Params.specs | jsonify }}
+}{{- end -}}
+]

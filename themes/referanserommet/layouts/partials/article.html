@@ -1,0 +1,37 @@
+{{ $isTech := eq .Section "teknologi" }}
+{{ $isNews := eq .Section "nyheter" }}
+{{ $isGuide := or (eq .Section "guide") (eq .Section "nybegynner") (eq .Section "feilsoking") (eq .Section "oppsett-og-kalibrering") (eq .Section "kjopsrad") }}
+<article>
+  <header class="article-hero{{ if $isTech }} article-hero--dark{{ end }}">
+    <div class="container article-hero__inner">
+      <div class="breadcrumbs"><a href="/">Forsiden</a> / <a href="/{{ .Section }}/">{{ if $isTech }}Teknologi{{ else if $isNews }}Nyheter{{ else if $isGuide }}Guider{{ else }}{{ .Parent.Title }}{{ end }}</a></div>
+      <span class="badge">{{ if $isTech }}Teknologi{{ else if $isNews }}Nyhet{{ else }}Guide{{ end }}{{ with .Params.topic }} · {{ . }}{{ end }}</span>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="article-lead">{{ . }}</p>{{ end }}
+      <div class="article-meta">
+        <span>Av {{ with .Params.author }}{{ . }}{{ else }}Hjemmekino.no{{ end }}</span>
+        {{ with .Date }}<span>Publisert {{ .Format "2. januar 2006" }}</span>{{ end }}
+        <span>{{ if .Params.updated }}Sist faglig oppdatert {{ .Params.updated }}{{ else }}Faglig gjennomgått{{ end }}</span>
+        {{ with .ReadingTime }}<span>{{ . }} min lesetid</span>{{ end }}
+      </div>
+    </div>
+  </header>
+  {{ with (partial "image.html" .) }}
+    {{ $img := . }}
+    <figure class="article-cover"><img src="{{ $img }}" alt="" width="1600" height="900"><figcaption>Illustrasjonsbilde</figcaption></figure>
+  {{ end }}
+  <div class="container article-layout{{ if or $isNews $isTech }} article-layout--center{{ end }}">
+    {{ if and (not $isNews) (not $isTech) (gt (len .TableOfContents) 80) }}
+      <aside class="article-toc" data-toc><div class="article-toc__label" data-toc-toggle>På denne siden</div>{{ .TableOfContents }}</aside>
+    {{ end }}
+    <div class="prose">
+      {{ if $isNews }}<div class="notice notice--accent"><div class="notice__title">Hvorfor dette er viktig</div><p>{{ with .Params.why }}{{ . }}{{ else }}Vi setter saken i sammenheng og forklarer hva den betyr for hjemmekinoen din.{{ end }}</p></div>{{ end }}
+      {{ .Content }}
+      <footer class="article-footer">
+        <h2>Neste steg</h2>
+        <p>Utforsk flere <a href="/guide/">praktiske guider</a>, slå opp begreper i <a href="/ordliste/">ordlisten</a>, eller finn relaterte produkter i <a href="/produkter/">produktdatabasen</a>.</p>
+        <a class="report-error" href="/kontakt/">Meld inn en feil eller foreslå en oppdatering →</a>
+      </footer>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+--bg:#F8F5F2;--surface:#FFFFFF;--surface2:#F1EBE5;--ink:#1B1614;--muted:#6E645A;--faint:#8C8177;--line:#E5DED7;
+--accent:#BE4B2F;--accent-hover:#A63E25;--accent-soft:#F6E6DF;--accent-text:#A83F24;--on-accent:#FFFFFF;
+--band:#1B1614;--band-ink:#F5EFE9;--band-muted:#B0A79D;--band-line:#3A322C;--band-accent:#E07B5A;
+--ok:#2E7D46;--warn:#9A6A12;--err:#A8422C;--info:#2F6B8A;--shadow:0 2px 10px rgba(27,22,20,.06)}
+body[data-theme="dark"]{--bg:#161210;--surface:#211C18;--surface2:#2A241F;--ink:#F0EAE3;--muted:#B5AA9E;--faint:#8C8177;--line:#372F29;
+--accent:#E07B5A;--accent-hover:#EA9075;--accent-soft:#3A2A22;--accent-text:#E58A6B;--on-accent:#1B1614;
+--band:#0F0C0A;--band-ink:#F5EFE9;--band-muted:#A79D92;--band-line:#332C26;--band-accent:#E07B5A;
+--ok:#5BAE77;--warn:#C99A3F;--err:#D96B50;--info:#6FA8C7;--shadow:0 2px 10px rgba(0,0,0,.35)}
+a{color:var(--accent-text);text-decoration:none}
+a:hover{color:var(--accent-hover)}
+button{font-family:'IBM Plex Sans',sans-serif}
+input,select{font-family:'IBM Plex Sans',sans-serif;color:var(--ink)}
+::placeholder{color:var(--faint)}
+</style>
+</helmet>
+
+<!-- ===================== HEADER ===================== -->
+<div style="background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50">
+  <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 32px 10px">
+    <div onClick="{{ goHome }}" style="cursor:pointer">
+      <div style="font-size:24px;font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--ink)">Hjemmekino<span style="color:var(--accent)">.no</span></div>
+      <div style="font-size:11.5px;color:var(--faint);margin-top:3px;letter-spacing:.02em">Film er best hjemme · siden 1998</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div onClick="{{ goSok }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 16px;width:220px;font-size:13.5px;color:var(--faint);background:var(--surface);cursor:pointer" style-hover="border-color:var(--accent)">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11l3.2 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        Søk i alt innhold …
+      </div>
+      <button onClick="{{ toggleTheme }}" title="Bytt lys/mørk modus" style="width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--accent);color:var(--accent-text)">{{ themeIcon }}</button>
+      <button onClick="{{ goStartHer }}" style="font-weight:600;font-size:13.5px;background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;border:none;cursor:pointer" style-hover="background:var(--accent);color:var(--on-accent)">Start her</button>
+    </div>
+  </div>
+  <nav style="max-width:1240px;margin:0 auto;display:flex;gap:28px;padding:0 32px">
+    <sc-for list="{{ navItems }}" as="nv" hint-placeholder-count="5">
+      <span onClick="{{ nv.go }}" style="padding:10px 0;font-size:14.5px;font-weight:600;cursor:pointer;border-bottom:3px solid {{ nv.bc }};color:{{ nv.col }}">{{ nv.label }}</span>
+    </sc-for>
+  </nav>
+</div>
+
+<!-- ===================== HOME ===================== -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div data-screen-label="Forside">
+
+  <!-- hero -->
+  <div style="background:var(--band);color:var(--band-ink)">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr">
+      <div style="padding:46px 32px 46px 32px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--band-accent)">Nyhet · Projektorer</span>
+        <h1 style="font-size:33px;line-height:1.15;letter-spacing:-.02em;margin:0;font-weight:700">Sony Bravia Projector 9: laserlys, 3 400 lumen og full HDMI 2.1</h1>
+        <p style="font-size:15.5px;line-height:1.55;color:var(--band-muted);margin:0">Toppmodellen lover referansesvartnivå utenfor kinorommet. Vi forklarer hva som faktisk er nytt — og hvem den er for.</p>
+        <div style="display:flex;gap:14px;align-items:center;margin-top:4px">
+          <button onClick="{{ goNyhetArtikkel }}" style="font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:10px 20px;border-radius:999px;border:none;cursor:pointer" style-hover="background:var(--accent-hover)">Les saken</button>
+          <span style="font-size:12.5px;color:var(--band-muted)">6 min · 11. juli 2026 · Av Redaksjonen</span>
+        </div>
+      </div>
+      <div style="background:linear-gradient(160deg,#3A2A22,#6B4433 70%,#8F5A3C);min-height:330px;display:flex;align-items:flex-end;justify-content:flex-end;color:rgba(255,255,255,.35);font-size:11px;letter-spacing:.08em;padding:12px 16px">FOTO: SONY</div>
+    </div>
+    <div style="border-top:1px solid var(--band-line)">
+      <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);padding:0 32px">
+        <sc-for list="{{ heroSecondary }}" as="h" hint-placeholder-count="3">
+          <div onClick="{{ h.open }}" style="padding:16px 22px 18px 0;cursor:pointer;border-right:1px solid var(--band-line)" style-hover="background:rgba(255,255,255,.03)">
+            <div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--band-accent);margin-bottom:5px;text-transform:uppercase">{{ h.kicker }}</div>
+            <div style="font-size:15px;font-weight:600;line-height:1.35;color:var(--band-ink)">{{ h.title }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- start her -->
+  <div style="max-width:1240px;margin:0 auto;padding:32px 32px 4px">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <sc-for list="{{ startHer }}" as="sh" hint-placeholder-count="4">
+        <div onClick="{{ sh.go }}" style="display:flex;flex-direction:column;gap:5px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:10px;cursor:pointer;box-shadow:var(--shadow)" style-hover="border-color:var(--accent)">
+          <span style="font-size:19px;color:var(--faint);font-family:'IBM Plex Mono',monospace">{{ sh.num }}</span>
+          <span style="font-weight:700;font-size:15.5px;color:var(--ink)">{{ sh.title }}</span>
+          <span style="font-size:13px;color:var(--muted);line-height:1.45">{{ sh.desc }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- nytt + guider -->
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:30px 32px 36px">
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text)">Siste nytt</span>
+        <span onClick="{{ goNyheter }}" style="font-size:13px;font-weight:600;color:var(--accent-text);cursor:pointer">Alle nyheter →</span>
+      </div>
+      <sc-for list="{{ newsHome }}" as="n" hint-placeholder-count="5">
+        <div onClick="{{ n.open }}" style="padding:13px 0;border-top:1px solid var(--line);cursor:pointer">
+          <div style="font-size:15px;font-weight:600;line-height:1.35;margin-bottom:3px;color:var(--ink)">{{ n.title }}</div>
+          <div style="font-size:12.5px;color:var(--faint)">{{ n.cat }} · {{ n.date }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text)">Aktuelle guider</span>
+        <span onClick="{{ goGuider }}" style="font-size:13px;font-weight:600;color:var(--accent-text);cursor:pointer">Alle guider →</span>
+      </div>
+      <sc-for list="{{ guidesHome }}" as="g" hint-placeholder-count="4">
+        <div onClick="{{ g.open }}" style="display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--line);align-items:center;cursor:pointer">
+          <div style="width:74px;height:52px;border-radius:8px;background:{{ g.thumb }};flex:none"></div>
+          <div>
+            <div style="font-size:15px;font-weight:600;line-height:1.3;color:var(--ink)">{{ g.title }}</div>
+            <div style="font-size:12.5px;color:var(--faint);margin-top:2px"><span style="color:{{ g.levelColor }};font-weight:600">● {{ g.level }}</span> · Oppdatert {{ g.updated }} · {{ g.time }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- produktområdet -->
+  <div style="background:var(--surface2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div style="max-width:1240px;margin:0 auto;padding:32px 32px 36px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+        <span style="font-size:20px;font-weight:700;letter-spacing:-.01em">Produktdatabasen</span>
+        <span onClick="{{ goSammenlign }}" style="font-size:13px;font-weight:600;color:var(--accent-text);cursor:pointer">Start sammenligning →</span>
+      </div>
+      <p style="margin:0 0 20px;font-size:14px;color:var(--muted);max-width:560px">Spesifikasjoner du kan stole på — med dato for siste verifisering og tydelig kilde.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+        <div onClick="{{ goProdukterProjektor }}" style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;cursor:pointer;box-shadow:var(--shadow)" style-hover="border-color:var(--accent)">
+          <div style="font-weight:700;font-size:15.5px">Projektorer</div>
+          <div style="font-size:12.5px;color:var(--faint);margin-top:3px;font-variant-numeric:tabular-nums">{{ countProj }} modeller · oppdatert i dag</div>
+        </div>
+        <div onClick="{{ goProdukterReceiver }}" style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;cursor:pointer;box-shadow:var(--shadow)" style-hover="border-color:var(--accent)">
+          <div style="font-weight:700;font-size:15.5px">AV-receivere</div>
+          <div style="font-size:12.5px;color:var(--faint);margin-top:3px;font-variant-numeric:tabular-nums">{{ countRec }} modeller · oppdatert i går</div>
+        </div>
+        <div style="border:1px dashed var(--line);border-radius:10px;padding:18px">
+          <div style="font-weight:700;font-size:15.5px;color:var(--faint)">TV</div>
+          <div style="font-size:12.5px;color:var(--faint);margin-top:3px">Kommer høsten 2026</div>
+        </div>
+        <div style="border:1px dashed var(--line);border-radius:10px;padding:18px">
+          <div style="font-weight:700;font-size:15.5px;color:var(--faint)">Høyttalere</div>
+          <div style="font-size:12.5px;color:var(--faint);margin-top:3px">Kommer høsten 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- teknologi forklart -->
+  <div style="max-width:1240px;margin:0 auto;padding:34px 32px 8px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text)">Teknologi forklart</span>
+      <span onClick="{{ goTeknologi }}" style="font-size:13px;font-weight:600;color:var(--accent-text);cursor:pointer">Alle teknologiartikler →</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <sc-for list="{{ techHome }}" as="t" hint-placeholder-count="3">
+        <div onClick="{{ t.open }}" style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;cursor:pointer;box-shadow:var(--shadow)" style-hover="border-color:var(--accent)">
+          <div style="width:38px;height:26px;border:2px solid var(--accent);border-radius:4px;margin-bottom:12px;display:flex;align-items:center;justify-content:center"><div style="width:16px;height:8px;background:var(--accent);border-radius:1px"></div></div>
+          <div style="font-weight:700;font-size:15.5px;line-height:1.3;margin-bottom:6px;color:var(--ink)">{{ t.title }}</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.45">{{ t.desc }}</div>
+          <div style="font-size:12px;color:var(--faint);margin-top:10px">Oppdatert {{ t.updated }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- temanavigasjon -->
+  <div style="max-width:1240px;margin:0 auto;padding:32px 32px 40px">
+    <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:14px">Utforsk etter emne</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px">
+      <sc-for list="{{ emneList }}" as="e" hint-placeholder-count="5">
+        <div onClick="{{ e.open }}" style="border:1px solid var(--line);border-radius:10px;padding:16px;cursor:pointer;background:var(--surface)" style-hover="border-color:var(--accent)">
+          <div style="font-weight:700;font-size:15px;margin-bottom:4px;color:var(--ink)">{{ e.name }}</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.45">{{ e.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- nyhetsbrev + transparens -->
+  <div style="border-top:1px solid var(--line)">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:34px 32px 40px">
+      <div>
+        <div style="font-size:18px;font-weight:700;margin-bottom:6px">Nyhetsbrevet — én e-post i uka</div>
+        <div style="font-size:14px;color:var(--muted);line-height:1.5;margin-bottom:14px">Ukens viktigste nyheter, én guide verdt tiden din, og produktdata som er verifisert på nytt.</div>
+        <div style="display:flex;gap:8px">
+          <input placeholder="din@epost.no" style="flex:1;max-width:280px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:14px;background:var(--surface);outline:none">
+          <button style="font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:10px 18px;border-radius:999px;border:none;cursor:pointer" style-hover="background:var(--accent-hover)">Meld meg på</button>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:18px;font-weight:700;margin-bottom:6px">Uavhengig siden 1998</div>
+        <div style="font-size:14px;color:var(--muted);line-height:1.55">Redaksjonelt innhold er aldri betalt. Sponset innhold og affiliatelenker merkes tydelig før du begynner å lese. <a href="#om">Les prinsippene våre</a> eller <a href="#tips">tips redaksjonen</a>.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== NYHETER OVERSIKT ===================== -->
+<sc-if value="{{ isNyheter }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Nyheter" style="max-width:1240px;margin:0 auto;padding:34px 32px 50px;min-height:60vh">
+  <div style="font-size:12.5px;color:var(--faint);margin-bottom:8px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / Nyheter</div>
+  <h1 style="font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0 0 6px">Nyheter</h1>
+  <p style="font-size:15px;color:var(--muted);margin:0 0 18px;max-width:620px">Produktlanseringer, teknologi og bransjenytt — alltid med kontekst og datostempling.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px">
+    <sc-for list="{{ newsCats }}" as="c" hint-placeholder-count="6">
+      <span onClick="{{ c.set }}" style="font-size:13px;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid var(--line);cursor:pointer;background:{{ c.bg }};color:{{ c.col }}" style-hover="border-color:var(--accent)">{{ c.label }}</span>
+    </sc-for>
+  </div>
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:40px">
+    <div>
+      <sc-for list="{{ allNews }}" as="n" hint-placeholder-count="6">
+        <div onClick="{{ n.open }}" style="padding:18px 0;border-top:1px solid var(--line);cursor:pointer">
+          <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:5px">{{ n.cat }} · {{ n.date }}</div>
+          <div style="font-size:18px;font-weight:700;line-height:1.3;color:var(--ink)" style-hover="color:var(--accent-text)">{{ n.title }}</div>
+          <div style="font-size:14px;color:var(--muted);margin-top:5px;line-height:1.5">{{ n.lead }}</div>
+        </div>
+      </sc-for>
+      <button style="margin-top:18px;font-weight:600;font-size:13.5px;background:var(--surface);color:var(--ink);padding:10px 22px;border-radius:999px;border:1px solid var(--line);cursor:pointer" style-hover="border-color:var(--accent)">Last flere saker</button>
+    </div>
+    <div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:var(--shadow)">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px">Hvorfor dette er viktig</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.55">Alle nyhetssaker hos oss inneholder en kontekstboks som forklarer hva saken betyr for deg — ikke bare hva produsenten sier.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin-top:14px;box-shadow:var(--shadow)">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px">Annonse</div>
+        <div style="height:180px;border:1px dashed var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--faint)">Reservert annonseflate</div>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== GUIDER OVERSIKT ===================== -->
+<sc-if value="{{ isGuider }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Guider" style="max-width:1240px;margin:0 auto;padding:34px 32px 50px;min-height:60vh">
+  <div style="font-size:12.5px;color:var(--faint);margin-bottom:8px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / Guider</div>
+  <h1 style="font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0 0 6px">Guider</h1>
+  <p style="font-size:15px;color:var(--muted);margin:0 0 26px;max-width:620px">Praktisk hjelp til å velge, bygge, koble opp og feilsøke — merket med nivå og sist oppdatert.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+    <sc-for list="{{ allGuides }}" as="g" hint-placeholder-count="6">
+      <div onClick="{{ g.open }}" style="background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow)" style-hover="border-color:var(--accent)">
+        <div style="height:120px;background:{{ g.thumb }}"></div>
+        <div style="padding:16px 18px 18px">
+          <div style="font-size:16px;font-weight:700;line-height:1.3;margin-bottom:8px;color:var(--ink)">{{ g.title }}</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:10px">{{ g.desc }}</div>
+          <div style="font-size:12px;color:var(--faint)"><span style="color:{{ g.levelColor }};font-weight:600">● {{ g.level }}</span> · {{ g.time }} · Oppdatert {{ g.updated }}</div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== TEKNOLOGI OVERSIKT ===================== -->
+<sc-if value="{{ isTeknologi }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Teknologi" style="max-width:1240px;margin:0 auto;padding:34px 32px 50px;min-height:60vh">
+  <div style="font-size:12.5px;color:var(--faint);margin-bottom:8px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / Teknologi</div>
+  <h1 style="font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0 0 6px">Teknologi forklart</h1>
+  <p style="font-size:15px;color:var(--muted);margin:0 0 26px;max-width:620px">Referanseartikler om standarder, formater og teknologier — uavhengig av enkeltprodukter.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <sc-for list="{{ allTech }}" as="t" hint-placeholder-count="4">
+      <div onClick="{{ t.open }}" style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;cursor:pointer;box-shadow:var(--shadow)" style-hover="border-color:var(--accent)">
+        <div style="width:38px;height:26px;border:2px solid var(--accent);border-radius:4px;margin-bottom:12px;display:flex;align-items:center;justify-content:center"><div style="width:16px;height:8px;background:var(--accent);border-radius:1px"></div></div>
+        <div style="font-size:17px;font-weight:700;line-height:1.3;margin-bottom:7px;color:var(--ink)">{{ t.title }}</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.5">{{ t.desc }}</div>
+        <div style="font-size:12px;color:var(--faint);margin-top:10px">Oppdatert {{ t.updated }}</div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="margin-top:28px;background:var(--band);color:var(--band-ink);border-radius:10px;padding:24px 26px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <div style="font-size:17px;font-weight:700;margin-bottom:4px">Ordlisten: {{ glossaryCount }}00+ begreper forklart</div>
+      <div style="font-size:13.5px;color:var(--band-muted)">Fra ALLM til tone mapping — én setning først, detaljer om du vil.</div>
+    </div>
+    <button onClick="{{ goOrdliste }}" style="font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:10px 20px;border-radius:999px;border:none;cursor:pointer;flex:none" style-hover="background:var(--accent-hover)">Åpne ordlisten</button>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== ORDLISTE ===================== -->
+<sc-if value="{{ isOrdliste }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Ordliste" style="max-width:1240px;margin:0 auto;padding:34px 32px 50px;min-height:60vh">
+  <div style="font-size:12.5px;color:var(--faint);margin-bottom:8px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / Ordliste</div>
+  <h1 style="font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0 0 6px">Ordliste</h1>
+  <p style="font-size:15px;color:var(--muted);margin:0 0 26px;max-width:620px">Kort definisjon først — så kan du fordype deg via relaterte guider og teknologiartikler.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <sc-for list="{{ allGlossary }}" as="g" hint-placeholder-count="6">
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px">
+        <div style="font-size:16px;font-weight:700;margin-bottom:5px;color:var(--ink)">{{ g.term }}</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.5">{{ g.def }}</div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== PRODUKTOVERSIKT ===================== -->
+<sc-if value="{{ isProdukter }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Produktoversikt" style="max-width:1240px;margin:0 auto;padding:34px 32px 70px;min-height:60vh">
+  <div style="font-size:12.5px;color:var(--faint);margin-bottom:8px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / Produkter</div>
+  <h1 style="font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0 0 16px">Produkter</h1>
+  <div style="display:flex;gap:26px;border-bottom:1px solid var(--line);margin-bottom:20px">
+    <span onClick="{{ setCatProj }}" style="padding:8px 0 10px;font-size:15px;font-weight:600;cursor:pointer;border-bottom:3px solid {{ catProjStyle }};color:{{ catProjCol }}">Projektorer</span>
+    <span onClick="{{ setCatRec }}" style="padding:8px 0 10px;font-size:15px;font-weight:600;cursor:pointer;border-bottom:3px solid {{ catRecStyle }};color:{{ catRecCol }}">AV-receivere</span>
+  </div>
+  <div style="display:grid;grid-template-columns:250px 1fr;gap:32px">
+    <!-- filterpanel -->
+    <div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow)">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px">Merke</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+          <sc-for list="{{ brands }}" as="b" hint-placeholder-count="4">
+            <span onClick="{{ b.set }}" style="font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:999px;border:1px solid var(--line);cursor:pointer;background:{{ b.bg }};color:{{ b.col }}">{{ b.label }}</span>
+          </sc-for>
+        </div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:8px">Status</div>
+        <select onChange="{{ setStatus }}" value="{{ statusVal }}" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:13.5px;background:var(--surface);margin-bottom:18px">
+          <option value="Alle">Alle</option><option value="Aktiv">Aktiv</option><option value="Kommende">Kommende</option><option value="Utgått">Utgått</option>
+        </select>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:8px">Sortering</div>
+        <select onChange="{{ setSort }}" value="{{ sortVal }}" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:13.5px;background:var(--surface)">
+          <option value="relevans">Relevans</option><option value="nyeste">Nyeste først</option><option value="prisLav">Pris: lav–høy</option><option value="prisHoy">Pris: høy–lav</option>
+        </select>
+        <sc-if value="{{ hasActiveFilters }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ resetFilters }}" style="margin-top:16px;font-size:13px;font-weight:600;color:var(--accent-text);cursor:pointer">Nullstill filtre</div>
+        </sc-if>
+      </div>
+      <div style="font-size:12px;color:var(--faint);line-height:1.5;margin-top:12px;padding:0 4px">Spesifikasjoner er produsentoppgitte med mindre annet er merket. Verifiseringsdato vises på hvert produkt.</div>
+    </div>
+    <!-- resultater -->
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+        <span style="font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums"><b style="color:var(--ink)">{{ prodCount }}</b> {{ catLabel }}</span>
+        <sc-for list="{{ activeFilters }}" as="f" hint-placeholder-count="0">
+          <span onClick="{{ f.clear }}" style="font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent-text);cursor:pointer">{{ f.label }} ✕</span>
+        </sc-for>
+      </div>
+      <sc-for list="{{ prodList }}" as="p" hint-placeholder-count="5">
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px;display:flex;gap:20px;align-items:center;box-shadow:var(--shadow)">
+          <div onClick="{{ p.open }}" style="width:110px;height:74px;border-radius:8px;background:var(--surface2);flex:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:10px;letter-spacing:.06em">PRODUKTBILDE</div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:3px">
+              <span onClick="{{ p.open }}" style="font-size:16.5px;font-weight:700;color:var(--ink);cursor:pointer" style-hover="color:var(--accent-text)">{{ p.name }}</span>
+              <span style="font-size:11.5px;font-weight:600;color:{{ p.statusColor }}">● {{ p.status }}</span>
+            </div>
+            <div style="font-size:13px;color:var(--muted);line-height:1.45;max-width:520px">{{ p.short }}</div>
+            <div style="font-size:12px;color:var(--faint);margin-top:5px;font-variant-numeric:tabular-nums">Modellår {{ p.year }} · Spesifikasjoner verifisert {{ p.verified }}</div>
+          </div>
+          <div style="text-align:right;flex:none;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+            <div>
+              <div style="font-size:16px;font-weight:700;font-variant-numeric:tabular-nums">{{ p.price }}</div>
+              <div style="font-size:11.5px;color:var(--faint)">Veil. ({{ p.priceDate }})</div>
+            </div>
+            <button onClick="{{ p.toggle }}" style="font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:{{ p.cmpBg }};color:{{ p.cmpCol }};cursor:pointer" style-hover="border-color:var(--accent)">{{ p.cmpLabel }}</button>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== PRODUKTSIDE ===================== -->
+<sc-if value="{{ isProdukt }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Produktside" style="max-width:1240px;margin:0 auto;padding:34px 32px 70px;min-height:60vh">
+  <div style="font-size:12.5px;color:var(--faint);margin-bottom:14px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / <span onClick="{{ goProdukterProjektor }}" style="cursor:pointer;color:var(--accent-text)">Produkter</span> / {{ curCatLabel }} / {{ cur.name }}</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:36px">
+    <div style="aspect-ratio:4/3;background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:11px;letter-spacing:.08em">PRODUKTBILDE · NØYTRAL BAKGRUNN</div>
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)">{{ curCatLabel }}</span>
+        <span style="font-size:11.5px;font-weight:600;color:{{ cur.statusColor }}">● {{ cur.status }} · {{ cur.year }}</span>
+      </div>
+      <h1 style="font-size:28px;font-weight:700;letter-spacing:-.02em;margin:0 0 12px">{{ cur.name }}</h1>
+      <div style="background:var(--accent-soft);border-radius:10px;padding:16px 18px;margin-bottom:16px">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:6px">Kort fortalt</div>
+        <div style="font-size:14.5px;line-height:1.55;color:var(--ink)">{{ cur.short }}</div>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px">
+        <span style="font-size:22px;font-weight:700;font-variant-numeric:tabular-nums">{{ cur.price }}</span>
+        <span style="font-size:12.5px;color:var(--faint)">Veiledende pris ({{ cur.priceDate }})</span>
+      </div>
+      <div style="font-size:12.5px;color:var(--faint);margin-bottom:18px">Spesifikasjoner verifisert {{ cur.verified }} · Kilde: {{ cur.kilde }}</div>
+      <div style="display:flex;gap:10px">
+        <button onClick="{{ cur.toggle }}" style="font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:11px 20px;border-radius:999px;border:none;cursor:pointer" style-hover="background:var(--accent-hover)">{{ curCompareLabel }}</button>
+        <button style="font-weight:600;font-size:13.5px;background:var(--surface);color:var(--muted);padding:11px 20px;border-radius:999px;border:1px solid var(--line);cursor:pointer" style-hover="border-color:var(--accent)">Meld inn feil data</button>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:40px">
+    <div>
+      <h2 style="font-size:19px;font-weight:700;margin:0 0 14px">Spesifikasjoner</h2>
+      <sc-for list="{{ specGroups }}" as="grp" hint-placeholder-count="4">
+        <div style="margin-bottom:22px">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">{{ grp.name }}</div>
+          <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden">
+            <sc-for list="{{ grp.rows }}" as="r" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:220px 1fr;padding:11px 18px;border-bottom:1px solid var(--line);font-size:14px">
+                <span style="color:var(--muted)">{{ r.label }}</span>
+                <span style="font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)">{{ r.val }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div>
+      <h2 style="font-size:19px;font-weight:700;margin:0 0 14px">Lignende produkter</h2>
+      <sc-for list="{{ related }}" as="rp" hint-placeholder-count="3">
+        <div onClick="{{ rp.open }}" style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;cursor:pointer" style-hover="border-color:var(--accent)">
+          <div style="font-size:14.5px;font-weight:700;color:var(--ink)">{{ rp.name }}</div>
+          <div style="font-size:12.5px;color:var(--faint);margin-top:3px;font-variant-numeric:tabular-nums">{{ rp.price }} · {{ rp.status }}</div>
+        </div>
+      </sc-for>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-top:18px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px">Relatert innhold</div>
+        <div onClick="{{ goNyhetArtikkel }}" style="font-size:13.5px;font-weight:600;padding:7px 0;border-bottom:1px solid var(--line);cursor:pointer;color:var(--ink)" style-hover="color:var(--accent-text)">Nyhet: Sony Bravia Projector 9 er offisiell</div>
+        <div onClick="{{ goTeknologi }}" style="font-size:13.5px;font-weight:600;padding:7px 0;border-bottom:1px solid var(--line);cursor:pointer;color:var(--ink)" style-hover="color:var(--accent-text)">Teknologi: HDR-formater forklart</div>
+        <div onClick="{{ goGuider }}" style="font-size:13.5px;font-weight:600;padding:7px 0;cursor:pointer;color:var(--ink)" style-hover="color:var(--accent-text)">Guide: Riktig lerretstørrelse</div>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== SAMMENLIGNING ===================== -->
+<sc-if value="{{ isSammenlign }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Sammenligning" style="max-width:1240px;margin:0 auto;padding:34px 32px 70px;min-height:60vh">
+  <div style="font-size:12.5px;color:var(--faint);margin-bottom:8px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / <span onClick="{{ goProdukterProjektor }}" style="cursor:pointer;color:var(--accent-text)">Produkter</span> / Sammenligning</div>
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;flex-wrap:wrap;gap:12px">
+    <h1 style="font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0">Sammenligning</h1>
+    <div style="display:flex;gap:10px;align-items:center">
+      <span onClick="{{ toggleOnlyDiff }}" style="font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid var(--line);cursor:pointer;background:{{ diffBtnBg }};color:{{ diffBtnCol }}">Vis bare forskjeller</span>
+      <span onClick="{{ clearCompare }}" style="font-size:13px;font-weight:600;color:var(--faint);cursor:pointer" style-hover="color:var(--err)">Tøm alt</span>
+    </div>
+  </div>
+  <sc-if value="{{ cmpEmpty }}" hint-placeholder-val="{{ false }}">
+    <div style="border:1px dashed var(--line);border-radius:12px;padding:60px 40px;text-align:center">
+      <div style="font-size:17px;font-weight:700;margin-bottom:6px">Ingen produkter valgt ennå</div>
+      <div style="font-size:14px;color:var(--muted);margin-bottom:18px">Velg inntil fire produkter fra samme kategori i produktoversikten.</div>
+      <button onClick="{{ goProdukterProjektor }}" style="font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:10px 22px;border-radius:999px;border:none;cursor:pointer" style-hover="background:var(--accent-hover)">Gå til produktene</button>
+    </div>
+  </sc-if>
+  <sc-if value="{{ compareCount }}" hint-placeholder-val="{{ false }}">
+    <div style="display:grid;grid-template-columns:{{ cmpCols }};gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)">
+      <div style="padding:18px;border-bottom:2px solid var(--line);background:var(--surface2)"></div>
+      <sc-for list="{{ compareProds }}" as="cp" hint-placeholder-count="2">
+        <div style="padding:18px;border-bottom:2px solid var(--line);border-left:1px solid var(--line);background:var(--surface2)">
+          <div style="height:64px;border-radius:8px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:9px;letter-spacing:.06em;margin-bottom:10px">BILDE</div>
+          <div onClick="{{ cp.open }}" style="font-size:14.5px;font-weight:700;line-height:1.25;cursor:pointer;color:var(--ink)" style-hover="color:var(--accent-text)">{{ cp.name }}</div>
+          <div style="font-size:12px;color:var(--faint);margin-top:4px;font-variant-numeric:tabular-nums">{{ cp.price }} · <span style="color:{{ cp.statusColor }}">{{ cp.status }}</span></div>
+          <div onClick="{{ cp.toggle }}" style="font-size:12px;font-weight:600;color:var(--faint);cursor:pointer;margin-top:8px" style-hover="color:var(--err)">Fjern ✕</div>
+        </div>
+      </sc-for>
+      <sc-for list="{{ cmpGroups }}" as="grp" hint-placeholder-count="3">
+        <div style="grid-column:1 / -1">
+          <div style="padding:10px 18px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);background:var(--surface2);border-bottom:1px solid var(--line)">{{ grp.name }}</div>
+          <sc-for list="{{ grp.rows }}" as="r" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:{{ cmpCols }};border-bottom:1px solid var(--line);background:{{ r.bg }}">
+              <div style="padding:11px 18px;font-size:13.5px;color:var(--muted)">{{ r.label }}</div>
+              <sc-for list="{{ r.vals }}" as="v" hint-placeholder-count="2">
+                <div style="padding:11px 18px;font-size:13.5px;font-weight:600;border-left:1px solid var(--line);font-variant-numeric:tabular-nums;color:var(--ink)">{{ v.v }}</div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-size:12.5px;color:var(--faint);margin-top:14px;line-height:1.5">Rader med <span style="background:var(--accent-soft);padding:2px 8px;border-radius:4px;color:var(--accent-text);font-weight:600">uthevet bakgrunn</span> markerer faktiske forskjeller. «Ikke oppgitt» betyr at produsenten ikke har publisert verdien — ikke at produktet mangler den. Relatert: <span onClick="{{ goGuider }}" style="color:var(--accent-text);font-weight:600;cursor:pointer">kjøpsguidene våre</span>.</div>
+  </sc-if>
+</div>
+</sc-if>
+
+<!-- ===================== EMNESIDE ===================== -->
+<sc-if value="{{ isEmne }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Emneside" style="min-height:60vh">
+  <div style="background:var(--band);color:var(--band-ink)">
+    <div style="max-width:1240px;margin:0 auto;padding:38px 32px 34px">
+      <div style="font-size:12.5px;color:var(--band-muted);margin-bottom:10px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--band-accent)">Forsiden</span> / Emner / {{ emne.name }}</div>
+      <h1 style="font-size:34px;font-weight:700;letter-spacing:-.02em;margin:0 0 8px">{{ emne.name }}</h1>
+      <p style="font-size:15.5px;color:var(--band-muted);margin:0;max-width:600px;line-height:1.55">{{ emne.intro }}</p>
+      <div style="margin-top:18px;display:inline-block;background:rgba(255,255,255,.07);border:1px solid var(--band-line);border-radius:10px;padding:12px 18px;font-size:13.5px;color:var(--band-ink)"><span style="color:var(--band-accent);font-weight:700">Anbefalt start:</span> {{ emne.start }}</div>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:32px 32px 60px">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:40px">
+      <div>
+        <h2 style="font-size:18px;font-weight:700;margin:0 0 12px">Sentrale guider</h2>
+        <sc-for list="{{ emneGuides }}" as="g" hint-placeholder-count="2">
+          <div onClick="{{ g.open }}" style="display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--line);align-items:center;cursor:pointer">
+            <div style="width:74px;height:52px;border-radius:8px;background:{{ g.thumb }};flex:none"></div>
+            <div>
+              <div style="font-size:15px;font-weight:600;line-height:1.3;color:var(--ink)">{{ g.title }}</div>
+              <div style="font-size:12.5px;color:var(--faint);margin-top:2px"><span style="color:{{ g.levelColor }};font-weight:600">● {{ g.level }}</span> · Oppdatert {{ g.updated }}</div>
+            </div>
+          </div>
+        </sc-for>
+        <h2 style="font-size:18px;font-weight:700;margin:26px 0 12px">Teknologi innen {{ emne.name }}</h2>
+        <sc-for list="{{ emneTech }}" as="t" hint-placeholder-count="1">
+          <div onClick="{{ t.open }}" style="padding:12px 0;border-top:1px solid var(--line);cursor:pointer">
+            <div style="font-size:15px;font-weight:600;color:var(--ink)" style-hover="color:var(--accent-text)">{{ t.title }}</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:3px">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+        <h2 style="font-size:18px;font-weight:700;margin:26px 0 12px">Vanlige spørsmål</h2>
+        <sc-for list="{{ emneFaq }}" as="f" hint-placeholder-count="3">
+          <div style="border-top:1px solid var(--line)">
+            <div onClick="{{ f.toggle }}" style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;cursor:pointer">
+              <span style="font-size:15px;font-weight:600;color:var(--ink)">{{ f.q }}</span>
+              <span style="font-size:18px;color:var(--accent-text);width:24px;text-align:center">{{ f.icon }}</span>
+            </div>
+            <sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:14px;color:var(--muted);line-height:1.6;padding:0 40px 14px 0">{{ f.a }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div>
+        <h2 style="font-size:18px;font-weight:700;margin:0 0 12px">Siste nytt</h2>
+        <sc-for list="{{ emneNews }}" as="n" hint-placeholder-count="3">
+          <div onClick="{{ n.open }}" style="padding:11px 0;border-top:1px solid var(--line);cursor:pointer">
+            <div style="font-size:14px;font-weight:600;line-height:1.35;color:var(--ink)" style-hover="color:var(--accent-text)">{{ n.title }}</div>
+            <div style="font-size:12px;color:var(--faint);margin-top:2px">{{ n.cat }} · {{ n.date }}</div>
+          </div>
+        </sc-for>
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;margin-top:20px;box-shadow:var(--shadow)">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px">Relaterte produkter</div>
+          <div onClick="{{ goProdukterReceiver }}" style="font-size:13.5px;font-weight:600;padding:7px 0;border-bottom:1px solid var(--line);cursor:pointer;color:var(--ink)" style-hover="color:var(--accent-text)">AV-receivere →</div>
+          <div onClick="{{ goProdukterProjektor }}" style="font-size:13.5px;font-weight:600;padding:7px 0;cursor:pointer;color:var(--ink)" style-hover="color:var(--accent-text)">Projektorer →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== SØK ===================== -->
+<sc-if value="{{ isSok }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Søk" style="max-width:860px;margin:0 auto;padding:40px 32px 70px;min-height:60vh">
+  <h1 style="font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0 0 18px">Søk</h1>
+  <div style="display:flex;align-items:center;gap:12px;border:2px solid var(--accent);border-radius:14px;padding:14px 20px;background:var(--surface);margin-bottom:8px">
+    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" style="color:var(--accent)"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.8"></circle><path d="M11 11l3.2 3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+    <input value="{{ query }}" onChange="{{ setQuery }}" placeholder="Prøv «eARC», «Dirac» eller «projektor» …" autoFocus="{{ true }}" style="flex:1;border:none;outline:none;font-size:17px;background:transparent;color:var(--ink)">
+  </div>
+  <sc-if value="{{ showSearchHint }}" hint-placeholder-val="{{ true }}">
+    <div style="font-size:13.5px;color:var(--faint);padding:6px 4px">Søket dekker nyheter, guider, teknologiartikler, produkter og ordlisten.</div>
+  </sc-if>
+  <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
+    <div style="font-size:13px;color:var(--muted);padding:6px 4px 14px;font-variant-numeric:tabular-nums">{{ resultCount }} treff</div>
+    <sc-for list="{{ searchResults }}" as="r" hint-placeholder-count="4">
+      <div onClick="{{ r.open }}" style="display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:15px 18px;margin-bottom:10px;cursor:pointer" style-hover="border-color:var(--accent)">
+        <span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:{{ r.typeColor }};border:1px solid var(--line);border-radius:5px;padding:4px 8px;flex:none;margin-top:2px">{{ r.type }}</span>
+        <div>
+          <div style="font-size:15px;font-weight:700;color:var(--ink)">{{ r.title }}</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:3px;line-height:1.45">{{ r.meta }}</div>
+        </div>
+      </div>
+    </sc-for>
+  </sc-if>
+</div>
+</sc-if>
+
+<!-- ===================== ARTIKKEL: GUIDE ===================== -->
+<sc-if value="{{ isArtGuide }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Artikkel guide" style="min-height:60vh">
+  <div style="max-width:1240px;margin:0 auto;padding:30px 32px 0">
+    <div style="font-size:12.5px;color:var(--faint);margin-bottom:16px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / <span onClick="{{ goGuider }}" style="cursor:pointer;color:var(--accent-text)">Guider</span> / Lyd</div>
+    <div style="max-width:720px">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent-text);padding:5px 10px;border-radius:5px">Guide · Lyd</span>
+        <span style="font-size:12.5px;color:var(--faint)"><span style="color:{{ curGuide.levelColor }};font-weight:600">● {{ curGuide.level }}</span> · {{ curGuide.time }} å gjennomføre</span>
+      </div>
+      <h1 style="font-size:36px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0 0 12px">{{ curGuide.title }}</h1>
+      <p style="font-size:17.5px;color:var(--muted);line-height:1.55;margin:0 0 16px">{{ curGuide.desc }}</p>
+      <div style="display:flex;gap:12px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line)">
+        <div style="width:36px;height:36px;border-radius:999px;background:linear-gradient(135deg,#4A3A30,#8F6A4C)"></div>
+        <div style="font-size:13px;line-height:1.4"><b>Redaksjonen</b> · Publisert 12. mars 2025 · <span style="color:var(--ok);font-weight:600">Sist faglig oppdatert {{ curGuide.updated }}</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:26px 32px 60px;display:grid;grid-template-columns:230px 720px;gap:56px;justify-content:flex-start">
+    <!-- toc -->
+    <div style="position:sticky;top:120px;align-self:start">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px">Innhold</div>
+      <div style="display:flex;flex-direction:column;gap:2px;font-size:13.5px;border-left:2px solid var(--line)">
+        <a href="#g-forsta" style="padding:6px 0 6px 14px;color:var(--muted);border-left:2px solid var(--accent);margin-left:-2px;font-weight:600;color:var(--ink)">Forstå rommet først</a>
+        <a href="#g-krype" style="padding:6px 0 6px 14px;color:var(--muted);border-left:2px solid transparent;margin-left:-2px" style-hover="color:var(--ink)">Krypemetoden</a>
+        <a href="#g-cross" style="padding:6px 0 6px 14px;color:var(--muted);border-left:2px solid transparent;margin-left:-2px" style-hover="color:var(--ink)">Delefrekvens og nivå</a>
+        <a href="#g-feil" style="padding:6px 0 6px 14px;color:var(--muted);border-left:2px solid transparent;margin-left:-2px" style-hover="color:var(--ink)">Vanlige feil</a>
+        <a href="#g-neste" style="padding:6px 0 6px 14px;color:var(--muted);border-left:2px solid transparent;margin-left:-2px" style-hover="color:var(--ink)">Neste steg</a>
+      </div>
+      <div style="margin-top:22px;font-size:12px;color:var(--faint);line-height:1.5;border-top:1px solid var(--line);padding-top:14px">Du trenger: en subwoofer, mobiltelefon med SPL-app (valgfritt) og 30 minutter.</div>
+    </div>
+    <!-- body -->
+    <div style="font-size:16.5px;line-height:1.65;color:var(--ink)">
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:28px">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px">Kort fortalt</div>
+        <ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7;color:var(--muted)">
+          <li>Rommet påvirker bassen mer enn subwooferen selv.</li>
+          <li>«Krypemetoden» finner beste plassering uten måleutstyr.</li>
+          <li>Delefrekvens på 80 Hz er riktig start for de fleste.</li>
+        </ul>
+      </div>
+      <h2 id="g-forsta" style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 12px;scroll-margin-top:120px">Forstå rommet først</h2>
+      <p style="margin:0 0 16px">Bassbølger er lange — en 40 Hz-tone er nesten ni meter. Det betyr at rommet ditt fungerer som en del av høyttaleren: Vegger, gulv og tak skaper <a href="#g-forsta">stående bølger</a> som forsterker bassen noen steder og nesten fjerner den andre steder.</p>
+      <p style="margin:0 0 20px">Derfor kan en rimelig subwoofer på riktig sted slå en dyr subwoofer på feil sted. Plassering er den gratis oppgraderingen de fleste hopper over.</p>
+      <div style="background:var(--surface2);border-radius:10px;padding:22px;margin:0 0 24px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:12px">Illustrasjon · Lytteposisjon og trykksoner</div>
+        <svg viewBox="0 0 640 240" style="width:100%;display:block">
+          <rect x="10" y="10" width="620" height="220" fill="none" stroke="var(--line)" stroke-width="2" rx="6"></rect>
+          <ellipse cx="120" cy="120" rx="90" ry="70" fill="var(--accent)" opacity=".12"></ellipse>
+          <ellipse cx="120" cy="120" rx="55" ry="42" fill="var(--accent)" opacity=".16"></ellipse>
+          <rect x="96" y="104" width="48" height="32" rx="4" fill="var(--accent)"></rect>
+          <text x="120" y="170" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="IBM Plex Sans">Subwoofer</text>
+          <rect x="440" y="88" width="70" height="64" rx="8" fill="none" stroke="var(--muted)" stroke-width="2"></rect>
+          <circle cx="475" cy="120" r="12" fill="var(--muted)"></circle>
+          <text x="475" y="170" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="IBM Plex Sans">Lytteposisjon</text>
+          <path d="M240 120 H420" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"></path>
+        </svg>
+      </div>
+      <h2 id="g-krype" style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:32px 0 12px;scroll-margin-top:120px">Krypemetoden</h2>
+      <p style="margin:0 0 16px">Sett subwooferen i lytteposisjonen din — bokstavelig talt oppå sofaen om nødvendig. Spill musikk med jevn, gående basslinje. Kryp så langs gulvet der subwooferen kan stå, og lytt: Der bassen høres jevnest og strammest ut, der skal subwooferen stå.</p>
+      <div style="border-left:3px solid var(--ok);background:var(--surface);border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 16px;font-size:14.5px;color:var(--muted)"><b style="color:var(--ok)">Tips:</b> Bruk en SPL-app og en testtone på 40–80 Hz hvis du vil være mer presis. Ørene er likevel overraskende pålitelige.</div>
+      <div style="border-left:3px solid var(--err);background:var(--surface);border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 20px;font-size:14.5px;color:var(--muted)"><b style="color:var(--err)">Advarsel:</b> Unngå å dytte subwooferen helt inn i et hjørne uten å lytte først — hjørner gir mer bass, men ofte også mer buldring.</div>
+      <h2 id="g-cross" style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:32px 0 12px;scroll-margin-top:120px">Delefrekvens og nivå</h2>
+      <p style="margin:0 0 16px">Sett <a href="#g-cross">crossover</a> i receiveren til 80 Hz som utgangspunkt, og la subwooferens egen crossover stå på maks (den skal ikke filtrere dobbelt). Juster nivået til bassen kjennes — men ikke høres som en egen kilde.</p>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 20px;font-size:14px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:var(--surface2);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)"><div style="padding:10px 16px">Høyttalerstørrelse</div><div style="padding:10px 16px">Anbefalt crossover</div><div style="padding:10px 16px">Kommentar</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)"><div style="padding:10px 16px;color:var(--muted)">Små satellitter</div><div style="padding:10px 16px;font-weight:600;font-variant-numeric:tabular-nums">100–120 Hz</div><div style="padding:10px 16px;color:var(--muted)">Beskytter små elementer</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)"><div style="padding:10px 16px;color:var(--muted)">Stativhøyttalere</div><div style="padding:10px 16px;font-weight:600;font-variant-numeric:tabular-nums">80 Hz</div><div style="padding:10px 16px;color:var(--muted)">Standarden — start her</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)"><div style="padding:10px 16px;color:var(--muted)">Gulvhøyttalere</div><div style="padding:10px 16px;font-weight:600;font-variant-numeric:tabular-nums">60–80 Hz</div><div style="padding:10px 16px;color:var(--muted)">Lavere bare hvis rommet tillater</div></div>
+      </div>
+      <h2 id="g-feil" style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:32px 0 12px;scroll-margin-top:120px">Vanlige feil</h2>
+      <p style="margin:0 0 20px">De tre vanligste feilene vi ser: subwoofer i hjørne uten lytting, nivået satt altfor høyt («kino skal jo dundre»), og dobbel filtrering fordi både receiver og subwoofer kjører crossover samtidig.</p>
+      <h2 id="g-neste" style="font-size:24px;font-weight:700;letter-spacing:-.01em;margin:32px 0 12px;scroll-margin-top:120px">Neste steg</h2>
+      <div style="border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 24px;font-size:15px;line-height:1.6"><b>Konklusjon:</b> Plassering først, nivå og crossover etterpå. Når det sitter, er romkorreksjon som Dirac Live neste naturlige steg — les <span onClick="{{ goTeknologi }}" style="color:var(--accent-text);font-weight:600;cursor:pointer">Romkorreksjon forklart</span>.</div>
+      <div style="border-top:1px solid var(--line);padding-top:18px;font-size:13px;color:var(--faint)">
+        <div style="font-weight:700;color:var(--muted);margin-bottom:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase">Endringslogg</div>
+        <div style="margin-bottom:4px;font-variant-numeric:tabular-nums"><b>Juni 2026</b> — Lagt til tabell for delefrekvens og oppdatert app-anbefalinger.</div>
+        <div style="font-variant-numeric:tabular-nums"><b>Mars 2025</b> — Først publisert.</div>
+        <div style="margin-top:14px"><span style="color:var(--accent-text);font-weight:600;cursor:pointer">Meld inn feil eller foreslå oppdatering →</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== ARTIKKEL: TEKNOLOGI ===================== -->
+<sc-if value="{{ isArtTech }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Artikkel teknologi" style="min-height:60vh">
+  <div style="background:var(--band);color:var(--band-ink)">
+    <div style="max-width:1240px;margin:0 auto;padding:34px 32px 32px">
+      <div style="font-size:12.5px;color:var(--band-muted);margin-bottom:14px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--band-accent)">Forsiden</span> / <span onClick="{{ goTeknologi }}" style="cursor:pointer;color:var(--band-accent)">Teknologi</span></div>
+      <div style="max-width:760px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.1);border:1px solid var(--band-line);color:var(--band-accent);padding:5px 10px;border-radius:5px">Teknologi · Referanseartikkel</span>
+        <h1 style="font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:14px 0 10px">{{ curTech.title }}</h1>
+        <p style="font-size:16.5px;color:var(--band-muted);line-height:1.55;margin:0 0 14px">{{ curTech.desc }}</p>
+        <div style="font-size:13px;color:var(--band-muted)"><b style="color:var(--band-ink)">Redaksjonen</b> · <span style="color:var(--band-accent);font-weight:600">Sist faglig oppdatert {{ curTech.updated }}</span> · 8 min lesetid</div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:720px;margin:0 auto;padding:32px 32px 60px;font-size:16.5px;line-height:1.65">
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:28px">
+      <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px">Kort forklart</div>
+      <div style="font-size:15.5px;color:var(--muted);line-height:1.6">eARC er HDMI-kanalen som sender lyd <i>fra</i> TV-en <i>til</i> lydanlegget — med nok båndbredde til ukomprimert Dolby Atmos. Gamle ARC klarer bare komprimerte formater.</div>
+    </div>
+    <h2 style="font-size:23px;font-weight:700;margin:0 0 12px">Hvorfor trenger vi en returkanal?</h2>
+    <p style="margin:0 0 16px">Når du ser på TV-ens egne apper, oppstår lyden i TV-en — men skal spilles av i receiveren. Da må signalet gå «feil vei» i HDMI-kabelen. Det er dette Audio Return Channel løser.</p>
+    <p style="margin:0 0 20px">Problemet: Original ARC har bare båndbredde til komprimert lyd. Dolby Atmos via TrueHD, slik du finner det på Blu-ray og enkelte strømmetjenester, krever <b>eARC</b> — enhanced Audio Return Channel, introdusert med HDMI 2.1.</p>
+    <div style="background:var(--surface2);border-radius:10px;padding:22px;margin:0 0 24px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:12px">Signalvei · Streaming fra TV-app</div>
+      <svg viewBox="0 0 640 150" style="width:100%;display:block">
+        <rect x="20" y="45" width="150" height="60" rx="8" fill="none" stroke="var(--ink)" stroke-width="2"></rect>
+        <text x="95" y="72" text-anchor="middle" font-size="14" font-weight="600" fill="var(--ink)" font-family="IBM Plex Sans">TV</text>
+        <text x="95" y="92" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="IBM Plex Sans">App: lydkilde</text>
+        <rect x="470" y="45" width="150" height="60" rx="8" fill="none" stroke="var(--ink)" stroke-width="2"></rect>
+        <text x="545" y="72" text-anchor="middle" font-size="14" font-weight="600" fill="var(--ink)" font-family="IBM Plex Sans">Receiver</text>
+        <text x="545" y="92" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="IBM Plex Sans">Dekoder Atmos</text>
+        <path d="M170 75 H460" stroke="var(--accent)" stroke-width="3"></path>
+        <path d="M450 68 L466 75 L450 82 Z" fill="var(--accent)"></path>
+        <text x="318" y="62" text-anchor="middle" font-size="12" font-weight="600" fill="var(--accent-text)" font-family="IBM Plex Sans">eARC · opptil 37 Mbps</text>
+        <text x="318" y="122" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="IBM Plex Sans">Én HDMI-kabel — TV-ens eARC-merkede inngang</text>
+      </svg>
+    </div>
+    <h2 style="font-size:23px;font-weight:700;margin:32px 0 12px">Vanlige misforståelser</h2>
+    <div style="border-left:3px solid var(--warn);background:var(--surface);border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 12px;font-size:14.5px;color:var(--muted)"><b style="color:var(--warn)">«Jeg trenger ny kabel til eARC.»</b> Vanligvis ikke — en High Speed-kabel med Ethernet holder. Sjekk før du kjøper nytt.</div>
+    <div style="border-left:3px solid var(--warn);background:var(--surface);border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 20px;font-size:14.5px;color:var(--muted)"><b style="color:var(--warn)">«Atmos i appen betyr ukomprimert Atmos.»</b> De fleste strømmetjenester bruker komprimert Dolby Digital Plus — det fungerer også over gamle ARC.</div>
+    <h2 style="font-size:23px;font-weight:700;margin:32px 0 12px">Begreper i denne artikkelen</h2>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">
+      <span onClick="{{ goOrdliste }}" style="font-size:13px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;color:var(--muted)" style-hover="border-color:var(--accent);color:var(--accent-text)">eARC</span>
+      <span onClick="{{ goOrdliste }}" style="font-size:13px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;color:var(--muted)" style-hover="border-color:var(--accent);color:var(--accent-text)">ALLM</span>
+      <span onClick="{{ goOrdliste }}" style="font-size:13px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;color:var(--muted)" style-hover="border-color:var(--accent);color:var(--accent-text)">Tone mapping</span>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px">Relatert</div>
+      <div onClick="{{ goStartHer }}" style="font-size:14px;font-weight:600;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer" style-hover="color:var(--accent-text)">Guide: Feilsøk HDMI og eARC</div>
+      <div onClick="{{ goProdukterReceiver }}" style="font-size:14px;font-weight:600;padding:8px 0;cursor:pointer" style-hover="color:var(--accent-text)">Produkter: AV-receivere med HDMI 2.1</div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ===================== ARTIKKEL: NYHET ===================== -->
+<sc-if value="{{ isArtNyhet }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Artikkel nyhet" style="min-height:60vh">
+  <div style="max-width:720px;margin:0 auto;padding:30px 32px 60px">
+    <div style="font-size:12.5px;color:var(--faint);margin-bottom:16px"><span onClick="{{ goHome }}" style="cursor:pointer;color:var(--accent-text)">Forsiden</span> / <span onClick="{{ goNyheter }}" style="cursor:pointer;color:var(--accent-text)">Nyheter</span> / {{ curNews.cat }}</div>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent-text);padding:5px 10px;border-radius:5px">Nyhet · {{ curNews.cat }}</span>
+    <h1 style="font-size:33px;font-weight:700;letter-spacing:-.02em;line-height:1.18;margin:14px 0 10px">{{ curNews.title }}</h1>
+    <p style="font-size:17px;color:var(--muted);line-height:1.55;margin:0 0 14px">{{ curNews.lead }}</p>
+    <div style="font-size:13px;color:var(--faint);padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:22px"><b style="color:var(--ink)">Redaksjonen</b> · Publisert {{ curNews.date }} · 4 min lesetid</div>
+    <div style="aspect-ratio:16/9;background:linear-gradient(160deg,#3A2A22,#6B4433 70%,#8F5A3C);border-radius:10px;display:flex;align-items:flex-end;justify-content:flex-end;color:rgba(255,255,255,.35);font-size:11px;letter-spacing:.08em;padding:12px 16px;margin-bottom:8px">FOTO: PRODUSENT</div>
+    <div style="font-size:12.5px;color:var(--faint);margin-bottom:24px">Pressebilde levert av produsenten.</div>
+    <div style="font-size:16.5px;line-height:1.65">
+      <p style="margin:0 0 16px">Produsenten bekreftet lanseringen i dag. De viktigste nyhetene er en kraftigere laserlyskilde, full HDMI 2.1-støtte på begge innganger og et nytt prosesseringstrinn for dynamisk tone mapping.</p>
+      <p style="margin:0 0 22px">Norsk pris og leveringsdato er ikke endelig bekreftet, men distributøren antyder butikklansering i løpet av høsten.</p>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:22px">
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px">Hvorfor dette er viktig</div>
+        <div style="font-size:15px;color:var(--muted);line-height:1.6">Full HDMI 2.1 i projektorklassen betyr at samme maskin endelig kan være førstevalg for både film og spill. Det har til nå krevd kompromisser eller ekstern svitsjing.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:22px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px">Relatert produkt i databasen</div>
+        <div onClick="{{ goRelProd }}" style="display:flex;justify-content:space-between;align-items:center;cursor:pointer">
+          <div>
+            <div style="font-size:15.5px;font-weight:700" style-hover="color:var(--accent-text)">Sony Bravia Projector 9</div>
+            <div style="font-size:12.5px;color:var(--faint);font-variant-numeric:tabular-nums">119 000 kr · verifisert 10.07.2026</div>
+          </div>
+          <span style="color:var(--accent-text);font-weight:700">→</span>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--faint);border-top:1px solid var(--line);padding-top:16px">Kilder: pressemelding fra produsent (11. juli 2026), teknisk dokumentasjon. Denne saken er basert på produsentopplysninger — vi har ikke testet produktet.</div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- MORE-PAGES -->
+
+<!-- MORE-PAGES -->
+
+<!-- ===================== FOOTER ===================== -->
+<div style="background:var(--band);color:var(--band-muted);margin-top:0">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;padding:36px 32px 28px">
+    <div>
+      <div style="font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--band-ink)">Hjemmekino<span style="color:var(--band-accent)">.no</span></div>
+      <div style="font-size:13px;line-height:1.55;margin-top:8px;max-width:300px">Den uavhengige norske kunnskapsplattformen for hjemmekino, HiFi og AV-teknologi.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13.5px">
+      <span style="font-weight:700;color:var(--band-ink);font-size:12px;letter-spacing:.08em;text-transform:uppercase">Innhold</span>
+      <span onClick="{{ goNyheter }}" style="cursor:pointer" style-hover="color:var(--band-ink)">Nyheter</span>
+      <span onClick="{{ goGuider }}" style="cursor:pointer" style-hover="color:var(--band-ink)">Guider</span>
+      <span onClick="{{ goTeknologi }}" style="cursor:pointer" style-hover="color:var(--band-ink)">Teknologi</span>
+      <span onClick="{{ goProdukterProjektor }}" style="cursor:pointer" style-hover="color:var(--band-ink)">Produkter</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13.5px">
+      <span style="font-weight:700;color:var(--band-ink);font-size:12px;letter-spacing:.08em;text-transform:uppercase">Emner</span>
+      <sc-for list="{{ emneList }}" as="e" hint-placeholder-count="5">
+        <span onClick="{{ e.open }}" style="cursor:pointer" style-hover="color:var(--band-ink)">{{ e.name }}</span>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13.5px">
+      <span style="font-weight:700;color:var(--band-ink);font-size:12px;letter-spacing:.08em;text-transform:uppercase">Om</span>
+      <span style="cursor:pointer" style-hover="color:var(--band-ink)">Redaksjonen</span>
+      <span style="cursor:pointer" style-hover="color:var(--band-ink)">Redaksjonelle prinsipper</span>
+      <span style="cursor:pointer" style-hover="color:var(--band-ink)">Tips oss</span>
+      <span style="cursor:pointer" style-hover="color:var(--band-ink)">Annonsering</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--band-line)">
+    <div style="max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;padding:14px 32px;font-size:12px">
+      <span>© 1998–2026 Hjemmekino.no</span>
+      <span style="color:var(--band-accent);font-weight:600">Film er best hjemme.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SAMMENLIGNINGSSKUFF ===================== -->
+<sc-if value="{{ hasCompare }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:100;background:var(--band);color:var(--band-ink);box-shadow:0 -4px 20px rgba(0,0,0,.25)">
+    <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:12px 32px">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--band-muted);flex:none">Sammenligning</span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;flex:1">
+        <sc-for list="{{ compareChips }}" as="c" hint-placeholder-count="2">
+          <span style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid var(--band-line);border-radius:999px;padding:6px 8px 6px 14px;font-size:13px;font-weight:600">{{ c.name }}<span onClick="{{ c.remove }}" style="cursor:pointer;color:var(--band-muted);width:18px;height:18px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center" style-hover="color:var(--band-ink)">✕</span></span>
+        </sc-for>
+      </div>
+      <span onClick="{{ clearCompare }}" style="font-size:13px;color:var(--band-muted);cursor:pointer" style-hover="color:var(--band-ink)">Tøm</span>
+      <button onClick="{{ goSammenlign }}" style="font-weight:600;font-size:13.5px;background:var(--accent);color:var(--on-accent);padding:9px 18px;border-radius:999px;border:none;cursor:pointer" style-hover="background:var(--accent-hover)">Sammenlign ({{ compareCount }})</button>
+    </div>
+  </div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    page: 'home', param: null, theme: 'light',
+    compare: [], cat: 'projektor', brand: 'Alle', status: 'Alle', sort: 'relevans',
+    query: '', onlyDiff: false, faqOpen: -1, newsCat: 'Alle'
+  };
+
+  componentDidMount() {
+    const t = localStorage.getItem('hk-theme');
+    if (t === 'dark' || t === 'light') { this.setState({ theme: t }); document.body.dataset.theme = t; }
+    else document.body.dataset.theme = 'light';
+  }
+
+  go(page, param) {
+    this.setState({ page, param: param === undefined ? null : param, faqOpen: -1 });
+    window.scrollTo(0, 0);
+  }
+
+  news = [
+    { id: 'n1', title: 'Sony Bravia Projector 9: laserlys, 3 400 lumen og full HDMI 2.1', cat: 'Projektorer', date: '11. juli 2026', lead: 'Toppmodellen lover referansesvartnivå utenfor kinorommet.' },
+    { id: 'n2', title: 'LG bekrefter norske priser på årets OLED-serie — G6 starter på 34 990 kroner', cat: 'TV', date: 'I dag', lead: 'Prisene er opp fire prosent fra fjoråret, men panelet er nytt.' },
+    { id: 'n3', title: 'Apple TV får støtte for DTS:X i neste tvOS-oppdatering', cat: 'Streaming', date: 'I går', lead: 'Betaversjonen avslører full bitstream-støtte for første gang.' },
+    { id: 'n4', title: 'HDMI 2.2-kabler dukker opp i butikk: dette må du vite før du bytter', cat: 'Kabler', date: '9. juli 2026', lead: '96 Gbps høres bra ut — men trenger du det i dag?' },
+    { id: 'n5', title: 'Marantz Cinema 40 får Dirac Live Bass Control via oppdatering', cat: 'AV-receivere', date: '8. juli 2026', lead: 'Gratis for eiere med eksisterende Dirac-lisens.' },
+    { id: 'n6', title: 'CEDIA 2026: dette venter vi oss av høstens største AV-messe', cat: 'Bransje', date: '6. juli 2026', lead: 'MicroLED-projeksjon og neste generasjon romkorreksjon står på plakaten.' }
+  ];
+
+  guides = [
+    { id: 'g1', title: 'Slik plasserer du subwooferen riktig', level: 'Nybegynner', updated: 'juni 2026', time: '15 min', topic: 'lyd', desc: 'Subwooferens plassering betyr mer enn prislappen. Slik finner du riktig posisjon med enkle midler.' },
+    { id: 'g2', title: 'Kalibrer TV-en med gratis testbilder', level: 'Middels', updated: 'juli 2026', time: '25 min', topic: 'bilde', desc: 'Riktig lysstyrke, kontrast og farge — uten måleutstyr.' },
+    { id: 'g3', title: 'Dirac Live fra A til Å: måling, filter og finjustering', level: 'Avansert', updated: 'mai 2026', time: '60 min', topic: 'lyd', desc: 'Alt du trenger for et vellykket Dirac-oppsett, fra mikrofonposisjoner til kurvejustering.' },
+    { id: 'g4', title: 'Riktig lerretstørrelse: regnestykket de fleste tar feil av', level: 'Nybegynner', updated: 'april 2026', time: '12 min', topic: 'bilde', desc: 'Synsvinkel, sitteavstand og oppløsning — enkelt forklart.' },
+    { id: 'g5', title: 'Bygg din første hjemmekino: fra tom stue til ferdig anlegg', level: 'Nybegynner', updated: 'juli 2026', time: '40 min', topic: 'rom', desc: 'Rekkefølgen som sparer deg for dyre feilkjøp.' },
+    { id: 'g6', title: 'Feilsøk HDMI og eARC: ingen lyd, svart bilde og synkfeil', level: 'Middels', updated: 'juni 2026', time: '20 min', topic: 'kilder', desc: 'De vanligste HDMI-problemene — og løsningene som faktisk virker.' }
+  ];
+
+  tech = [
+    { id: 't1', title: 'eARC forklart: derfor får du ikke Atmos fra TV-en til receiveren', updated: '8. juli 2026', topic: 'lyd', desc: 'Hva eARC faktisk gjør, hvorfor ARC ikke holder, og hvilke kabler som kreves.' },
+    { id: 't2', title: 'HDR-formater: HDR10, HDR10+ og Dolby Vision — hva er forskjellen?', updated: 'juni 2026', topic: 'bilde', desc: 'Statisk og dynamisk metadata, tone mapping og hva utstyret ditt faktisk støtter.' },
+    { id: 't3', title: 'OLED, Mini-LED og MicroLED: panelteknologiene forklart', updated: 'mai 2026', topic: 'bilde', desc: 'Styrker, svakheter og hva som passer rommet ditt.' },
+    { id: 't4', title: 'Romkorreksjon: Dirac Live, Audyssey og YPAO sammenlignet', updated: 'april 2026', topic: 'lyd', desc: 'Hva systemene måler, hva de retter — og hva de ikke kan fikse.' }
+  ];
+
+  emner = [
+    { id: 'lyd', name: 'Lyd', desc: 'Receiver, høyttalere, subwoofer og lydformater.', intro: 'Alt om lyd i hjemmekinoen: fra valg av receiver og høyttalere til romkorreksjon og bassintegrasjon.', start: 'Ny til surroundlyd? Start med guiden «Slik plasserer du subwooferen riktig».' },
+    { id: 'bilde', name: 'Bilde', desc: 'TV, projektor, lerret, HDR og kalibrering.', intro: 'TV eller projektor, HDR-formater og kalibrering — alt som handler om bildet.', start: 'Usikker på størrelse? Start med «Riktig lerretstørrelse».' },
+    { id: 'rom', name: 'Rom', desc: 'Akustikk, lys, plassering og kinorom.', intro: 'Rommet er den viktigste komponenten i anlegget. Akustikk, lyskontroll og planlegging.', start: 'Skal du bygge? Start med «Bygg din første hjemmekino».' },
+    { id: 'kilder', name: 'Kilder', desc: 'Streaming, fysiske medier og avspillere.', intro: 'Streamere, Blu-ray og medieservere — og hvordan du får best kvalitet ut av dem.', start: 'Problemer med lyd fra TV-en? Start med eARC-artikkelen.' },
+    { id: 'gaming', name: 'Gaming', desc: 'Konsoll, PC, VRR, ALLM og input lag.', intro: 'Spill stiller andre krav enn film: forsinkelse, VRR og riktig oppkobling.', start: 'Start med å sjekke at TV-en står i spillmodus — det betyr mer enn du tror.' }
+  ];
+
+  glossary = [
+    { term: 'eARC', def: 'Enhanced Audio Return Channel — HDMI-kanalen som sender ukomprimert lyd fra TV til lydanlegg.' },
+    { term: 'VRR', def: 'Variable Refresh Rate — skjermen følger spillets bildefrekvens og fjerner hakking.' },
+    { term: 'ALLM', def: 'Auto Low Latency Mode — TV-en bytter automatisk til spillmodus.' },
+    { term: 'Tone mapping', def: 'Hvordan en skjerm tilpasser HDR-signalets lysstyrke til sitt eget panel.' },
+    { term: 'Lens shift', def: 'Optisk forskyvning av projektorbildet uten kvalitetstap.' },
+    { term: 'Crossover', def: 'Delefrekvensen der basen flyttes fra høyttalerne til subwooferen.' }
+  ];
+
+  specDefs = {
+    projektor: [
+      { k: 'tek', l: 'Lysteknologi', g: 'Bilde' }, { k: 'opp', l: 'Oppløsning', g: 'Bilde' },
+      { k: 'lys', l: 'Lysstyrke', g: 'Bilde' }, { k: 'kon', l: 'Kontrast', g: 'Bilde' },
+      { k: 'hdr', l: 'HDR-støtte', g: 'Formater' }, { k: 'lag', l: 'Input lag (4K/60)', g: 'Formater' },
+      { k: 'g120', l: '4K/120 Hz', g: 'Formater' },
+      { k: 'hdmi', l: 'HDMI-innganger', g: 'Tilkobling' },
+      { k: 'zoom', l: 'Zoom / lens shift', g: 'Installasjon' }, { k: 'stoy', l: 'Viftestøy', g: 'Installasjon' }, { k: 'vekt', l: 'Vekt', g: 'Installasjon' }
+    ],
+    receiver: [
+      { k: 'kan', l: 'Kanaler', g: 'Lyd' }, { k: 'eff', l: 'Effekt per kanal (8 Ω)', g: 'Lyd' },
+      { k: 'rom', l: 'Romkorreksjon', g: 'Lyd' }, { k: 'sub', l: 'Subwoofer-utganger', g: 'Lyd' },
+      { k: 'atmos', l: 'Dolby Atmos', g: 'Formater' }, { k: 'dts', l: 'DTS:X', g: 'Formater' }, { k: 'auro', l: 'Auro-3D', g: 'Formater' },
+      { k: 'hin', l: 'HDMI inn', g: 'Tilkobling' }, { k: 'h21', l: 'HDMI 2.1 (4K/120, 8K)', g: 'Tilkobling' }, { k: 'strm', l: 'Streaming innebygd', g: 'Tilkobling' },
+      { k: 'vekt', l: 'Vekt', g: 'Praktisk' }
+    ]
+  };
+
+  products = [
+    { id: 'p1', cat: 'projektor', brand: 'Sony', model: 'Bravia Projector 9', year: 2026, status: 'Aktiv', price: '119 000 kr', priceDate: 'jan. 2026', verified: '10.07.2026', kilde: 'Produsent',
+      short: 'Sonys nye toppmodell. Laserlyskilde, native 4K SXRD og full HDMI 2.1 gjør den like aktuell for spill som film. Krever mørkt rom for å utnytte svartnivået.',
+      specs: { tek: 'Laser / SXRD', opp: '4K nativ (3840×2160)', lys: '3 400 lumen', kon: 'Dynamisk (laserdimming)', hdr: 'HDR10, HLG, IMAX Enhanced', lag: '21 ms', g120: 'Ja', hdmi: '2× HDMI 2.1 (48 Gbps)', zoom: '2,1× / ±85 % V, ±36 % H', stoy: '26 dB', vekt: '14,0 kg' } },
+    { id: 'p2', cat: 'projektor', brand: 'JVC', model: 'DLA-NZ700', year: 2025, status: 'Aktiv', price: '99 000 kr', priceDate: 'mars 2026', verified: '02.07.2026', kilde: 'Produsent',
+      short: 'Referansen på nativ kontrast i klassen. 8K e-shift og HDR10+ med dynamisk tone mapping. Det tryggeste valget for dedikerte kinorom.',
+      specs: { tek: 'Laser / D-ILA', opp: '4K nativ (8K e-shift)', lys: '2 300 lumen', kon: '80 000:1 nativ', hdr: 'HDR10+, HLG, Frame Adapt', lag: '38 ms', g120: 'Ja', hdmi: '2× HDMI 2.1 (48 Gbps)', zoom: '1,6× / ±80 % V, ±34 % H', stoy: '24 dB', vekt: '12,7 kg' } },
+    { id: 'p3', cat: 'projektor', brand: 'Epson', model: 'EH-QB1000', year: 2025, status: 'Aktiv', price: '74 900 kr', priceDate: 'feb. 2026', verified: '28.06.2026', kilde: 'Produsent',
+      short: 'Mye lys for pengene og svært lav forsinkelse. 3LCD gir like høy fargelysstyrke som hvit lysstyrke — en fordel i stuer med noe lys.',
+      specs: { tek: 'Laser / 3LCD', opp: '4K e-shift', lys: '3 300 lumen', kon: '5 000 000:1 dynamisk', hdr: 'HDR10+, HLG', lag: '20 ms', g120: 'Ja', hdmi: '2× HDMI 2.1 (40 Gbps)', zoom: '2,1× motorisert / ±96 % V, ±47 % H', stoy: '22 dB', vekt: '12,7 kg' } },
+    { id: 'p4', cat: 'projektor', brand: 'BenQ', model: 'W2720i', year: 2025, status: 'Aktiv', price: '24 990 kr', priceDate: 'juni 2026', verified: '15.06.2026', kilde: 'Produsent',
+      short: 'Beste inngangsbillett til ekte 4K-projeksjon. LED-lyskilde og god fabrikkalibrering, men begrenset lens shift krever riktig plassering.',
+      specs: { tek: 'LED / DLP (XPR)', opp: '4K XPR (3840×2160)', lys: '2 500 lumen', kon: '600 000:1 dynamisk', hdr: 'HDR10+, HLG', lag: '17 ms', g120: 'Nei (4K/60)', hdmi: '2× HDMI 2.0b', zoom: '1,3× / ±10 % V', stoy: '28 dB', vekt: '6,1 kg' } },
+    { id: 'p5', cat: 'projektor', brand: 'Sony', model: 'VPL-XW5000ES', year: 2022, status: 'Utgått', price: 'Ikke oppgitt', priceDate: '—', verified: '01.03.2026', kilde: 'Arkiv',
+      short: 'Utgått modell, erstattet av Bravia Projector-serien. Fortsatt et godt bruktkjøp for rene filmrom uten spillkrav.',
+      specs: { tek: 'Laser / SXRD', opp: '4K nativ (3840×2160)', lys: '2 000 lumen', kon: 'Dynamisk (laserdimming)', hdr: 'HDR10, HLG', lag: '27 ms', g120: 'Nei', hdmi: '2× HDMI 2.0', zoom: '1,6× / ±71 % V, ±25 % H', stoy: '24 dB', vekt: '13,0 kg' } },
+    { id: 'r1', cat: 'receiver', brand: 'Denon', model: 'AVC-X4800H', year: 2023, status: 'Aktiv', price: '32 990 kr', priceDate: 'mai 2026', verified: '05.07.2026', kilde: 'Produsent',
+      short: 'Klassens arbeidshest: 9.4 prosessering, fire uavhengige subutganger og valgfri Dirac Live. Det mest fleksible utgangspunktet under 35 000.',
+      specs: { kan: '9.4 (11.4 prosessering)', eff: '125 W', rom: 'Audyssey XT32 (Dirac Live valgfritt)', sub: '4 (uavhengige)', atmos: 'Ja', dts: 'Ja', auro: 'Ja', hin: '7', h21: 'Ja (3 innganger)', strm: 'HEOS', vekt: '12,9 kg' } },
+    { id: 'r2', cat: 'receiver', brand: 'Marantz', model: 'Cinema 40', year: 2023, status: 'Aktiv', price: '44 990 kr', priceDate: 'mai 2026', verified: '05.07.2026', kilde: 'Produsent',
+      short: 'Samme plattform som Denon-toppmodellene, men med Marantz\u2019 HDAM-trinn og roligere lydsignatur. Nylig oppdatert med Dirac Live Bass Control.',
+      specs: { kan: '9.4 (11.4 prosessering)', eff: '125 W', rom: 'Audyssey XT32 (Dirac Live valgfritt)', sub: '4 (uavhengige)', atmos: 'Ja', dts: 'Ja', auro: 'Ja', hin: '7', h21: 'Ja (3 innganger)', strm: 'HEOS', vekt: '14,3 kg' } },
+    { id: 'r3', cat: 'receiver', brand: 'Onkyo', model: 'TX-RZ50', year: 2021, status: 'Aktiv', price: '19 990 kr', priceDate: 'april 2026', verified: '20.06.2026', kilde: 'Produsent',
+      short: 'Dirac Live inkludert i prisen gjør denne til et kupp for lydentusiaster på budsjett. Eldre plattform, men fortsatt fullt oppdatert.',
+      specs: { kan: '9.2', eff: '120 W', rom: 'Dirac Live (inkludert)', sub: '2', atmos: 'Ja', dts: 'Ja', auro: 'Nei', hin: '6', h21: 'Ja (3 innganger)', strm: 'Sonos-kompatibel', vekt: '14,0 kg' } },
+    { id: 'r4', cat: 'receiver', brand: 'Yamaha', model: 'RX-A6A', year: 2021, status: 'Aktiv', price: '26 990 kr', priceDate: 'mars 2026', verified: '12.06.2026', kilde: 'Produsent',
+      short: 'Yamahas Surround:AI og solid byggekvalitet. YPAO når ikke helt opp mot Dirac på bass, men er enklere i bruk.',
+      specs: { kan: '9.2', eff: '150 W', rom: 'YPAO R.S.C. med Precision EQ', sub: '2', atmos: 'Ja', dts: 'Ja', auro: 'Ja', hin: '7', h21: 'Ja (3 innganger)', strm: 'MusicCast', vekt: '21,4 kg' } },
+    { id: 'r5', cat: 'receiver', brand: 'Denon', model: 'AVC-X5900H', year: 2026, status: 'Kommende', price: 'Ikke bekreftet', priceDate: '—', verified: '11.07.2026', kilde: 'Produsent (forhåndsinfo)',
+      short: 'Annonsert for lansering i oktober 2026. Spesifikasjonene under er foreløpige og kan endres.',
+      specs: { kan: '11.4 (13.4 prosessering)', eff: '140 W', rom: 'Dirac Live (inkludert)', sub: '4 (uavhengige)', atmos: 'Ja', dts: 'Ja', auro: 'Ja', hin: 'Ikke oppgitt', h21: 'Ja', strm: 'HEOS', vekt: 'Ikke oppgitt' } }
+  ];
+
+  levelColor(level) {
+    return level === 'Nybegynner' ? 'var(--ok)' : level === 'Middels' ? 'var(--warn)' : 'var(--err)';
+  }
+  statusColor(st) {
+    return st === 'Aktiv' ? 'var(--ok)' : st === 'Kommende' ? 'var(--info)' : 'var(--faint)';
+  }
+  thumbFor(i) {
+    const g = [['#4A3A30', '#7A5A44'], ['#3A3230', '#6A5A50'], ['#44342C', '#8F6A4C'], ['#2E2A28', '#5A4A40']];
+    const c = g[i % g.length];
+    return 'linear-gradient(135deg,' + c[0] + ',' + c[1] + ')';
+  }
+
+  toggleCompare(id) {
+    const p = this.products.find(x => x.id === id);
+    let list = this.state.compare.slice();
+    if (list.includes(id)) list = list.filter(x => x !== id);
+    else {
+      const sameCat = list.every(x => this.products.find(y => y.id === x).cat === p.cat);
+      if (!sameCat) list = [];
+      list = list.concat(id).slice(-4);
+    }
+    this.setState({ compare: list });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const nav = (page, param) => () => this.go(page, param);
+
+    const navItems = ['Nyheter', 'Guider', 'Produkter', 'Teknologi', 'Ordliste'].map(label => {
+      const page = { Nyheter: 'nyheter', Guider: 'guider', Produkter: 'produkter', Teknologi: 'teknologi', Ordliste: 'ordliste' }[label];
+      const active = s.page === page || (page === 'produkter' && (s.page === 'produkt' || s.page === 'sammenlign'));
+      return { label, go: nav(page), bc: active ? 'var(--accent)' : 'transparent', col: active ? 'var(--ink)' : 'var(--muted)' };
+    });
+
+    const decorateGuide = (g, i) => ({ ...g, open: nav('artikkel-guide', g.id), levelColor: this.levelColor(g.level), thumb: this.thumbFor(i) });
+    const decorateNews = n => ({ ...n, open: nav('artikkel-nyhet', n.id) });
+    const decorateTech = t => ({ ...t, open: nav('artikkel-teknologi', t.id) });
+    const decorateProd = p => ({
+      ...p, name: p.brand + ' ' + p.model,
+      open: nav('produkt', p.id),
+      toggle: () => this.toggleCompare(p.id),
+      inCompare: s.compare.includes(p.id),
+      statusColor: this.statusColor(p.status),
+      cmpLabel: s.compare.includes(p.id) ? '✓ Valgt' : '+ Sammenlign',
+      cmpBg: s.compare.includes(p.id) ? 'var(--ink)' : 'var(--surface)',
+      cmpCol: s.compare.includes(p.id) ? 'var(--bg)' : 'var(--muted)'
+    });
+
+    // ---- produktoversikt ----
+    let prods = this.products.filter(p => p.cat === s.cat);
+    const brands = ['Alle'].concat([...new Set(prods.map(p => p.brand))]);
+    if (s.brand !== 'Alle') prods = prods.filter(p => p.brand === s.brand);
+    if (s.status !== 'Alle') prods = prods.filter(p => p.status === s.status);
+    const priceNum = p => parseInt((p.price || '').replace(/\D/g, '')) || 9e9;
+    if (s.sort === 'prisLav') prods = prods.slice().sort((a, b) => priceNum(a) - priceNum(b));
+    if (s.sort === 'prisHoy') prods = prods.slice().sort((a, b) => priceNum(b) - priceNum(a));
+    if (s.sort === 'nyeste') prods = prods.slice().sort((a, b) => b.year - a.year);
+
+    const activeFilters = [];
+    if (s.brand !== 'Alle') activeFilters.push({ label: 'Merke: ' + s.brand, clear: () => this.setState({ brand: 'Alle' }) });
+    if (s.status !== 'Alle') activeFilters.push({ label: 'Status: ' + s.status, clear: () => this.setState({ status: 'Alle' }) });
+
+    // ---- produktside ----
+    const current = this.products.find(p => p.id === s.param) || this.products[0];
+    const curDefs = this.specDefs[current.cat];
+    const specGroups = [...new Set(curDefs.map(d => d.g))].map(gname => ({
+      name: gname,
+      rows: curDefs.filter(d => d.g === gname).map(d => ({ label: d.l, val: current.specs[d.k] || 'Ikke oppgitt' }))
+    }));
+    const related = this.products.filter(p => p.cat === current.cat && p.id !== current.id).slice(0, 3).map(decorateProd);
+
+    // ---- sammenligning ----
+    const compareProds = s.compare.map(id => this.products.find(p => p.id === id)).filter(Boolean).map(decorateProd);
+    const cmpCat = compareProds[0] ? compareProds[0].cat : s.cat;
+    const cmpDefs = this.specDefs[cmpCat];
+    let cmpGroups = [...new Set(cmpDefs.map(d => d.g))].map(gname => ({
+      name: gname,
+      rows: cmpDefs.filter(d => d.g === gname).map(d => {
+        const vals = compareProds.map(p => ({ v: p.specs[d.k] || 'Ikke oppgitt' }));
+        const differs = new Set(vals.map(x => x.v)).size > 1;
+        return { label: d.l, vals, differs, bg: differs ? 'var(--accent-soft)' : 'transparent' };
+      }).filter(r => !s.onlyDiff || r.differs)
+    })).filter(g => g.rows.length > 0);
+
+    // ---- emneside ----
+    const emne = this.emner.find(e => e.id === s.param) || this.emner[0];
+    const emneGuides = this.guides.filter(g => g.topic === emne.id).map(decorateGuide);
+    const emneTech = this.tech.filter(t => t.topic === emne.id).map(decorateTech);
+    const emneFaq = [
+      { q: 'Hvor mye bør jeg bruke på ' + emne.name.toLowerCase() + '?', a: 'Det avhenger av rommet og resten av anlegget. En god tommelfingerregel er å bruke mest der du i dag har den svakeste lenken — og rommet selv er ofte den.' },
+      { q: 'Hva er den vanligste feilen folk gjør?', a: 'Å kjøpe utstyr før de har forstått rommet sitt. Les startguiden før du handler.' },
+      { q: 'Trenger jeg profesjonell hjelp?', a: 'De fleste kommer langt med guidene våre. Kalibrering og større installasjoner kan være verdt fagfolk.' }
+    ].map((f, i) => ({ ...f, isOpen: s.faqOpen === i, toggle: () => this.setState({ faqOpen: s.faqOpen === i ? -1 : i }), icon: s.faqOpen === i ? '−' : '+' }));
+
+    // ---- søk ----
+    const q = s.query.trim().toLowerCase();
+    const match = txt => txt.toLowerCase().includes(q);
+    const searchResults = q.length < 2 ? [] : [].concat(
+      this.news.filter(n => match(n.title + ' ' + n.cat)).map(n => ({ type: 'Nyhet', typeColor: 'var(--info)', title: n.title, meta: n.cat + ' · ' + n.date, open: nav('artikkel-nyhet', n.id) })),
+      this.guides.filter(g => match(g.title + ' ' + g.desc)).map(g => ({ type: 'Guide', typeColor: 'var(--ok)', title: g.title, meta: g.level + ' · oppdatert ' + g.updated, open: nav('artikkel-guide', g.id) })),
+      this.tech.filter(t => match(t.title + ' ' + t.desc)).map(t => ({ type: 'Teknologi', typeColor: 'var(--warn)', title: t.title, meta: 'Oppdatert ' + t.updated, open: nav('artikkel-teknologi', t.id) })),
+      this.products.filter(p => match(p.brand + ' ' + p.model + ' ' + p.short)).map(p => ({ type: 'Produkt', typeColor: 'var(--accent-text)', title: p.brand + ' ' + p.model, meta: (p.cat === 'projektor' ? 'Projektor' : 'AV-receiver') + ' · ' + p.status + ' · ' + p.price, open: nav('produkt', p.id) })),
+      this.glossary.filter(g => match(g.term + ' ' + g.def)).map(g => ({ type: 'Ordliste', typeColor: 'var(--faint)', title: g.term, meta: g.def, open: nav('ordliste') }))
+    );
+
+    // ---- artikkel (aktiv guide/tech/nyhet) ----
+    const curGuide = this.guides.find(g => g.id === s.param) || this.guides[0];
+    const curTech = this.tech.find(t => t.id === s.param) || this.tech[0];
+    const curNews = this.news.find(n => n.id === s.param) || this.news[0];
+
+    return {
+      // shell
+      navItems,
+      goHome: nav('home'), goNyheter: nav('nyheter'), goGuider: nav('guider'), goTeknologi: nav('teknologi'),
+      goProdukterProjektor: () => { this.setState({ cat: 'projektor', brand: 'Alle', status: 'Alle' }); this.go('produkter'); },
+      goProdukterReceiver: () => { this.setState({ cat: 'receiver', brand: 'Alle', status: 'Alle' }); this.go('produkter'); },
+      goSammenlign: nav('sammenlign'), goSok: nav('sok'), goOrdliste: nav('ordliste'),
+      goStartHer: nav('artikkel-guide', 'g5'),
+      goNyhetArtikkel: nav('artikkel-nyhet', 'n1'),
+      goRelProd: nav('produkt', 'p1'),
+      toggleTheme: () => {
+        const t = s.theme === 'light' ? 'dark' : 'light';
+        this.setState({ theme: t }); document.body.dataset.theme = t; localStorage.setItem('hk-theme', t);
+      },
+      themeIcon: s.theme === 'light' ? '☾' : '☀',
+
+      // page flags
+      isHome: s.page === 'home', isNyheter: s.page === 'nyheter', isGuider: s.page === 'guider',
+      isTeknologi: s.page === 'teknologi', isProdukter: s.page === 'produkter', isProdukt: s.page === 'produkt',
+      isSammenlign: s.page === 'sammenlign', isEmne: s.page === 'emne', isSok: s.page === 'sok',
+      isOrdliste: s.page === 'ordliste',
+      isArtGuide: s.page === 'artikkel-guide', isArtTech: s.page === 'artikkel-teknologi', isArtNyhet: s.page === 'artikkel-nyhet',
+
+      // home
+      heroSecondary: [
+        { kicker: 'Teknologi', title: 'eARC forklart: derfor får du ikke Atmos fra TV-en', open: nav('artikkel-teknologi', 't1') },
+        { kicker: 'Guide', title: 'Riktig lerretstørrelse: regnestykket folk tar feil av', open: nav('artikkel-guide', 'g4') },
+        { kicker: 'Nyhet', title: 'Marantz Cinema 40 får Dirac Live Bass Control', open: nav('artikkel-nyhet', 'n5') }
+      ],
+      startHer: [
+        { num: '01', title: 'Bygg din første hjemmekino', desc: 'Fra tom stue til fungerende anlegg.', go: nav('artikkel-guide', 'g5') },
+        { num: '02', title: 'Velg TV eller projektor', desc: 'Riktig valg for rom og budsjett.', go: nav('artikkel-guide', 'g4') },
+        { num: '03', title: 'Få bedre lyd', desc: 'Soundbar, stereo eller surround.', go: nav('emne', 'lyd') },
+        { num: '04', title: 'Løs et problem', desc: 'Feilsøk HDMI, lyd og synk.', go: nav('artikkel-guide', 'g6') }
+      ],
+      newsHome: this.news.slice(1, 6).map(decorateNews),
+      guidesHome: this.guides.slice(0, 4).map(decorateGuide),
+      techHome: this.tech.slice(0, 3).map(decorateTech),
+      emneList: this.emner.map(e => ({ ...e, open: nav('emne', e.id) })),
+      countProj: this.products.filter(p => p.cat === 'projektor').length + 59,
+      countRec: this.products.filter(p => p.cat === 'receiver').length + 43,
+
+      // oversikter
+      allNews: (s.newsCat === 'Alle' ? this.news : this.news.filter(n => n.cat === s.newsCat)).map(decorateNews),
+      newsCats: ['Alle'].concat([...new Set(this.news.map(n => n.cat))]).map(c => ({
+        label: c, set: () => this.setState({ newsCat: c }),
+        bg: s.newsCat === c ? 'var(--ink)' : 'var(--surface)',
+        col: s.newsCat === c ? 'var(--bg)' : 'var(--muted)'
+      })),
+      allGuides: this.guides.map(decorateGuide),
+      allTech: this.tech.map(decorateTech),
+      allGlossary: this.glossary,
+      glossaryCount: 3,
+
+      // produkter
+      prodList: prods.map(decorateProd),
+      prodCount: prods.length,
+      brands: brands.map(b => ({
+        label: b, set: () => this.setState({ brand: b }),
+        bg: s.brand === b ? 'var(--ink)' : 'var(--surface)', col: s.brand === b ? 'var(--bg)' : 'var(--muted)'
+      })),
+      catProjStyle: s.cat === 'projektor' ? 'var(--accent)' : 'transparent',
+      catRecStyle: s.cat === 'receiver' ? 'var(--accent)' : 'transparent',
+      catProjCol: s.cat === 'projektor' ? 'var(--ink)' : 'var(--muted)',
+      catRecCol: s.cat === 'receiver' ? 'var(--ink)' : 'var(--muted)',
+      setCatProj: () => this.setState({ cat: 'projektor', brand: 'Alle', status: 'Alle' }),
+      setCatRec: () => this.setState({ cat: 'receiver', brand: 'Alle', status: 'Alle' }),
+      catLabel: s.cat === 'projektor' ? 'projektorer' : 'AV-receivere',
+      setStatus: e => this.setState({ status: e.target.value }),
+      setSort: e => this.setState({ sort: e.target.value }),
+      statusVal: s.status, sortVal: s.sort,
+      activeFilters, hasActiveFilters: activeFilters.length > 0,
+      resetFilters: () => this.setState({ brand: 'Alle', status: 'Alle', sort: 'relevans' }),
+
+      // produktside
+      cur: decorateProd(current),
+      curCatLabel: current.cat === 'projektor' ? 'Projektorer' : 'AV-receivere',
+      specGroups, related,
+      curCompareLabel: s.compare.includes(current.id) ? '✓ I sammenligningen' : '+ Legg til sammenligning',
+
+      // sammenligning
+      compareProds, cmpGroups,
+      hasCompare: s.compare.length > 0 && s.page !== 'sammenlign',
+      compareCount: s.compare.length,
+      compareChips: compareProds.map(p => ({ name: p.name, remove: () => this.toggleCompare(p.id) })),
+      clearCompare: () => this.setState({ compare: [] }),
+      cmpCols: '220px ' + compareProds.map(() => '1fr').join(' '),
+      cmpEmpty: compareProds.length === 0,
+      onlyDiff: s.onlyDiff,
+      toggleOnlyDiff: () => this.setState({ onlyDiff: !s.onlyDiff }),
+      diffBtnBg: s.onlyDiff ? 'var(--ink)' : 'var(--surface)',
+      diffBtnCol: s.onlyDiff ? 'var(--bg)' : 'var(--muted)',
+
+      // emne
+      emne, emneGuides, emneTech, emneFaq,
+      emneNews: this.news.slice(1, 4).map(decorateNews),
+
+      // søk
+      query: s.query,
+      setQuery: e => this.setState({ query: e.target.value }),
+      searchResults,
+      hasResults: searchResults.length > 0,
+      showSearchHint: q.length < 2,
+      resultCount: searchResults.length,
+
+      // artikler
+      curGuide: decorateGuide(curGuide, 0),
+      curTech: decorateTech(curTech),
+      curNews: decorateNews(curNews)
+    };
+  }
+}
+</script>
+</body>
+</html>
